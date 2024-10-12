@@ -73,6 +73,7 @@ const Table = () => {
       perPage={30}
       previousPage={0}
       total={300}
+      mobileColumns={['id', 'firstName', 'lastName']}
     />
   );
 };
