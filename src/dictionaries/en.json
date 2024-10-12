@@ -1,0 +1,1782 @@
+{
+  "metaData": {
+    "description": "Pezeshk-Book is the country's comprehensive health and treatment platform. In this system, you can book online appointments with Pezeshk Book's member doctors, always have your electronic health records and medical history on your mobile phone, get consultations, and view information about nearby hospitals, pharmacies, and imaging centers. This intelligent system accompanies you even after your doctor's visit, guiding you through the treatment process according to the doctor’s prescription.",
+    "keywords": "Pezeshk-Book, doctor, hospital, pharmacy, laboratory, physiotherapist, equipment, doctors, hospitals, medical center, laboratory, traditional medicine, clinic address, medical consultation, online medical consultation, online consultation, free medical consultation, pezeshkbook.com",
+    "basic_title": "Pezeshk-Book"
+  },
+  "home": {
+    "meta": {
+      "title": "Comprehensive health and treatment system of the country"
+    },
+    "label": "Main page",
+    "index": {
+      "services": {
+        "online_pharmacy": {
+          "title": "Online Pharmacy",
+          "description": "Medicine delivery without in-person visit",
+          "tutorial_button": "Video tutorial for ordering medicine without in-person visit"
+        },
+        "products": {
+          "title": "Online Store",
+          "description": "Purchase various supplements, cosmetics, ..."
+        },
+        "laboratory": {
+          "title": "On-site Laboratory",
+          "description": "Tests at home and workplace",
+          "tutorial_button": "Video tutorial for booking on-site tests"
+        },
+        "consult": {
+          "title": "Online Medical Consultation",
+          "description": "Text chat with specialist doctors",
+          "tutorial_button": "Video tutorial for receiving online medical consultation"
+        },
+        "medical_services": {
+          "title": "On-site Medical Services",
+          "description": "Doctor and nurse appointment booking",
+          "tutorial_button": "Video tutorial for receiving on-site medical services"
+        },
+        "appointment": {
+          "title": "Online Appointment Booking",
+          "description": "Appointment booking with specialist doctors",
+          "tutorial_button": "Video tutorial for receiving online clinic appointment"
+        },
+        "buttons": {
+          "receive": "receive",
+          "video_tutorial": "Video tutorial",
+          "close": "close"
+        },
+        "messages": {
+          "video_on_progress": "The tutorial video for this section is being completed, if you have any questions, contact support"
+        },
+        "chips": {
+          "insurance": "Insurance coverage",
+          "updating": "Updating"
+        }
+      },
+      "specialties": {
+        "title": "Online consultation and appointment booking with the best specialist and subspecialist doctors in Pezeshk Book",
+        "sub_title": "A comprehensive collection of all medical specialties"
+      },
+      "download": {
+        "title": "Download the Pezeshk Book Application",
+        "sub_title": "Download the latest updated version of the Pezeshk Book app from here and always have your medical history and electronic health record with you.",
+        "qr_code_text": "Scan the image with your mobile to download"
+      },
+      "laboratory": {
+        "title": "Welcome to Pezeshk Book's Online Laboratory",
+        "sub_title": "All blood tests and COVID-19 tests with immediate result delivery",
+        "description": "Home testing is one of the new services offered by Pezeshk Book to help save time and costs. This service eliminates the need for physical presence in potentially contaminated laboratory environments. Users can register various blood tests, routine checkups, liver tests, thyroid tests, HPV, hepatitis, and HIV tests through Pezeshk Book and receive the results confidentially. Sampling is done at the user's home or workplace without any additional costs. Additionally, users can view their test results online through the website after sampling.",
+        "buttons": {
+          "laboratory_index": "Enter Pezeshk Book Laboratory"
+        }
+      },
+      "blog": {
+        "title": "Pezeshk Book's Exclusive Health Magazine",
+        "sub_title": "Stay informed about the latest global medical news",
+        "buttons": {
+          "show_more": "View more"
+        }
+      },
+      "consult": {
+        "title": "Get consultation and in-person appointments from selected doctors",
+        "buttons": {
+          "show_more": "View more",
+          "submit_appointment": "Book appointment",
+          "submit_consult": "Book consultation",
+          "unknown": "Unknown"
+        }
+      }
+    },
+    "links": {
+      "home": "Home",
+      "services": "Services",
+      "products": "Products",
+      "posts": "Health magazine",
+      "faq" : "FAQ",
+      "about_us": "About us",
+      "contact_us": "Contact us",
+      "complaints": "Complaints",
+      "policy": "policy",
+      "sub_services": {
+        "labs": "Laboratory",
+        "consult": "Online consulting",
+        "pharmacy": "Online pharmacy",
+        "home_care": "Medical Services",
+        "appointment": "Online appointment"
+      }
+    },
+    "footer": {
+      "description" : "Doctor Book is the first and largest comprehensive health and treatment system in the country that provides medical services in the form of an online platform for doctors and patients. Doctor Book aims to meet all medical and treatment needs, including online appointment from a specialist doctor, online consultation The test at home will accompany you to complete treatment.",
+      "doctors": {
+        "title": "Registration system for doctors and centers",
+        "buttons": {
+          "register": "Initial registration of doctors",
+          "sign_in": "Login to doctors account"
+        }
+      },
+      "address": "Head Office: No. 67, Unit 8, No. 67, Saman St., South Shiraz St., Venk, Tehran",
+      "support": "Pezeshkbook support (from 9:00 am to 10:00 pm):",
+      "licence": "All material and intellectual rights belong to Aria Parallel Processing Company."
+    }
+  },
+  "aboutUs": {
+    "meta": {
+      "title": "About Us",
+      "description": "Pezeshk Book is the country's comprehensive health and treatment platform. In this system, you can book online appointments with Pezeshk Book's member doctors, always have your electronic health records and medical history on your mobile phone, get consultations, and view information about nearby hospitals, pharmacies, and imaging centers. This intelligent system accompanies you even after your doctor's visit, guiding you through the treatment process according to the doctor’s prescription.",
+      "keywords": "Pezeshk Book, doctor, hospital, pharmacy, laboratory, physiotherapist, equipment, doctors, hospitals, medical center, laboratory, traditional medicine, clinic address, medical consultation, online medical consultation, online consultation, free medical consultation"
+    },
+    "label": "About Us",
+    "title": "About Us",
+    "description": "The idea of Pezeshk Book was founded in 2018 by the founders, along with the efforts of a young and motivated team at Parallel Processing Aria Company.\n                  Our first goal at Pezeshk Book is to create a healthy, peaceful, and joyful life. Based on this, we launched a network connecting patients with the healthcare community via the web. In the Pezeshk Book platform, medical services are offered online to everyone, including services such as:",
+    "services_list": {
+      "text_consult": "Online text consultation with specialist doctors",
+      "video_consult": "Video consultation",
+      "appointment": "Online clinic appointment booking",
+      "e_prescription": "Electronic health record",
+      "medical_services": "One of the new services by Pezeshk Book is home testing."
+    },
+    "laboratory_text": "Home tests include the following:",
+    "laboratory_list": {
+      "anti_body": "Vaccine antibody test at home",
+      "pregnancy_checkup": "Pregnancy checkups",
+      "women_checkup": "Women’s checkups",
+      "men_checkup": "Men’s checkups",
+      "liver_test": "Liver test",
+      "hpv_test": "HPV test",
+      "children": "Newborn screening"
+    },
+    "footer_line": "and more...",
+    "footer_description": "All of these tests are conducted at home without transportation costs.\n                  Today, with the trust of hundreds of specialist doctors in Pezeshk Book, we help register electronic medical records and, through online appointment booking, specialized consultations, reminders, patient registration, and new patient examinations, improve clinic efficiency and establish an online connection between the medical community and patients. Additionally, in collaboration with top laboratories approved by the Ministry of Health, we perform all tests at your home in the shortest time and at the lowest cost.\n                  Our goal is to value and protect the patient's money, time, and health, ensuring they have the best experience using Pezeshk Book. We never forget that in pursuing our goal, we value users' trust and facilitate continuous communication between doctors, diagnostic centers, and patients.",
+    "wish_good_luck": "Wishing you health and well-being",
+    "images_alt": {
+      "e_namad": "Electronic Trust Seal",
+      "ec_union": "Member of the National Union of Virtual Businesses",
+      "samandehi": "National Registration Badge"
+    },
+    "support": {
+      "title": "Contact and Support",
+      "description": "Our colleagues at Pezeshk Book are ready to answer your calls from 9 AM to 10 PM.",
+      "support_call": "Support contact number:",
+      "support_num": "Fax number:"
+    },
+    "address": {
+      "title": "Address and Postal Code",
+      "address_text": "Tehran, Vanak, South Shiraz Street, Saman Street, No. 67, Unit 8",
+      "postal_code": "Postal Code:"
+    },
+    "contact": {
+      "title": "Stay in Touch",
+      "description": "Follow us on social media and always stay updated with the latest medical news."
+    },
+    "map": {
+      "loc_text": "Routing"
+    }
+  },
+  "adsland": {
+    "meta": {
+      "title": "Submit Request"
+    },
+    "title": "By submitting your request in Pezeshk Book, receive your order in just",
+    "time_frame": "60 minutes",
+    "sub_title": "after payment!",
+    "buttons": {
+      "pharmacy_entry": "Enter"
+    }
+  },
+  "client": {
+    "login": {
+      "meta": {
+        "title": "Login to Your Account",
+        "description": "Pezeshk Book is the country's comprehensive health and treatment platform. In this system, you can book online appointments with Pezeshk Book's member doctors, always have your electronic health records and medical history on your mobile phone, get consultations, and view information about nearby hospitals, pharmacies, and imaging centers. This intelligent system accompanies you even after your doctor's visit, guiding you through the treatment process according to the doctor’s prescription.",
+        "keywords": "Pezeshk Book, doctor, hospital, pharmacy, laboratory, physiotherapist, equipment, doctors, hospitals, medical center, laboratory, traditional medicine, clinic address, medical consultation, online medical consultation, online consultation, free medical consultation"
+      },
+      "label": "Login",
+      "title": "Sign Up / Login",
+      "input_fields": {
+        "mobile_placeholder": "Enter your mobile number",
+        "otp_sms_text": "The verification code will be sent to your mobile number via SMS",
+        "accept_policy": "Your entry means accepting <a href=':href' class='text-tertiary'>the privacy policy</a>",
+        "buttons": {
+          "get_code": "Get Code"
+        }
+      }
+    }
+  },
+  "dashboard": {
+    "meta": {
+      "title": "Dashboard"
+    },
+    "label": "Dashboard",
+    "menu": {
+      "credit": "Your credit is :credit Toman",
+      "list": {
+        "orders": "My Orders",
+        "wallet": "My Wallet",
+        "increase_credit": "Increase Credit",
+        "comments": "My Comments",
+        "address": "My Addresses",
+        "complaints": "Complaint Tracking",
+        "messages": "My Messages",
+        "personal_info": "Personal Information",
+        "exit": "Logout"
+      }
+    },
+    "personal_information": {
+      "meta": {
+        "title": "Dashboard - User Information"
+      },
+      "label": "Patient User Information",
+      "text_fields": {
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "national_code": "National ID",
+        "mobile_number": "Mobile Number",
+        "birth_day": "Date of Birth",
+        "sex": "Gender",
+        "sheba_number": "Sheba Number"
+      },
+      "buttons": {
+        "save_info": "Save Information",
+        "edit_info": "Edit Information",
+        "accept": "Accept"
+      },
+      "select": {
+        "man": "man",
+        "woman": "woman"
+      },
+      "sheba_info": "For refund purposes, you must enter the Sheba number of the card used for the payment, otherwise the refund will not be successful.",
+      "close": "Close"
+    },
+    "orders": {
+      "meta": {
+        "title": "Dashboard - My Requests"
+      },
+      "label": "My Orders",
+      "filters": {
+        "current": "Current",
+        "pre_invoice": "Pre-order",
+        "delivered": "Delivered",
+        "canceled": "Canceled"
+      },
+      "no_info": {
+        "title": "No requests have been registered",
+        "sub_title": "You can select the service you need in this section",
+        "buttons": {
+          "consult": "Register Consultation",
+          "laboratory": "Home Laboratory",
+          "pharmacy": "Online Drug Purchase"
+        }
+      },
+      "pre_invoice": {
+        "button": "View"
+      },
+      "details": {
+        "label": "Order Tracking",
+        "payment": {
+          "total_price": "Total Payment Amount:",
+          "total_price_value": ":price Toman",
+          "type": "Payment Method:",
+          "date": "Payment Date:",
+          "tracking_code": "Tracking Code:"
+        },
+        "survey": {
+          "your_rate": "Your Rating:",
+          "will_recommend": "I Recommend",
+          "wont_recommend": "I Don't Recommend",
+          "no_survey": "You haven't rated this order yet",
+          "submit_survey": "Submit Review"
+        },
+        "confirmation": {
+          "buttons": {
+            "pay": "Pay",
+            "consult": "View Consultation",
+            "reorder": "Reorder",
+            "complaints": "Submit Complaint",
+            "return": "Return to Main Page"
+          },
+          "messages": {
+            "has_complaints": "A complaint has already been filed for this order!",
+            "complaint_submit_time": "You can only submit a complaint within 48 hours of placing the order!"
+          }
+        },
+        "complaints": {
+          "text_fields": {
+            "title": "Complaint Title",
+            "type": "Complaint Type",
+            "description": "Complaint Text"
+          },
+          "buttons": {
+            "submit": "Submit Complaint"
+          },
+          "messages": {
+            "title_required": "Complaint title is required",
+            "type_required": "Complaint type is required",
+            "description_required": "Complaint text is required"
+          },
+          "chips": {
+            "close": "Close"
+          }
+        },
+        "pharmacy": {
+          "meta": {
+            "title": "Pharmacy Order Tracking",
+            "description": "Pharmacy Order Tracking",
+            "keywords": "Pharmacy Order Tracking"
+          },
+          "title": "Order Details:",
+          "no_info": {
+            "title": "No information found.",
+            "button": "Return to Orders Page"
+          },
+          "order_date": "Order Date:",
+          "address": "Address:",
+          "table_pharmacy": {
+            "insurance_type": "Insurance Type:",
+            "national_code": "National Code:",
+            "tracking_code": "Tracking Code:",
+            "doctor_name": "Doctor's Name:",
+            "description": "Description:",
+            "in_stock": "In Stock",
+            "out_of_stock": "Out of Stock",
+            "show_more": "Show More",
+            "show_less": "Show Less"
+          },
+          "description": "Pharmacy Description <p class=\"text-m-sm md:text-d-sm sm:text-t-sm text-white font-family-bold inline-block\">(Important)</p>",
+          "reorder": {
+            "buttons": {
+              "submit": "Submit Order"
+            },
+            "chips": {
+              "close": "Close"
+            },
+            "messages": {
+              "network_error": "There was an issue submitting your order. Please try again.",
+              "submit_successfully": "Order submitted successfully."
+            }
+          }
+        },
+        "consult": {
+          "meta": {
+            "title": "Consultation Order Tracking",
+            "description": "Consultation Order Tracking",
+            "keywords": "Consultation Order Tracking"
+          },
+          "title": "Order Details:",
+          "no_info": {
+            "title": "No information found.",
+            "button": "Return to Orders Page"
+          },
+          "doctor_name": "Consulting Doctor:",
+          "order_date": "Order Date:"
+        },
+        "laboratory": {
+          "meta": {
+            "title": "Laboratory Order Tracking",
+            "description": "Laboratory Order Tracking",
+            "keywords": "Laboratory Order Tracking"
+          },
+          "title": "Order Details:",
+          "no_info": {
+            "title": "No information found.",
+            "button": "Return to Orders Page"
+          },
+          "test": "Requested Test:",
+          "order_date": "Order Date:",
+          "address": "Address:",
+          "result": {
+            "time": "Sample Collection Time:",
+            "contributors": "Name of Test Contributor :index:",
+            "image_alt": "Download Test Results"
+          }
+        },
+        "medical": {
+          "meta": {
+            "title": "Medical Services Order Tracking",
+            "description": "Medical Services Order Tracking",
+            "keywords": "Medical Services Order Tracking"
+          },
+          "title": "Order Details:",
+          "no_info": {
+            "title": "No information found.",
+            "button": "Return to Orders Page"
+          }
+        }
+      }
+    },
+    "wallet": {
+      "meta": {
+        "title": "Dashboard - My Wallet"
+      },
+      "label": "My Wallet",
+      "current_credit": "Your current credit is :total Toman, of which :refundable Toman is withdrawable.",
+      "current_credit_with_cashback": "Your current credit is :total Toman, of which :cashback Toman is a gift credit, and :refundable Toman is withdrawable.",
+      "buttons": {
+        "refund": "Transfer Credit to Bank Account",
+        "increase_credit": "Increase Credit"
+      },
+      "title": "By topping up your balance, you can use our services more easily and quickly.",
+      "text_fields": {
+        "credit": "The minimum amount is 5,000 and the maximum is 200,000,000 Toman."
+      },
+      "messages": {
+        "only_numbers": "The input must be a number.",
+        "increase_credit_range": "The minimum amount is 5,000 and the maximum is 200,000,000 Toman (amount in Toman).",
+        "no_refundable_credit": "You have no withdrawable amount."
+      },
+      "no_info": {
+        "title": "No transactions have been registered."
+      },
+      "wallet_item_price": ":price Toman",
+      "refund_modal": {
+        "title": "Please enter the amount you wish to withdraw.",
+        "close": "Close",
+        "maximum_refundable": "Maximum withdrawable amount: :total Toman",
+        "text_fields": {
+          "refund_amount": "Withdrawal Amount"
+        },
+        "buttons": {
+          "submit_request": "Submit Request"
+        },
+        "messages": {
+          "maximum_refundable": "The withdrawal amount cannot exceed your credit.",
+          "no_sheba": "Please enter your Sheba number in the Personal Information section first.",
+          "submit_successfully": "Your request has been successfully submitted.",
+          "network_error": "There was an issue submitting your request. Please try again."
+        }
+      }
+    },
+    "comments": {
+      "meta": {
+        "title": "Dashboard - My Comments"
+      },
+      "label": "My Comments",
+      "no_info": {
+        "title": "You have no comments."
+      },
+      "status": {
+        "drafted": "Pending Approval",
+        "published": "Approved",
+        "inactivated": "Rejected"
+      }
+    },
+    "addresses": {
+      "meta": {
+        "title": "Dashboard - My Contact Information"
+      },
+      "label": "My Addresses",
+      "buttons": {
+        "add_new_address": "Add New Address"
+      },
+      "no_info": {
+        "title": "You have not registered any address",
+        "sub_title": "You can register your home, work, and friends' addresses in the system."
+      },
+      "messages": {
+        "delete_address": "Are you sure you want to delete this address?"
+      },
+      "list": {
+        "address_title": "Address :index:",
+        "address_text": ":address:plate:unit",
+        "plate": "Plate",
+        "unit": "Unit"
+      },
+      "resident_city_modal": {
+        "title": "Select your city and province of residence:",
+        "selects": {
+          "province": "Select Province",
+          "city": "Select City"
+        },
+        "buttons": {
+          "submit": "Confirm and Continue"
+        }
+      }
+    },
+    "complaints": {
+      "meta": {
+        "title": "Dashboard - Complaint Tracking"
+      },
+      "label": "Complaint Tracking",
+      "no_info": {
+        "title": "No requests have been submitted"
+      },
+      "list": {
+        "title": "Title:",
+        "replied": "Replied",
+        "waiting_for_reply": "Waiting for Response",
+        "order": "Order:",
+        "description": "Complaint Description:",
+        "replier_description": "Complaint Response:"
+      }
+    },
+    "messages": {
+      "meta": {
+        "title": "Dashboard - My Messages"
+      },
+      "label": "My Messages",
+      "buttons": {
+        "read_list": "Mark All as Read"
+      },
+      "no_info": {
+        "title": "You have no messages"
+      }
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact Us"
+    },
+    "label": "Contact Us",
+    "title": "Get in Touch with Us",
+    "map": {
+      "loc_text": "Directions",
+      "support_title": "Contact and Support",
+      "support_time": "We are available from 9 AM to 10 PM.",
+      "support_number": "Support Phone Number: <a href=\"tel:+982191004191\">91004191-021</a>",
+      "phone_number": "Fax Number: 28733364-021",
+      "address_title": "Address and Postal Code",
+      "address": "Tehran, Vanak, South Shiraz St., Saman St., No. 67, Unit 8",
+      "postal_code": "Postal Code: 1435853661"
+    },
+    "form": {
+      "title": "Contact Us",
+      "sub_title": "Dear User",
+      "description": "The form below is only for organizational collaborations or direct contact with management. For order tracking or filing complaints, please use your user profile and the relevant options. Orders or complaints submitted via this form cannot be followed up.",
+      "text_fields": {
+        "title": "Title",
+        "full_name": "Full Name",
+        "phone_number": "Phone Number",
+        "description": "Description"
+      },
+      "button": "Send Message",
+      "messages": {
+        "title_required": "The title field is required",
+        "full_name_required": "The full name field is required",
+        "phone_number_required": "The phone number field is required",
+        "wrong_number_error": "The entered phone number is incorrect",
+        "description_required": "The description field is required",
+        "network_error": "Failed to send the message",
+        "login_required": "Please log in to submit the form",
+        "fields_required": "Please complete the required fields",
+        "submitted_successfully": "Your message has been successfully sent"
+      }
+    }
+  },
+  "emta": {
+    "meta": {
+      "title": "Submit Request"
+    },
+    "messages": {
+      "valid_emta_error": "Your identity verification in the Emta system encountered an error. Please try again."
+    },
+    "pharmacy_validation": {
+      "title": "Partner Pharmacy, your information as listed below has been retrieved from the Food and Drug Administration and cannot be edited. If you notice any discrepancies, you must correct the information through the Food and Drug Administration. By clicking the 'Enter Pharmacy Panel' button, your registration will automatically be completed with the information listed below.",
+      "buttons": {
+        "error": "Enter Pharmacy",
+        "enter_panel": "Enter Pharmacy Panel"
+      },
+      "full_name": "Full Name:",
+      "national_code": "National Code:",
+      "permit_validity": "Permit Status:",
+      "permit_date": "Permit Expiry Date:",
+      "valid": "Valid",
+      "invalid": "Invalid",
+      "unlimited": "Unlimited"
+    },
+    "physician_validation": {
+      "title": "Dear Doctor, your information as listed below has been retrieved from the Medical System and cannot be edited. If you notice any discrepancies, you must correct the information through the Medical System. By clicking the 'Enter Doctors Panel' button, your registration will automatically be completed with the information listed below.",
+      "buttons": {
+        "error": "Enter Physicians",
+        "enter_panel": "Enter Doctors Panel"
+      },
+      "full_name": "Full Name:",
+      "national_code": "National Code:",
+      "permit_type": "Permit Type:",
+      "permit_expire_date": "Permit Expiry Date:",
+      "permit_issue_date": "Permit Issue Date:",
+      "medical_id": "Medical System Number:",
+      "education": "Highest Degree:",
+      "province": "Province:",
+      "city": "City:"
+    }
+  },
+  "faq": {
+    "meta": {
+      "title": "Frequently Asked Questions of Doctor Book"
+    },
+    "label": "Frequently Asked Questions",
+    "title": "Frequently Asked Questions",
+    "image_alt": "Phone",
+    "support": {
+      "title": "Contact and Support Number",
+      "sub_title": "How can I contact Doctor Book support?",
+      "description": "The Doctor Book support center will be available from 9 AM to 10 PM to assist you.",
+      "number": "Special line contact number: <a href=\"tel:+982191004191\">91004191-021</a>"
+    },
+    "list": {
+      "general": {
+        "id": 1,
+        "title": "General Questions",
+        "question": {
+          "q_1": {
+            "id": 2,
+            "title": "What is Doctor Book?",
+            "answer": "Doctor Book is a comprehensive software solution for providing services in the health sector."
+          },
+          "q_2": {
+            "id": 3,
+            "title": "Which bank card should I use to pay for Doctor Book services?",
+            "answer": "You can use any bank card that is a member of Shetab."
+          },
+          "q_3": {
+            "id": 4,
+            "title": "Is my payment made through a secure gateway?",
+            "answer": "Yes, Doctor Book uses the gateways of Pasargad Bank and Saman Bank, and the Enamad symbol and the national license for virtual business of this organization can be viewed and verified at the bottom of this page."
+          }
+        }
+      },
+      "laboratory": {
+        "id": 2,
+        "title": "Home Medical Tests",
+        "question": {
+          "q_1": {
+            "id": 2,
+            "title": "How is the coordination and timing for sample collection for tests?",
+            "answer": "If the test request is made between 8 AM and 8 PM, coordination for sending the sample collector to the location will be done daily and without holidays *within a maximum of 30 minutes* after the request is submitted, and sample collection will be conducted the same day. Requests outside this time frame will be followed up at 8 AM the next day."
+          },
+          "q_2": {
+            "id": 3,
+            "title": "Response time for all home tests",
+            "answer": "All tests are conducted daily without holidays within 24 hours after sample collection."
+          },
+          "q_3": {
+            "id": 4,
+            "title": "How to request the cancellation of a home test?",
+            "answer": "All tests taken can be canceled before coordination for the sample collector's presence (via phone or SMS), and the total amount paid will be returned to the user’s account or bank account within a maximum of one hour after the cancellation request is made. If canceled by the user after coordination for the sample collector's presence, the travel expenses will be deducted, and the remaining amount will be refunded."
+          }
+        }
+      },
+      "consult": {
+        "id": 3,
+        "title": "Online Consultation Questions",
+        "question": {
+          "q_1": {
+            "id": 2,
+            "title": "How can I get a consultation from a consultant or doctor?",
+            "answer": "By visiting the list of consultants, you can choose the desired consultant or doctor and send your question in text, image, or audio format."
+          },
+          "q_2": {
+            "id": 3,
+            "title": "In what form can I send my question?",
+            "answer": "To receive consultation, you can send text, photos, and audio to the consultant or doctor."
+          },
+          "q_3": {
+            "id": 4,
+            "title": "When will the doctor or consultant respond to me?",
+            "answer": "Doctors on Doctor Book have a maximum of 5 hours after the user's question to respond."
+          },
+          "q_4": {
+            "id": 5,
+            "title": "Does the 5-hour response time apply at all hours of the day?",
+            "answer": "If a consultation is asked between midnight and 8 AM, the 5 hours will be calculated from 8 AM."
+          },
+          "q_5": {
+            "id": 6,
+            "title": "How can I know that the consultant has answered my question?",
+            "answer": "Once the doctor or consultant sends the response to your question, you will be notified via SMS."
+          },
+          "q_6": {
+            "id": 7,
+            "title": "Can I send a radiology image? Are there specific conditions?",
+            "answer": "The image must be placed on a glass that resembles a window, and light should be shone from behind to make the image clearer for the doctor."
+          }
+        }
+      },
+      "appointment": {
+        "id": 4,
+        "title": "Online Appointment Questions",
+        "question": {
+          "q_1": {
+            "id": 2,
+            "title": "How can I make an online appointment?",
+            "answer": "From the homepage, click on Doctors and Centers to view the list of doctors. You can use various filters or search for the name of the doctor you want. Then click on appointment scheduling and view the doctor's working calendar. You can choose available times and proceed to book."
+          },
+          "q_2": {
+            "id": 3,
+            "title": "How can I be sure that my appointment has been registered?",
+            "answer": "At the end of the appointment booking process, if the system displays a tracking code, you can be sure that your appointment has been registered. Keep the tracking code until the end of the visit and when you go to the office."
+          },
+          "q_3": {
+            "id": 4,
+            "title": "What will happen to my payment?",
+            "answer": "The amount you pay for regular appointments is the same as the doctor's consultation fee. You will not pay any additional fees."
+          },
+          "q_4": {
+            "id": 5,
+            "title": "What is an emergency appointment?",
+            "answer": "An emergency appointment, or 'between patients' as it is commonly known in doctors' offices, is managed by Doctor Book. If you need to see a doctor and all appointments are taken, you can apply for this type of appointment. In this type of appointment, depending on the case, there may be a slightly higher consultation fee that Doctor Book will receive as a fee. In this type of appointment, the waiting time is longer."
+          },
+          "q_5": {
+            "id": 6,
+            "title": "Can I cancel my appointment?",
+            "answer": "Yes, you can cancel until 24 hours before the appointment time. This option is available in your user profile. The amount paid will be fully refunded to the user's account or bank account. In cases where the 24-hour window has passed, the amount will be credited to the doctor."
+          },
+          "q_6": {
+            "id": 7,
+            "title": "What happens if the secretary cancels?",
+            "answer": "The payment will be refunded to your account. You can re-book an appointment."
+          },
+          "q_7": {
+            "id": 8,
+            "title": "Can I make an appointment for someone else?",
+            "answer": "Yes, but you must register the person in the system. Avoid making appointments for others using your account."
+          }
+        }
+      }
+    }
+  },
+  "financials": {
+    "order": {
+      "meta": {
+        "title": "Proforma Invoice :module",
+        "description": "Proforma Invoice :module",
+        "keywords": "Proforma Invoice :module"
+      },
+      "label": "Orders",
+      "factor": {
+        "label": "Proforma Invoice :module",
+        "title": "Proforma Invoice :module",
+        "sub_title": "Your order request summary for review and payment:",
+        "info": "With every purchase, get 2% to 8% of the amount back into your wallet.",
+        "your_request": "Your request:",
+        "pharmacy": {
+          "error_title": "There was a problem retrieving your request information. Please try again.",
+          "delivery_cost": "Delivery cost",
+          "delivery_time": "After payment, it will reach you within 60 minutes.",
+          "free": "Free",
+          "price": ":price Toman",
+          "user_description": "Pharmacy description <span class='text-white font-family-bold text-m-sm sm:text-t-sm md:text-d-sm text-start'>(Important)</span>",
+          "in_stock": "In stock",
+          "out_of_stock": "Out of stock",
+          "messages": {
+            "network_error": "There was a problem retrieving your request information. Please try again."
+          }
+        },
+        "doctor": "Attending Doctor",
+        "product_count": ":count items",
+        "gateway": {
+          "title": "Payment methods:",
+          "card_to_card": "Card to Card"
+        },
+        "wallet": {
+          "title": "Your wallet balance:",
+          "credit": ":credit Toman"
+        },
+        "discount": {
+          "placeholder": "Enter your discount code here",
+          "button": "Apply",
+          "amount_title": "Your discount amount:",
+          "amount": ":discount Toman",
+          "code": "Your discount code:"
+        },
+        "payment": {
+          "title": "Amount to be paid",
+          "amount": ":pay Toman",
+          "free_courier": "Your courier is free",
+          "final_price": "The final price, and no additional amount will be charged",
+          "user_description": "Pharmacy description <span class='text-danger-500 font-family-bold text-m-sm sm:text-t-sm md:text-d-sm text-start'>(Important)</span>",
+          "client_name": "Dear :client",
+          "pay_amount": "You are paying :price for your order.",
+          "no_return": "Due to the sensitivity of pharmaceutical and hygiene items, no returns are possible after delivery.",
+          "change_price": "Your order is priced by the pharmacy, and depending on the type of pharmacy, quota, purchase date, etc., the order price may vary.",
+          "wrong_drug": "Returns are only possible if the wrong drug is delivered.",
+          "reject_reason": "Reason for rejecting your request:",
+          "close": "Close",
+          "buttons": {
+            "pay": "Pay",
+            "cancel": "Cancel",
+            "refuse": "Decline",
+            "accept": "Accept Pharmacy's Explanation",
+            "register": "Register"
+          },
+          "messages": {
+            "vpn_error": "Please turn off your VPN to continue with the payment process."
+          }
+        }
+      },
+      "receipt": {
+        "label": "Receipt :module",
+        "successfully_paid": "The payment was successful.",
+        "rejected_payment": "The payment operation failed.",
+        "details": {
+          "receiver": "Recipient name: :name",
+          "request_date": "Request time and date: :date",
+          "payment_method": {
+            "credit": "Payment method: Wallet",
+            "gateway": "Payment method: Bank Gateway"
+          },
+          "tracking_code": "Tracking code: :code",
+          "price": "Amount paid: :price Toman",
+          "button": "Track in real-time"
+        },
+        "weather": {
+          "title": "Dear user, due to rain and cold weather, your order delivery may take longer than 60 minutes. Thank you for your patience.",
+          "button": "Okay",
+          "chip": "Close"
+        }
+      }
+    },
+    "card_to_card": {
+      "meta": {
+        "title": "Drug Order with Prescription"
+      },
+      "label": "Upload Payment Receipt",
+      "uploaded_title": "Your payment receipt has been successfully sent. After its approval, your order will be processed.",
+      "client_name": "Dear :name",
+      "title": "<p class='text-m-base sm:text-t-base md:text-d-base text-control-800 text-start' dir=':dir'><span class='text-m-base sm:text-t-base md:text-d-base text-control-800 text-start'>Please transfer the amount of </span><span class='text-m-base sm:text-t-base md:text-d-base text-control-800 text-start'>:price Toman to the card number</span><span dir='auto' class='text-m-base sm:text-t-base md:text-d-base text-control-800 text-start ml-2 font-family-bold'> :cardNumber </span><span class='text-m-base sm:text-t-base md:text-d-base text-control-800 text-start'>under the name</span><span class='text-m-base sm:text-t-base md:text-d-base text-control-800 text-start font-family-bold'> :cardHolder </span><span class='text-m-base sm:text-t-base md:text-d-base text-control-800 text-start'>and upload the receipt via the link below.</span></p>",
+      "uploader_title": "Drag and drop the image of your payment receipt into this space",
+      "button": "Submit Payment Receipt"
+    },
+    "error": {
+      "title": "Payment Error",
+      "buttons": {
+        "return": "Return",
+        "pay_again": "Pay Again"
+      }
+    },
+    "expired": {
+      "meta": {
+        "title": "Pharmacy Invoice",
+        "description": "Pharmacy Invoice",
+        "keywords": "Pharmacy Invoice"
+      },
+      "label": "Pharmacy Invoice",
+      "client": "Dear Customer",
+      "expired_time": "More than 72 hours have passed since your medication order was priced, and the invoice has expired.",
+      "dont_worry": "Don't worry!",
+      "description": "We have placed your previous request back in the review queue, and your order is currently being re-priced. A new payment link will be sent to you via SMS within the next 30 minutes.",
+      "button": "Return to Website"
+    }
+  },
+  "landingp": {
+    "meta": {
+      "title": "Submit Request"
+    },
+    "image_alt": "Submit Request",
+    "title": "By submitting a request on Pezeshk Book, receive your order <span class='text-primary text-m-xl sm:text-t-xl md:text-d-xl font-family-bold'> 60 minutes </span> after payment!",
+    "button": "Login"
+  },
+  "maintenance": {
+    "title": "Page Under Construction!"
+  },
+  "policy": {
+    "meta": {
+      "title": "Privacy Policy"
+    },
+    "label": "Privacy Policy",
+    "form": {
+      "policy_title": "Privacy Policy at PezeshkBook",
+      "policy_description": "At PezeshkBook, one of our main priorities is protecting the privacy of visitors. This Privacy Policy document contains the types of information that PezeshkBook collects and records.",
+      "gathered_data_title": "Collected Information",
+      "gathered_data_desc_1": "Depending on the service you receive from PezeshkBook, various types of information are recorded, including your name, phone number, address, location, prescription details, requested drugs, national ID, electronic prescription tracking code, requested lab test information, and your medical query. The service process is designed to collect the minimum data necessary. PezeshkBook also collects information through cookies. A cookie is a file created at a website's request, allowing the site to save your visits and customize them. Most browsers allow users to disable cookies; refer to browser guides to learn how.",
+      "gathered_data_desc_2": "It is important to emphasize that the responsibility for safeguarding one-time passwords and usernames or phone numbers is with the users. To prevent potential misuse, users should not disclose such information to others. If a user transfers their phone number to someone else, they should update their phone number in their profile to prevent potential misuse or issues.",
+      "gathered_data_desc_3": "The user is responsible for any damages arising from non-compliance with the above, and the user waives any claims against PezeshkBook.",
+      "third_party_policy_title": "Third-Party Privacy Policies",
+      "third_party_policy_desc_1": "You can refer to this list to find the privacy policies for each service used by PezeshkBook.",
+      "third_party_policy_desc_2": "Please note that PezeshkBook does not have access to or control over cookies used by third parties.",
+      "children_policy_title": "Children's Information",
+      "children_policy_desc_1": "Another priority is adding protection for children when they use the internet. We encourage parents and guardians to observe, participate in, or monitor and guide their online activity.",
+      "children_policy_desc_2": "PezeshkBook does not knowingly collect personal identification information from children under 13. If you believe your child has provided such information on our platform, please contact us so we can delete the information and block the account. It is important to note that PezeshkBook has no control over registering these users, and responsibility rests with parents in controlling their children's internet access.",
+      "satisfaction": "Consent",
+      "satisfaction_desc_1": "By receiving the login code and entering the PezeshkBook website or app, you agree to the terms and conditions above.",
+      "satisfaction_desc_2": "If you have any other questions or need more information about our privacy policy, contact us via email at <span class='text-m-base sm:text-t-base md:text-d-base text-tertiary'>&#105;&#110;&#102;&#111;&#64;&#112;&#101;&#122;&#101;&#115;&#104;&#107;&#98;&#111;&#111;&#107;&#46;&#99;&#111;&#109;</span>."
+    }
+  },
+  "posts": {
+    "meta": {
+      "title": "PezeshkBook Health and Wellness Journal - Everything You Need to Know About Health",
+      "description": "The PezeshkBook Health and Wellness Journal includes scientific and educational articles on health, medicine, and wellness. A magazine for medical and health knowledge and treatment tips, offering practical health and hygiene articles.",
+      "keywords": "medical articles, health articles, medical knowledge, health magazine, lifestyle, PezeshkBook, COVID-19 prevention tips, online appointment booking, medical consultation"
+    },
+    "label": "Health Journal",
+    "types": {
+      "chip": ":count articles"
+    },
+    "items": {
+      "button": "Read More",
+      "last_update": "Last Updated:"
+    },
+    "details": {
+      "update": "Updated:",
+      "faq_title": "Frequently Asked Questions",
+      "similar_posts_title": "Related Articles",
+      "send_comment": "Submit Comment",
+      "hits": "Views: :hits",
+      "related_consult_title": "Get Consultation and In-Person Appointments from Related Doctors",
+      "no_info": {
+        "title": "No information found.",
+        "button": "Return to Articles Page"
+      },
+      "share_title": "Share",
+      "chapters": "Post Chapters",
+      "comments": {
+        "title": "Our Customers' Comments",
+        "no_comment": "No comments registered",
+        "comment_count": "(:total comments registered)",
+        "messages": {
+          "list_network_error": "There was a problem fetching the comments. Please try again.",
+          "submit_successfully": "Your comment was successfully submitted.",
+          "submit_network_error": "There was an issue submitting your comment. Please try again.",
+          "no_description_error": "Please enter your comment first."
+        }
+      },
+      "messages": {
+        "liked_successfully": "You successfully liked the post.",
+        "wrong_code": "The code you entered is incorrect."
+      }
+    },
+    "categories": {
+      "meta": {
+        "title": "PezeshkBook Health and Wellness Journal - :title",
+        "description": "The PezeshkBook Health and Wellness Journal includes scientific and educational articles on health, medicine, and wellness. A magazine for medical and health knowledge and treatment tips, offering practical health and hygiene articles.",
+        "keywords": "medical articles, health articles, medical knowledge, health magazine, lifestyle, PezeshkBook, COVID-19 prevention tips, online appointment booking, medical consultation"
+      }
+    },
+    "show_more": "Show More",
+    "science": "Scientific Research Journals"
+  },
+  "products": {
+    "meta": {
+      "title": "Products"
+    },
+    "label": "Products",
+    "categories": {
+      "coming_soon": "Coming Soon",
+      "title": "Category"
+    },
+    "filters": {
+      "chip": ":count products",
+      "close": "Close",
+      "buttons": {
+        "filter": "Filter",
+        "order": "Sort",
+        "remove_filters": "Remove All Filters",
+        "apply_filters": "Apply Filters"
+      },
+      "ordering": {
+        "most_visited": "Most Visited",
+        "newest": "Newest",
+        "min_price": "Cheapest",
+        "max_price": "Most Expensive",
+        "most_discount": "Biggest Discount"
+      },
+      "labels": {
+        "search_products": "Product Name",
+        "search_brands": "Brand Type"
+      }
+    },
+    "list": {
+      "no_info": {
+        "title": "No products found.",
+        "button": "Add Product"
+      },
+      "item": {
+        "special_sell": "Special Sale",
+        "out_of_stock": "This item is currently unavailable",
+        "currency": "Toman",
+        "buttons": {
+          "add_to_basket": "Add to Cart"
+        }
+      }
+    },
+    "details": {
+      "no_info": {
+        "title": "No information found.",
+        "button": "Back to Products"
+      },
+      "similar_products": {
+        "title": "Similar Products:"
+      },
+      "comments": {
+        "title": "User Reviews:"
+      },
+      "buttons": {
+        "complete_order": "Complete Order",
+        "add_product": "Add Another Product"
+      },
+      "brand": "Brand:",
+      "special_sell": "Special Sale",
+      "views": "Views",
+      "currency": "Toman",
+      "info": "Specifications:",
+      "type": "Form",
+      "quantity": "Quantity/Volume",
+      "expiration_date": "Expiration Date",
+      "country": "Country of Manufacture",
+      "consumable": "How to Use",
+      "interaction": "Drug Interactions",
+      "introduction": "Introduction:",
+      "description": "Detailed Review:"
+    },
+    "basket": {
+      "meta": {
+        "title": "Shopping Cart"
+      },
+      "label": "Shopping Cart",
+      "title": "Your Shopping Cart",
+      "no_info": {
+        "title": "Your cart is empty!",
+        "button": "Add Product"
+      },
+      "messages": {
+        "de_active": "The store service is currently inactive."
+      },
+      "price": {
+        "title": "Your Cart Information",
+        "currency": "Toman",
+        "discount": ":discount Total Discount",
+        "count_title": "Total Medication Count:",
+        "count": ":count items",
+        "buttons": {
+          "confirm_order": "Place Order"
+        }
+      },
+      "confirm": {
+        "buttons": {
+          "complete_order": "Complete Order"
+        },
+        "currency": "Toman",
+        "discount": ":discount Total Discount"
+      }
+    },
+    "checkout": {
+      "meta": {
+        "title": "Store - Complete Personal Information",
+        "description": "Store - Complete Personal Information",
+        "keywords": "Store - Complete Personal Information"
+      },
+      "label": "Complete Personal Information",
+      "title": "Enter Order Information",
+      "client_info": "Please carefully enter your full name, national ID number, and address.",
+      "confirmation": {
+        "title": "Pharmacy working hours are from 9 AM to 9 PM. If you complete your order now, your request will be processed by the pharmacy at :date in the morning.",
+        "tomorrow": "Tomorrow",
+        "time": "from 9 AM",
+        "messages": {
+          "address_range": "Your selected address is outside Tehran. Please change or add a new address.",
+          "select_address": "Please specify your address and location",
+          "receiver": "Recipient name is required"
+        },
+        "buttons": {
+          "submit": "Submit Order",
+          "loading": "Please wait...",
+          "continue": "Continue",
+          "cancel": "Cancel"
+        }
+      }
+    }
+  },
+  "services" : {
+    "meta": {
+      "title": "Services",
+      "description": "Pezeshk Book is the first and largest comprehensive health and medical platform in the country, offering medical services through an online platform designed for doctors and patients. Pezeshk Book aims to meet all medical and healthcare needs, including online consultations with specialist doctors, online counseling with psychologists, online prescription or over-the-counter medication purchases from an online pharmacy, home testing, and in-home medical and nursing services, accompanying you until complete recovery.",
+      "keywords": "Home laboratory, online medical consultation, online pharmacy, in-home medical services, online appointment booking"
+    },
+    "label": "Services",
+    "title": "Healthcare Services on Pezeshk Book",
+    "chips": {
+      "new": "New",
+      "insurance": "Insurance Coverage",
+      "updating": "Updating",
+      "close": "Close"
+    },
+    "buttons": {
+      "order": "Get",
+      "video_tutorial": "Video Tutorial",
+      "tutorial": "Tutorial"
+    },
+    "items": {
+      "pharmacy": {
+        "title": "Online Pharmacy",
+        "sub_title": "Medicine delivery without in-person visits"
+      },
+      "product": {
+        "title": "Online Store",
+        "sub_title": "Buy various supplements, cosmetics, and hygiene products"
+      },
+      "laboratory": {
+        "title": "Home Testing",
+        "sub_title": "Testing at home or workplace"
+      },
+      "consult": {
+        "title": "Online Medical Consultation",
+        "sub_title": "Text conversation with a doctor"
+      },
+      "medical": {
+        "title": "In-home Medical Services",
+        "sub_title": "In-person doctor and nurse visits"
+      },
+      "appointment": {
+        "title": "Online Appointment Booking",
+        "sub_title": "In-person appointments with a doctor"
+      }
+    },
+    "messages": {
+      "video_tutorial": "The video tutorial for this section is being completed. If you have any questions, please contact support."
+    },
+    "online_pharmacy": {
+      "label": "Online pharmacy",
+      "index": {
+        "title" : "The largest online pharmacy with immediate delivery, online purchase of drugs",
+        "subTitle": "Online purchase of non-prescription drugs, prescription drugs and cosmetic products from an online pharmacy with immediate delivery in less than 60 minutes",
+        "services": {
+          "otc": {
+            "title" : "Buying medicine without a prescription",
+            "description": "Buying unnecessary drugs from a doctor's prescription"
+          },
+          "upload_prescription": {
+            "title" : "Buy medicine with prescription photo",
+            "description": "Upload a copy of the photo"
+          },
+          "e_prescription": {
+            "title" : "Buying medicine with an electronic prescription",
+            "description": "Buy medicine with tracking code"
+          },
+          "doctor_prescription": {
+            "title" : "Buy medicine with doctor's prescription book",
+            "description": "Obtaining online advice to prescribe a prescription"
+          },
+          "buttons": {
+            "order": "Register Order",
+            "inActive": "(in_active)"
+          },
+          "chip": {
+            "title": "New"
+          }
+        },
+        "how_to_buy": {
+          "title": "What is an online pharmacy and how to buy medicine online?",
+          "desc_1": "Do you still go to the pharmacy to buy your medicine? You will no longer need to do this with the Book Doctor online pharmacy, and you can simply leave your online purchase of medicine, supplements, and health items to us. From the past until now, people looked for pharmacies in hospitals and in the city to get the drugs prescribed by the doctor, and if there was no specific drug, they had to search the entire surrounding areas and the city to make their purchase.",
+          "desc_2": "Due to the spread of Corona and the use of online stores for the convenience and comfort of people and to reduce commuting, the specialized online pharmacy Mesikt Bok was launched, you just need to choose your desired medicine with a few simple clicks and",
+          "desc_3": "Buy medicine online",
+          "desc_4": "do the With the book online pharmacy, you will no longer have to leave the house to buy non-prescription drugs, stay in traffic, look for a parking space, or wait in line for hours at pharmacies, but with a few simple clicks, you can order medicine at home or at your workplace. Or register your desired product, then receive your requested product by courier."
+        },
+        "video_tutorial": {
+          "title": "Training video for drug request:",
+          "description": "See the complete steps of how to buy medicine online (buying medicine with a prescription and without a prescription, etc.) This video has been prepared in order to facilitate and familiarize as many of you, dear users, as possible with how to use the services available in the application and the services of the Book Doctor website."
+        },
+        "online_pharmacy_advantages": {
+          "title": "What are the benefits of buying medicine online from an online pharmacy?",
+          "desc_1": "In the current state of use",
+          "desc_2": "online pharmacy",
+          "desc_3": "As an ideal option for buying essential needs, using this online store has many advantages\n                It can be safely said that its benefits will be more than buying in person. Some of the advantages of this online pharmacy include the following:",
+          "list": {
+            "item_1": "To know the exact price of the drug and its manufacturer",
+            "item_2": "Buy all kinds of medicines and supplies needed instantly",
+            "item_3": "The possibility of using insurance and online prescription",
+            "item_4": "Simultaneous purchase of all cosmetics, health products and pharmaceutical items",
+            "item_5": "Shopping at any time and place without staying in city traffic",
+            "item_6": "The possibility of consultation and guidance by a specialist doctor online",
+            "item_7": "Viewing and using the opinions and experiences of other people",
+            "item_8": "Availability of support for follow-ups if necessary",
+            "item_9": "Ordering medicine online from a specific company and brand"
+          }
+        },
+        "how_to_order": {
+          "title" : "What are the methods of ordering and receiving medicine from the online pharmacy?",
+          "description": "The online pharmacy is one of the new services provided by Book Doctor to those who wish to buy medicine, health items and supplements. In this service, users do not need to go to pharmacies in person to buy their medicine and can order their medicine, supplement or health items in three ways:",
+          "list": {
+            "item_1": "If you need to order an over-the-counter or OTC medicine, you can enter the name or photo of your medicine with the quantity and dosage and wait for the SMS from the pharmacy. This text message contains the price details and the payment link of the registered order. The announced price for your drug order is final and you will not pay any additional fees.",
+            "item_2": "If you have a paper copy or an electronic copy has been issued to you, place your copy order in the copy upload section.",
+            "item_3": "If you need hygiene items including shampoos, creams, toothbrushes, medical knee braces and wrist braces, sugar bars, or various pharmaceutical and sports supplements, including heroit, hirtamin, foreign and Iranian multivitamins, or... Register the relevant part of your order.",
+            "item_4": "All the registered orders will be accepted by the online pharmacy as soon as possible and (after sending the confirmation SMS) the medicines will be sent to the people. So, wait for the SMS from the online pharmacy of Doctor Bok. If you were not able to receive SMS for any reason, contact support and follow up on your orders."
+          },
+          "buttons": {
+            "buy_drug": "Buy medicine online",
+            "consult": "Online consultation with a specialist doctor"
+          }
+        },
+        "order_steps": {
+          "title": "What is the registration process for buying medicine online?",
+          "description": "After selecting one of the selected options on the site to buy medicine and completing the requested information, the following message will be displayed. Your medicine order request has been registered in the doctor's book and within the next 30 minutes, you will be sent a text message asking for the cost and the payment link for the final registration of the order.",
+          "steps": {
+            "step_1": {
+              "title": "The first stage",
+              "description": "Choosing the option to buy medicine"
+            },
+            "step_2": {
+              "title": "The second stage",
+              "description": "Registration of the desired drug"
+            },
+            "step_3": {
+              "title": "The third stage",
+              "description": "Payment through SMS link"
+            },
+            "step_4": {
+              "title": "The forth stage",
+              "description": "Home delivery of medicine"
+            }
+          }
+        },
+        "order_able_products": {
+          "title": "Products that can be ordered through the online pharmacy:",
+          "list": {
+            "item_1": "OTC over-the-counter medications",
+            "item_2": "Medicines with electronic prescriptions and valid doctors' prescriptions",
+            "item_3": "All medicinal supplements for men and women",
+            "item_4": "External skin and hair supplements",
+            "item_5": "Vitamins",
+            "item_6": "Sports supplements",
+            "item_7": "Cosmetics",
+            "item_8": "Mother and baby products",
+            "item_9": "Medical and orthopedic equipment",
+            "item_10": "Herbal products",
+            "item_11": "Food products"
+          },
+          "buttons": {
+            "confirm_order": "register order"
+          }
+        },
+        "order_able_drugs": {
+          "title": "Products that can be ordered through the pharmacy",
+          "list": {
+            "item_1": "Heroit",
+            "item_2": "Zinc ion tablet",
+            "item_3": "Hirtamine",
+            "item_4": "biotin",
+            "item_5": "Bepentine"
+          },
+          "buttons": {
+            "confirm_order": "register order"
+          }
+        },
+        "what_to_know": {
+          "title": "The requirements that a patient should know when buying medicine from an online pharmacy",
+          "desc_1": "All drug prescriptions will be checked by the pharmacy technician and the prescription will be sealed.",
+          "desc_2": "The cost of medicines in the online pharmacy will not be any different from the cost you pay in person. After placing the medicine order, you will receive your prescription in the shortest time at the place you requested.",
+          "desc_3": "If the medicine you requested is not available, Bok doctor will try to search all reputable pharmacies and send your medicine in the shortest possible time. So, if the acceptance text message is sent late from Bok's doctor, be patient.",
+          "desc_4": "Do not worry about the expiration date of the medicine, all the medicines will be checked and sent by an expert before sending.",
+          "desc_5": "All registered drug orders will be accepted by the online pharmacy as soon as possible and sent immediately.",
+          "desc_6": "Book online pharmacy is currently serving in Tehran and soon the online pharmacy will be launched in the cities of Karaj, Shiraz, Tabriz, Qom, Isfahan and Mashhad."
+        },
+        "how_to_find": {
+          "title": "Buying drugs online, how to read and search drug names",
+          "desc_1": "Have you ever made a purchase request from an online pharmacy, but did not find the name or brand of the drug? Or is it a medicine with different names and you cannot find your medicine?",
+          "desc_2": "In the science of pharmacology, drugs are divided into the following three groups:",
+          "list": {
+            "item_1": {
+              "title": "Chemical name",
+              "desc_1": "In specialized and scientific books in the field of medicine, chemical names are mostly used, the names of drugs are determined according to the chemical classification that is in the structure of each drug. For example, the drug acetaminophen is named N-4-hydroxyphenylacetamide."
+            },
+            "item_2": {
+              "title": "Generic name",
+              "desc_1": "Usually, we know most of the drugs by the same name and they are recognized all over the world. A generic name is registered on each drug package, for example, acetaminophen, which is a generic name, or aspirin, etc."
+            },
+            "item_3": {
+              "title": "Brand name",
+              "desc_1": "Drug manufacturing companies use the brand name of each drug or their own brand to differentiate their products from other competitors. For example, the widely used drug acetaminophen, which is used by most patients and is produced all over the world and in Iran under different trade names. Acetaminophen tablets with the brand name Kadimal are exclusive to the Obedi brand. Most doctors use this name in prescribing. Diphenhydramine syrup, which is used with the common names of diphenhydramine compound",
+              "desc_2": "Discuss the issue with the doctor.",
+              "buttons": {
+                "consult": "Online counseling"
+              }
+            }
+          }
+        },
+        "recommended_services": {
+          "title": "Our suggested services",
+          "list": {
+            "item_1": {
+              "title": "Test at home",
+              "description": "Blood sampling and testing at home and at work"
+            },
+            "item_2": {
+              "title": "Online medical consultation",
+              "description": "Text and audio conversation with a specialist doctor"
+            },
+            "item_3": {
+              "title": "Medical services on site",
+              "description": "Nursing services and in-person doctor visits at home"
+            }
+          },
+          "buttons": {
+            "request": "Submit request"
+          }
+        },
+        "faq": {
+          "title": "Frequently asked questions",
+          "list": {
+            "item_1": {
+              "question": "How are the medicines purchased online shipped?",
+              "answer": "All pharmacy orders will be quickly sent and delivered to the user after successful payment."
+            },
+            "item_2": {
+              "question": "I don't have a prescription, how can I get medicine from a book doctor?",
+              "answer": "If you do not have a prescription, you can register your order from the \"non-prescription medicine\" section."
+            },
+            "item_3": {
+              "question": "When will the purchased drugs be sent?",
+              "answer": "All the registered orders will be accepted by the online pharmacy as soon as possible and the prescription will be mailed, and after sending the payment confirmation SMS, the medicines will be sent to the people. You can also contact the support if necessary and follow up on your orders."
+            },
+            "item_4": {
+              "question": "What is the form of inquiry about drug inventory in Doctor Bok?",
+              "answer": "It is only possible to inquire about the stock and price of the medicine from the book doctor website. Your order will be sent to the nearest pharmacy. If your medicine is in short supply, the inventory of all the doctor's pharmacies will be checked."
+            },
+            "item_5": {
+              "question": "What products are available in the online pharmacy of the book doctor?",
+              "answer": "All foreign medicinal supplements, all kinds of valid foreign vaccines, sexual and sports products, vitamins for men and women, cosmetics and health products, medical and orthopedic equipment and all the medical needs of every patient are available in the Book Doctor Pharmacy."
+            },
+            "item_6": {
+              "question": "Is the doctor Bok Darwab?",
+              "answer": "Due to the large number of online pharmacies that are members of Book Doctor, your request will be sent to all pharmacies if there is no stock. So you will inquire about the inventory of more than 25 top online pharmacies in Tehran by placing an order in Book Doctor."
+            },
+            "item_7": {
+              "question": "What is meant by electronic version?",
+              "answer": "The prescription that the doctor registers for your national code is an electronic prescription."
+            },
+            "item_8": {
+              "question": "Why is telephone inquiry not possible?",
+              "answer": "Due to the large number of daily orders, the current inventory of pharmacies and the intelligent selection of the best pharmacy according to your address, this process will be presented to you users in a system with greater speed and quality."
+            },
+            "item_9": {
+              "question": "How much does it cost to send medicine?",
+              "answer": "890 free and for other orders, it is similar to the price of Snap and Elo Pick."
+            }
+          }
+        }
+      }
+    },
+    "medical": {
+      "meta": {
+        "title": "Home Medical Services",
+        "description": "Providing all medical services at home, nursing at home, specialist visits at home, and physiotherapy at home as soon as possible",
+        "keywords": "Home medical services, home nursing, specialist visits at home, physiotherapy at home"
+      },
+      "label": "Home Medical Services",
+      "title": "Providing all medical services, nursing, specialist visits, and physiotherapy at home",
+      "services_title": "Dear user, you can choose your desired service from three categories: nursing, doctor, and physiotherapy",
+      "buttons": {
+        "order": "Place Order"
+      },
+      "advantages_title": "What are the advantages of receiving home medical services compared to visiting medical centers in person?",
+      "advantages_description": "During the spread of the Coronavirus and its various waves, it is better to minimize going out and being in public places. One of these places is clinics and laboratories. Therefore, it is better to stay at home or even at your workplace and perform various tests and examinations such as the Coronavirus test (PCR) including individual PCR test, organizational PCR test, airline PCR test, emergency Coronavirus test, antibody test, and various check-ups and routine monthly tests like pre-pregnancy tests, men's check-up, women's check-up over 40 years old, thyroid test, and so on.",
+      "services": {
+        "title": "To use home medical services, simply place an order to enjoy all its services at home:",
+        "serum": "Serum Therapy (without nurse stay)",
+        "injection": "Intramuscular Injection",
+        "women_visit": "Specialist Gynecologist Visit",
+        "serum_with_stay": "Serum Therapy (with 30-minute nurse stay)",
+        "anima": "Enema",
+        "emergency_visit": "Emergency Medicine Specialist Visit",
+        "vip_serum": "VIP Serum Therapy with injection into serum and stay",
+        "stitch": "Stitch Removal",
+        "orthopedic": "Orthopedic Specialist Visit",
+        "sounding": "Catheterization",
+        "blood_pressure": "Blood Pressure Monitoring",
+        "urology": "Urologist Specialist Visit",
+        "heart": "ECG",
+        "general_doctor": "General Physician Visit",
+        "physiotherapy": "Single Limb Physiotherapy",
+        "suction": "Suction Therapy",
+        "internal_specialist": "Internal Medicine Specialist Visit",
+        "multi_physiotherapy": "Physiotherapy for More Than One Limb",
+        "dressing": "Simple Dressing",
+        "infectious_disease_specialist": "Infectious Disease Specialist Visit",
+        "radiology": "Radiology (Single X-ray)",
+        "vip_dressing": "VIP Dressing (bedsores, diabetic wounds, etc.)",
+        "heart_specialist": "Cardiologist Specialist Visit",
+        "nursing": "Nursing",
+        "button": "Submit"
+      },
+      "video_tutorial_title": "Medical Services Request Tutorial Video:",
+      "video_tutorial_sub_title": "Watch the complete process of requesting medical services and how it is carried out until receiving a response from the doctor through the instructional video on the right.",
+      "video_tutorial_description": "In this tutorial video, an effort has been made to familiarize and simplify the process of using the services available in the Pezeshk Book application and website, both through video and visual instructions, helping you use these services correctly and efficiently.",
+      "comments_title": "Pezeshk Book Customer Reviews",
+      "slug": {
+        "shopping_cart_button": "Place Order",
+        "shopping_cart_title": "Your Cart Information",
+        "no_test_selected": "You have not selected any test",
+        "order_count": ":count items",
+        "currency": "Toman",
+        "total_tests": "Total Number of Tests:"
+      },
+      "select_city": {
+        "title": "Select your city:",
+        "button": "Confirm and Continue"
+      },
+      "checkout": {
+        "meta": {
+          "title": "Home Test - Complete Personal Information",
+          "description": "Home Test - Complete Personal Information",
+          "keywords": "Home Test - Complete Personal Information"
+        },
+        "label": "Complete Personal Information",
+        "title": "Enter Orderer's Information",
+        "test_recipients": {
+          "title": "Service Recipients' Names:",
+          "text_field": "Full Name of Recipient :index",
+          "messages": {
+            "test_recipient_required": "Recipient's name is required"
+          }
+        },
+        "time_selection": {
+          "title": "Sampling Time",
+          "description": "Coordination Visit (Today)",
+          "other_time_description": "Select Time and Day for Coordination Visit"
+        },
+        "address_list_title": "Sampling Address",
+        "confirmation": {
+          "buttons": {
+            "submit_order": "Place Order",
+            "loading": "Please wait..."
+          },
+          "messages": {
+            "select_address": "Please specify your address and location\n",
+            "enter_test_recipient": "Test recipient's name is required"
+          }
+        }
+      },
+      "result": {
+        "label": "Medical Service Results",
+        "title": "Medical Service Results",
+        "no_info": "Your medical service results have not been uploaded yet.",
+        "info": {
+          "client_name": "Service Recipient's Name:",
+          "order_title": "Order Title:",
+          "order_date": "Request Date and Time:",
+          "status": "Status:",
+          "time": "Sampling Time:",
+          "download_pdf": "Download PDF File",
+          "return": "Return",
+          "no_order_found": "The order you are looking for was not found"
+        },
+        "messages": {
+          "network_error": "There was a problem retrieving the medical service information. Please try again later."
+        }
+      }
+    },
+    "laboratory": {
+      "meta": {
+        "title": "Home Laboratory Services – Blood Sampling and Instant Testing at Location",
+        "description": "The first and most comprehensive health and medical services platform in the country, offering home blood tests, COVID-19 testing on-site, HPV test, complete check-up with online and instant 12-hour results, approved by the Ministry of Health",
+        "keywords": "test, home testing, on-site testing, online testing"
+      },
+      "label": "Home Testing",
+      "index": {
+        "title": "Bring Your Laboratory Services to Your Home and Workplace with Pezeshk Book",
+        "sub_title": "Blood tests, men's and women's check-ups, COVID-19 testing at home or the workplace, with insurance and instant results",
+        "plans": {
+          "button": "Submit Order",
+          "upload_prescription": "Upload Prescription"
+        },
+        "services": {
+          "title": "What are Home Testing Services?",
+          "desc_1": "With Pezeshk Book's home testing service, you no longer need to visit a laboratory in person and waste time. Pezeshk Book offers this service at your desired location without any additional costs (sampling, transportation, etc.), following the Ministry of Health’s pricing. Simply submit your request on Pezeshk Book, and our experts will contact you to arrange a time. Your blood sample will be taken at home by trained specialists in the declared time frame in a safe environment, and the results will be uploaded online in your user panel. The original result will also be sent to you via SMS. You might wonder about the cost of home testing. With the option of using insurance services, you can directly request home testing with a picture of your prescription, an electronic version, or through an online consultation with Pezeshk Book. These services are provided by nurses and certified centers approved by the Ministry of Health and performed at your home or workplace while following all health protocols.",
+          "desc_2": "Experts will visit your home in the shortest time and take blood and urine samples. After the sampling, the results of your tests can be viewed online through the website.",
+          "desc_3": "Many people undergo regular check-ups to ensure their health and prevent illness. These check-ups can vary depending on the type of disease. Pezeshk Book aims to provide comfort for the elderly, individuals with physical problems, and those who value time, by offering medical services (home or workplace testing) online, especially during COVID-19 outbreaks. Disease treatment is always more expensive than prevention, and sometimes even the additional cost cannot make up for the delay in diagnosis.",
+          "desc_4": "Therefore, it is better to stay at home or even at your workplace and have various tests done, such as COVID-19 PCR tests (individual, organizational, pre-flight PCR), urgent COVID-19 testing, antibody tests, and regular or monthly check-ups like pregnancy tests, children's tests, men's and women's check-ups, HPV tests, thyroid tests, etc.",
+          "sub_title": "To use the on-site testing services, just place an order to benefit from all its services:",
+          "items": {
+            "pcr": "PCR Test",
+            "women_checkup": "Complete Women's Check-up",
+            "children": "Newborn Screening",
+            "anti_body": "Antibody Test",
+            "men_checkup": "Complete Men's Check-up",
+            "checkup_before_pregnancy": "Pre-Pregnancy Check-up",
+            "air_line_pcr": "Airline PCR Test",
+            "hpv": "HPV Test"
+          },
+          "button": "Submit"
+        },
+        "how_to_register_test": "How to Request On-Site Testing through the Website:",
+        "steps": {
+          "submit": {
+            "title": "Step One",
+            "description": "Submit Request and Complete Information"
+          },
+          "sampling": {
+            "title": "Step Two",
+            "description": "Sampling Process"
+          },
+          "result": {
+            "title": "Step Three",
+            "description": "Results and Receiving the Test Outcome"
+          }
+        },
+        "tutorial": {
+          "title": "Instructional Video for Requesting a Test:",
+          "desc_1": "Watch the full tutorial video on how to request home testing and the steps involved until receiving results from the laboratory.",
+          "desc_2": "In this video tutorial, the usage of the Pezeshk Book app and website services is explained to facilitate and familiarize users with the process."
+        },
+        "sampling_time": {
+          "title": "Coordination and Sampling Time",
+          "description": "After placing your on-site test request and choosing the desired test, a sampling agent will arrive at your location within 30 minutes between 8 AM and 8 PM daily, including weekends. If your request is made outside of this time frame, it will be processed the following day at 8 AM."
+        },
+        "result": {
+          "title": "Test Results",
+          "description": "Blood and COVID-19 test results will be available online in your user panel 12 to 24 hours after sampling, depending on the test type, and the original result will be sent to you via SMS."
+        },
+        "canceling": {
+          "title": "Cancel Request",
+          "description": "If for any reason you need to cancel or postpone your home test, you can cancel your request before our experts contact you (via phone or SMS). The full cost will be refunded to your account or bank within one hour after the cancellation request. If the sampling appointment has been coordinated, transportation costs will be deducted, and the remaining amount will be refunded."
+        },
+        "insurance": "When submitting an online test request, you can upload your prescription and select your insurance type. The cost of home testing will be reduced depending on your insurance.",
+        "support": "If submitting the request or completing the registration is difficult, you can call <span class='text-tertiary text-m-base sm:text-t-base md:text-d-base'><a href=\":href\">02191004191</a></span> and register your request over the phone.",
+        "buttons": {
+          "call_order": "Phone Registration for Home and Workplace Testing",
+          "submit_request": "Submit Request",
+          "call_request": "Phone Registration for On-Site Test",
+          "checkup_request": "Request Full Check-up at Home or Workplace",
+          "consult": "Online Interpretation and Consultation for On-Site Test",
+          "select_city": "Request Test in :title",
+          "confirm": "Confirm and Continue"
+        },
+        "recommended_service": {
+          "title": "Recommended Pezeshk Book Services for You",
+          "description": "Our pharmacy or consultants and doctors are here to meet your needs."
+        },
+        "top_seller": {
+          "pharmacy": {
+            "title": "Online Pharmacy",
+            "sub_title": "Medicine Delivery Without Physical Visit"
+          },
+          "consult": {
+            "title": "Online Medical Consultation",
+            "sub_title": "Text and Video Conversations with a Doctor"
+          },
+          "medical": {
+            "title": "On-Site Medical Services",
+            "sub_title": "Doctor and Nurse Home Visits"
+          }
+        },
+        "condition": {
+          "title": "Learn More About Home Testing and Its Conditions: Accuracy, Peace of Mind, Support",
+          "description": "The most important factor in online home testing is trust in the laboratories conducting the tests. Pezeshk Book collaborates with the top-grade 1 laboratories in the country for these services. For on-site sampling, certain standards are defined by the Ministry of Health of Iran, which must be strictly followed to ensure accurate sampling and reliable results."
+        },
+        "requirements": {
+          "title": "Necessary Preparations Before Home Testing",
+          "description": "To perform a home test, you must strictly adhere to all the conditions specified by the laboratory. Keep in mind that the conditions for each blood test vary. These conditions can include:",
+          "list": {
+            "fasting": "8 to 12 hours fasting",
+            "prolactin": "Waking up 3 hours before sampling for prolactin test",
+            "cortisol": "Sample collection for cortisol test at 8 AM",
+            "special_drugs": "Avoiding certain medications",
+            "smoking": "No smoking or tobacco use"
+          },
+          "comply_requirements": "All the above steps are to increase the accuracy of your test results, and you should fully comply with the laboratory’s instructions.",
+          "tip": "Note:",
+          "test_tip": "Each test's conditions differ, so it is advised to read about the specific conditions for blood tests.",
+          "type_tip": "Depending on the type of test, urine or stool sampling might also be required."
+        },
+        "services_at_home": {
+          "title": "Home Testing Services at Doctor Book:",
+          "blood_test": {
+            "title": "Blood Tests at Home or Workplace",
+            "description": "Blood sampling at home is performed by experienced nurses according to the standards defined by the Ministry of Health and health protocols, allowing you to safely register this service for children or the elderly as well. During the sampling, the use of appropriate equipment and the timely transfer of samples to the laboratory will ensure the accuracy of the results, alleviating any concerns you may have.",
+            "list": {
+              "title": "Some of the blood tests conducted by Doctor Book include:",
+              "hepatitis": "Hepatitis Test",
+              "diabetes": "Diabetes Test",
+              "liver": "Liver Test",
+              "kidney": "Kidney Test",
+              "hair_loss": "Hair Loss Test",
+              "blood_sugar": "Blood Sugar Test",
+              "thyroid": "Thyroid Test",
+              "vegan": "Vegan Test"
+            }
+          },
+          "complete_checkup": {
+            "title": "Complete Checkup at Home",
+            "description": "Throughout our lives, we all need to check our health status periodically, as recommended by specialized and general practitioners. Comprehensive and periodic checkups should be performed at different intervals. To reduce potential costs and enhance the benefits of a complete checkup, it is recommended that individuals aged 30-50 undergo checkups annually. The complete checkup at home varies based on each individual and type of treatment, including blood tests, diabetes, liver, thyroid, etc. However, the issue of attending the laboratory arises. Doctor Book addresses this problem by sending specialized experts to the location while adhering to health protocols and using quality equipment for sampling. In most general health checkups, blood samples are required, and the results can be discussed with specialized physicians at Doctor Book or through <span class='font-family-bold text-primary text-m-base sm:text-t-base md:text-d-base'><a href=':href'>online consultation</a></span>. If you wish to perform a checkup at home, you can utilize our complete and specialized packages. These packages and their components have been designed by specialized physicians, and all items have been carefully selected so that users can benefit from all the services of each package by paying the minimum cost. In all blood test and checkup packages, sampling is free, and the costs present in each package are the final charges.",
+            "list": {
+              "men_checkup": "Men's Checkup",
+              "women_checkup": "Women's Checkup",
+              "pregnancy_checkup": "Pregnancy Checkup",
+              "children_checkup": "Children's Checkup",
+              "elderly_checkup": "Elderly Checkup"
+            }
+          }
+        },
+        "comments": {
+          "title": "Customer Reviews of Doctor Book"
+        },
+        "checkup_slider": {
+          "title": "What type of checkup do you need?",
+          "sub_title": "All medical checkups are performed at your home and workplace",
+          "slider": {
+            "monthly": {
+              "title": "Monthly Checkup",
+              "sub_title": "In specific cases, based on the diagnosis of a specialist, individuals may need to undergo a monthly checkup. Usually, those undergoing treatment for a disease should utilize this method. They often do this upon a physician's recommendation. Cancer patients are included in this home checkup."
+            },
+            "yearly": {
+              "title": "Yearly Checkup",
+              "sub_title": "The elderly and children are groups that require special care due to their susceptibility to diseases, growth in children, etc. Everyone, given their living conditions and busy schedules, tends to neglect checkups and tests. It is advisable to know that annual blood checkups and certain care measures play a significant role in enhancing individual health. For instance, having a Pap smear test annually allows for quick detection and treatment if uterine cancer or other diseases arise."
+            },
+            "elderly": {
+              "title": "Elderly Checkup",
+              "sub_title": "Due to aging, elderly checkups are conducted at home for their convenience. In fact, through these checkups, they can prevent and control the progression of certain diseases and extend their lifespan."
+            }
+          }
+        },
+        "sampling_at_work": {
+          "title": "Sampling at Your Home and Workplace",
+          "blood_test": {
+            "title": "Blood Sampling",
+            "description": "To diagnose various diseases, addictions, pregnancy, etc., sampling is necessary. Typically, sampling is performed at laboratories, but when attending the laboratory is not feasible due to reasons like traffic, preventing the transmission of viral diseases, inadequate transportation, or difficulty walking, there is a simpler solution. Blood sampling at home is carried out by experienced nurses, allowing you to safely register this service for children or the elderly. During the sampling, the use of appropriate equipment and the timely transfer of samples to the laboratory will ensure maximum accuracy of the results, alleviating any concerns you may have. If there is any reason for a retest or greater accuracy, it will be communicated by the laboratory.",
+            "list": {
+              "title": "Some other important tests by Doctor Book conducted at your location include:",
+              "sexual_diseases": "Sexually Transmitted Disease Tests",
+              "smear_test": "Pap Smear Test",
+              "hpv": "HPV Test",
+              "pregnancy": "Pregnancy Tests at Home",
+              "hiv": "HIV Test",
+              "syphilis": "Syphilis Test",
+              "aids": "AIDS Test"
+            }
+          }
+        },
+        "faq": {
+          "title": "Frequently Asked Questions:",
+          "list": {
+            "question_1": {
+              "question": "How long does coordination and sampling take after registering for a home test?",
+              "answer": "If the test request is registered between 8 AM and 8 PM, coordination for sending the sampler to the location will occur every day without holidays, within a maximum of 30 minutes after the request is registered, and sampling will be done on the same day if fasting is not required. Requests outside this time frame will be followed up at 8 AM the next day."
+            },
+            "question_2": {
+              "question": "Is a medical prescription necessary for testing?",
+              "answer": "If you choose from our diverse checkup panels, a doctor’s prescription is not required. If you have an electronic or paper prescription, upload it when registering the request and wait for a price inquiry SMS."
+            },
+            "question_3": {
+              "question": "How many hours should I fast for blood tests?",
+              "answer": "Usually, fasting for 8 to 12 hours is required for blood sugar tests and other checkups that necessitate fasting. All blood test packages at Doctor Book include complete information and can be reviewed in the 'More Information' section before registering the request. If you have the 'Triglycerides' item, it is advisable to fast for 12 to 14 hours. Additionally, fasting does not require discontinuing daily medications."
+            },
+            "question_4": {
+              "question": "How reliable are the results of AIDS, hepatitis, and other sexually transmitted panels?",
+              "answer": "For reliable results, a specific time should have passed since engaging in high-risk sexual activity. To ensure the appropriate testing time or the so-called window period, consult with our physicians online. For example, for AIDS, tests should be registered 18 days, 45 days, and 90 days after high-risk intercourse."
+            },
+            "question_5": {
+              "question": "Are the test results valid and acceptable at medical centers?",
+              "answer": "All laboratories collaborating with Doctor Book are among the top and most recognized laboratories approved by the Ministry of Health and licensed to perform laboratory services at home."
+            },
+            "question_6": {
+              "question": "Which insurances cover the tests?",
+              "answer": "If you have insurance and an electronic prescription, register it in the prescription upload section. The price will be provided after deducting the insurance rights. All prescriptions are covered under basic and supplementary insurance. In rare cases and specific prescriptions where tests are not covered by insurance, the free price will be announced."
+            },
+            "question_7": {
+              "question": "How can I cancel my test?",
+              "answer": "All tests scheduled can be canceled before coordinating the sampler's presence (by phone or SMS). The entire paid amount will be returned to the user's account or bank account within one hour of the cancellation request being announced. If canceled by the user after coordinating the sampler's presence, the transportation fee will be deducted, and the remaining amount will be returned."
+            },
+            "question_8": {
+              "question": "Can I interpret the test results myself?",
+              "answer": "Interpretation of tests is the responsibility of the physician. If needed, you can receive online consultations from our member doctors. Additionally, if medications are prescribed based on the test results, the online pharmacy of Doctor Book will deliver your medication to your home. For more information on blood test parameters, visit our health magazine."
+            }
+          }
+        },
+        "corona_test": {
+          "title": "Corona Test at Home and Workplace",
+          "description": "Another service offered by Doctor Book is the Corona test at patients' homes and workplaces. Given the outbreak of Corona and recent events, if you need a Corona test and cannot visit a treatment facility or plan to travel, you can conduct the test at home to save time and take care of yourself and those around you. Depending on your needs, you can choose to have the Corona test conducted at your location."
+        },
+        "hpv_test": {
+          "title": "Sexually Transmitted Disease Tests and HPV Test at Home",
+          "description": "One of the tests that is highly recommended today is the HPV test. HPV is an essential test for sexually active individuals.\n            Why is HPV testing necessary?\n            The HPV virus can be transmitted through various means, such as oral, anal, vaginal sex, and close skin-to-skin contact from an infected person to a healthy person. Sometimes individuals show symptoms of this disease, while at other times it is asymptomatic, making it easier to transmit to sexual partners. Note that having a genital warts infection is not at all similar to or comparable with diseases such as AIDS or herpes. Therefore, HPV infection is often treatable and manageable. Additionally, receiving the vaccine can significantly reduce the likelihood of contracting this disease. If you care about your physical and sexual health, be sure to take this test."
+        },
+        "advantages": {
+          "title": "What are the advantages of home testing compared to visiting the laboratory in person?",
+          "list": {
+            "health_protocols": "All tests are conducted with full adherence to health protocols and under the supervision of a reputable laboratory near your location.",
+            "lowest_cost": "You will incur the lowest costs for conducting tests at home.",
+            "pcr": "All routine and checkup tests, PCR tests, antibody tests (airline antibody - immunity antibody), and emergency Corona tests can be booked through the website.",
+            "time": "Save time and conduct all tests at your requested location.",
+            "result": "You will receive your test results as quickly as possible and online.",
+            "risk": "Minimize the risk of contracting Corona and exposure to crowded environments.",
+            "consult": "If you are unsure which test is suitable for you, you can have an <a class='!p-0 !inline text-m-base sm:text-t-base md:text-d-base text-primary font-family-bold' href=':href'>online consultation</a> with the specialist doctors at Doctor Book right now."
+          }
+        },
+        "consult": {
+          "title": "Interpretation and Online Consultation of Tests at Home",
+          "sub_title": "You may have experienced getting a test done and needing interpretation and parameter review. The specialists and doctors at Doctor Book have solved this issue for you online; you just need to click a few times to obtain accurate and sufficient information regarding your illness and consultation with a doctor."
+        },
+        "test_cost": {
+          "title": "How will the cost of the test at home be?",
+          "description": "You can view the costs of tests and sampling at home in the online order section of the website. Before selecting the test, the cost will be displayed, and no additional charges will be applied. If any other services are added to your tests, it will be shown as a total in the pro forma, which can be paid through the bank portal after confirmation."
+        },
+        "cities": {
+          "title": "In which cities in Iran are medical services provided:",
+          "description": "Currently, home testing and other medical services are available in the cities of Tehran, Karaj, Tabriz, and Qom. Doctor Book collaborates with prominent laboratories in each city to provide suitable services to individuals."
+        },
+        "city_modal_title": "Select Your City:"
+      }
+    }
+  },
+  "modules": {
+    "map": {
+      "buttons": {
+        "return": "Return",
+        "my_location": "My Location",
+        "confirm_current_location": "Confirm My Location",
+        "edit_location": "Edit Location on Map",
+        "confirm_origin": "Confirm Origin"
+      },
+      "text_fields": {
+        "address": "Enter Your Address",
+        "plate": "Plate",
+        "unit": "Unit",
+        "auto_complete": "Tehran, Search Area"
+      },
+      "messages": {
+        "address_required": "You must enter your address.",
+        "plate_required": "You must enter your plate number.",
+        "unit_required": "You must enter your unit number.",
+        "location_range": "The service coverage area is shown on the map. Unfortunately, you are outside the service range.",
+        "geo_range": "Unfortunately, the specified geographical range does not include the entered address. Please ensure accuracy and try again."
+      },
+      "chips": {
+        "out_of_range": "Out of Range"
+      }
+    },
+    "uploader": {
+      "title": "Drag and drop your prescription image here",
+      "sub_title": "Maximum file size for upload is 4 MB",
+      "delete": "Delete",
+      "show_file": "View File",
+      "messages": {
+        "size_error": "The file size must be less than 4 MB",
+        "type_error": "The uploaded file must be an image or PDF"
+      }
+    }
+  },
+  "layouts": {
+    "client_input": {
+      "title": "Additional Information:",
+      "text_fields": {
+        "name": "First Name",
+        "last_name": "Last Name",
+        "national_code": "National Code (Optional)",
+        "sex": "Gender"
+      },
+      "man": "Male",
+      "woman": "Female"
+    },
+    "time_selection": {
+      "title": "Delivery Time",
+      "description": "Delivery 60 minutes after payment",
+      "other_time_description": "Select delivery day and time",
+      "fastest_time_possible": "Fastest possible time (Today)",
+      "other_time": "Another time",
+      "day": "Day",
+      "time": "Time",
+      "time_drop_down": {
+        "val_1": "9 AM to 1 PM (±1 hour)",
+        "val_2": "1 PM to 5 PM (±1 hour)",
+        "val_3": "5 PM to 9 PM (±1 hour)"
+      }
+    },
+    "address": {
+      "list": {
+        "title": "Delivery Address",
+        "add_new_address": "Add New Address",
+        "unit": "Unit",
+        "plate": "Plate",
+        "address_text": "Address :index: :address:plate:unit"
+      }
+    }
+  }
+}
