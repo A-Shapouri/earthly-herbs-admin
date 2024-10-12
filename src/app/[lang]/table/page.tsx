@@ -14,11 +14,12 @@ const Table = () => {
     () => [
       {
         accessorKey: 'id',
-        header: 'ID',
+        id: 'id',
         //@ts-ignore
         cell: info => <Text color={'frost'} typography={['xs', 'xs']}>{info.getValue()}</Text>,
       },
       {
+        id: 'firstName',
         accessorKey: 'firstName',
         //@ts-ignore
         cell: info => <Text color={'frost'} typography={['xs', 'xs']}>{info.getValue()}</Text>,
@@ -30,28 +31,32 @@ const Table = () => {
         cell: info => <Text color={'frost'} typography={['xs', 'xs']}>{info.getValue()}</Text>,
       },
       {
+        id: 'age',
         accessorKey: 'age',
         //@ts-ignore
         cell: info => <Text color={'frost'} typography={['xs', 'xs']}>{info.getValue()}</Text>,
       },
       {
+        id: 'visits',
         accessorKey: 'visits',
         //@ts-ignore
         cell: info => <Text color={'frost'} typography={['xs', 'xs']}>{info.getValue()}</Text>,
       },
       {
+        id: 'status',
         accessorKey: 'status',
         //@ts-ignore
         cell: info => <Text color={'frost'} typography={['xs', 'xs']}>{info.getValue()}</Text>,
       },
       {
+        id: 'progress',
         accessorKey: 'progress',
         //@ts-ignore
         cell: info => <Text color={'frost'} typography={['xs', 'xs']}>{info.getValue()}</Text>,
       },
       {
+        id: 'createdAt',
         accessorKey: 'createdAt',
-        header: 'Created At',
         //@ts-ignore
         cell: info => <Text color={'frost'} typography={['xs', 'xs']}>{info.getValue<Date>().toLocaleString()}</Text>,
       },

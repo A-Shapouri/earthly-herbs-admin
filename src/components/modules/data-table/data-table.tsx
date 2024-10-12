@@ -129,6 +129,7 @@ const DataTable = (
     if (dimensions.width < 640) {
       columns.forEach((value) => {
         if (value.id) {
+          console.log(value.id)
           obj[value.id] = mobileColumns?.includes(value.id);
         }
       });
@@ -241,7 +242,7 @@ const DataTable = (
                             return (
                               <Div key={mobileCell.id} className={'gap-2 p-2 items-start'}>
                                 {/*@ts-ignore*/}
-                                <Text typography={'sm'} type={'bold'}>{header[mobileCell.column.id]}:</Text>
+                                <Text typography={['sm', 'sm']} type={'bold'}>{header[mobileCell.column.id]}:</Text>
                                 {flexRender(
                                   mobileCell.column.columnDef.cell,
                                   mobileCell.getContext()
