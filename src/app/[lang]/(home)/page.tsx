@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import CardDataStats from '@modules/card-data-stats';
 import ChartOne from '@modules/charts/chart-one';

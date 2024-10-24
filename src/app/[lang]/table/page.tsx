@@ -65,7 +65,6 @@ const Table = () => {
   );
   //@ts-ignore
   const [data, _setData] = React.useState(() => makeData(30));
-
   return (
     <DataTable
       header={header}

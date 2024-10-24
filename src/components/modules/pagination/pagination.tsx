@@ -52,7 +52,7 @@ export const Pagination = ({ isLoading, currentPage = 1, lastPage, getCurrentPag
       <Div className={'flex justify-start items-center'}>
         <Div className={'items-center gap-6 justify-start md:absolute'}>
           {showTotal ? (
-            <Text color={'grey.500'} className={'text-ellipsis whitespace-nowrap'}>
+            <Text color={'grey.500'} typography={['xs', 'xs']} className={'text-ellipsis whitespace-nowrap'}>
               {`show ${(currentPage - 1) * parseInt(limit) + 1} to ${lastPage === currentPage ? total : parseInt(limit) * currentPage} from ${total}`}
             </Text>
           ) : null}
@@ -73,7 +73,7 @@ export const Pagination = ({ isLoading, currentPage = 1, lastPage, getCurrentPag
           ) : null}
         </Div>
       </Div>
-      <ul dir={'rtl'} className={'flex flex-row gap-x-0.5 md:gap-x-2 items-center md:justify-start justify-center'}>
+      <ul dir={'ltr'} className={'flex flex-row gap-x-0.5 md:gap-x-2 items-center md:justify-start justify-center'}>
         <li>
           <Button
             disabled={currentPage === 1 || isLoading}
@@ -85,7 +85,7 @@ export const Pagination = ({ isLoading, currentPage = 1, lastPage, getCurrentPag
             loading={isLoading}
             color={color}
             rounded={rounded}
-            className={'!px-0'}>
+            className={'!px-0 rotate-180'}>
             <ArrowRightIcon />
           </Button>
         </li>
@@ -118,7 +118,7 @@ export const Pagination = ({ isLoading, currentPage = 1, lastPage, getCurrentPag
             ariaLabel={'nextPage'}
             loading={isLoading}
             color={color}
-            className={'!px-0 rotate-180'}>
+            className={'!px-0'}>
             <ArrowRightIcon />
           </Button>
         </li>

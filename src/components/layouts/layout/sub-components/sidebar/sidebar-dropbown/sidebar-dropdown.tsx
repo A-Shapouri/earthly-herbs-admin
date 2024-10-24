@@ -1,9 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
+import getParseRoute from '@utils/helpers/parse-route';
+import { DictionariesTypes } from '@dictionaries';
+import Text from '@elements/text';
 
 const SidebarDropdown = ({ item }: any) => {
   const pathname = usePathname();
+  const { lang } = useParams<{ lang: DictionariesTypes }>();
 
   return (
     <>
@@ -11,10 +15,12 @@ const SidebarDropdown = ({ item }: any) => {
         {item.map((item: any, index: number) => (
           <li key={index}>
             <Link
-              href={item.route}
-              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${pathname === item.route && 'text-white'}`}
+              href={getParseRoute({ pathname: item.route, locale: lang })}
+              className={`group relative flex items-center gap-2.5 rounded-md px-4`}
             >
-              {item.label}
+              <Text type={'medium'} typography={['xxs', 'xxs']} color={pathname === '/' + lang + item.route ? 'white' : 'grey.300'}>
+                {item.label}
+              </Text>
             </Link>
           </li>
         ))}

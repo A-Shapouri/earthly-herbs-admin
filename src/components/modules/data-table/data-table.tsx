@@ -129,7 +129,6 @@ const DataTable = (
     if (dimensions.width < 640) {
       columns.forEach((value) => {
         if (value.id) {
-          console.log(value.id)
           obj[value.id] = mobileColumns?.includes(value.id);
         }
       });
