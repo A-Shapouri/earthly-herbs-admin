@@ -159,7 +159,7 @@ const DataTable = (
   };
 
   return (
-    <Div className={'w-full flex-col'}>
+    <Div className={'w-full flex-col shadow-[0_0.1875rem_0.75rem_0_rgba(47,43,61,.14)] rounded-lg'}>
       <Div className={'gap-0 md:gap-4 flex-col md:flex-row'}>
         {columnOrder && table.getAllLeafColumns().map(column => {
           if (column.id === 'mobileExpander' || column.id === 'expander') {
@@ -172,7 +172,7 @@ const DataTable = (
           );
         })}
       </Div>
-      <Div className={'bg-white border w-full border-control-300 border-opacity-50 p-2 rounded-xl max-w-full flex-col relative'}>
+      <Div className={'bg-white w-full rounded-xl max-w-full flex-col relative'}>
         <table
           className={'w-full table-auto'}>
           <thead className={'bg-control-50 h-14 sticky top-0 z-[9]'}>
@@ -207,7 +207,7 @@ const DataTable = (
             {table.getRowModel().rows.map((row) => {
               return (
                 <Fragment key={row.id}>
-                  <tr className={'h-16 hover:bg-primary-50 shadow-md'}>
+                  <tr className={'h-16 hover:bg-control-50 hover:shadow-2xl border-b '}>
                     {row.getVisibleCells().map(cell => {
                       return (
                         <td className={'px-1'} key={cell.id}>
@@ -259,11 +259,11 @@ const DataTable = (
           </tbody>
         </table>
         <Button onClick={handleScrollUp} shape={'square'} size={'large'} rounded={'full'} className={classNames('rotate-180 sticky !p-0 bottom-1 self-center duration-500 transition',
-          showGoTop ? 'opacity-100 translate-y-0 !h-auto !min-h-12' : 'translate-y-full opacity-0 !h-0 !min-h-[0px]'
+          showGoTop ? 'opacity-100 translate-y-4 !h-auto !min-h-12' : 'translate-y-full opacity-0 !h-0 !min-h-[0px]'
         )}>
           <ArrowDownIcon />
         </Button>
-        <Div className={'mt-4 bg-control-50 md:h-14 py-2 md:py-0 justify-center items-center rounded-b-xl flex-col'}>
+        <Div className={'mt-6 bg-control-50 md:h-14 py-2 md:py-0 justify-center items-center rounded-b-xl flex-col'}>
           <Pagination
             color={'primary'}
             variant={'filled'}

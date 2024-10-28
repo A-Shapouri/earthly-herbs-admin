@@ -29,7 +29,7 @@ export type OverridableStringUnion<T extends string | number, U = {}> = Generate
 /**
  * set of kit colors
  */
-export type Colors = 'primary' | 'secondary' | 'brown' | 'desolace' | 'flurries' | 'frost' | 'rocky' | 'teal' | 'inherit'
+export type Colors = 'primary' | 'secondary' | 'tertiary' | 'info' | 'success' | 'warning' | 'danger' | 'control' | 'inherit' | 'slate' | 'zinc' | 'neutral' | 'stone' | 'red' | 'orange' | 'amber' | 'yellow' | 'lime' | 'green' | 'emerald' | 'teal' | 'cyan' | 'sky' | 'blue' | 'indigo' | 'violet' | 'purple' | 'fuchsia' | 'pink' | 'rose'
 
 /**
  * set of kit rounded

@@ -1,10 +1,16 @@
+import { Colors, OverridableStringUnion } from '@types';
 
 export interface DividerProps {
 
-  color?: 'primary' | 'secondary' | 'grey'
+  color?: OverridableStringUnion<Colors,
+    DividerPropsColorOverrides>;
 
   type?: 'solid' | 'dashed' | 'dotted';
 
   className?: string | undefined;
+
+}
+
+export interface DividerPropsColorOverrides {
 
 }

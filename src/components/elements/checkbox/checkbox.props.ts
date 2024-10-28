@@ -1,7 +1,9 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent } from 'react';
+import { Colors, OverridableStringUnion } from '@types';
 
-export interface CheckboxProps {
-  color?: 'primary' | 'secondary' | 'inherit' | 'black'
+export interface CheckboxProps extends Omit<React.HTMLProps<HTMLInputElement>, 'size'> {
+  color?: OverridableStringUnion<Colors,
+    CheckboxPropsColorOverrides>;
 
   className?: string
 
@@ -11,7 +13,10 @@ export interface CheckboxProps {
 
   disabled?: boolean
 
-  size?: 'small' | 'medium' | 'tiny'
+  size?: 'small' | 'medium' | 'large' | 'tiny' | 'huge'
+}
 
+export interface CheckboxPropsColorOverrides {
+  black
 }
 

@@ -38,7 +38,7 @@ const Category = () => {
         header: null,
         enableSorting: false,
         //@ts-ignore
-        cell: info => <Text color={'frost'} typography={['xs', 'xs']}>{info.getValue()}</Text>,
+        cell: info => <Text color={'black'} typography={['xs', 'xs']}>{info.getValue()}</Text>,
       },
       {
         id: 'image',
@@ -65,7 +65,7 @@ const Category = () => {
           }
           return (
             //@ts-ignore
-            <Text className='w-full' color={'frost'} typography={['xs', 'xs']}>{value}</Text>
+            <Text className='w-full' color={'black'} typography={['xs', 'xs']}>{value}</Text>
           );
         },
       },
@@ -73,7 +73,7 @@ const Category = () => {
         accessorFn: row => row.sortOrder,
         id: 'sortOrder',
         //@ts-ignore
-        cell: info => <Text color={'frost'} typography={['xs', 'xs']}>{info.getValue()}</Text>,
+        cell: info => <Text color={'black'} typography={['xs', 'xs']}>{info.getValue()}</Text>,
       },
       {
         id: 'operations',
@@ -82,9 +82,9 @@ const Category = () => {
         cell: () => {
           return (
             <Div className={'gap-2'}>
-              <Button size={'small'} variant={'filled'} className={'text-nowrap !bg-blue-500 !text-white hover:!bg-blue-700 active:!bg-blue-300'} rounded='small' shape='square' startAdornment={<EditIcon className={'h-4 w-4'} />} color={'frost'} />
-              <Button size={'small'} variant={'filled'} className={'text-nowrap !bg-green-500 !text-white hover:!bg-green-700 active:!bg-green-300'} rounded='small' shape='square' startAdornment={<EyeIcon className={'h-4 w-4'} />} color={'frost'} />
-              <Button size={'small'} variant={'filled'} className={'text-nowrap !bg-red-500 !text-white hover:!bg-red-700 active:!bg-red-300'} rounded='small' shape='square' startAdornment={<BagCrossIcon className={'h-4 w-4'} />} color={'frost'} />
+              <Button size={'small'} variant={'filled'} className={'text-nowrap !bg-blue-500 !text-white hover:!bg-blue-700 active:!bg-blue-300'} rounded='small' shape='square' startAdornment={<EditIcon className={'h-4 w-4'} />} color={'black'} />
+              <Button size={'small'} variant={'filled'} className={'text-nowrap !bg-green-500 !text-white hover:!bg-green-700 active:!bg-green-300'} rounded='small' shape='square' startAdornment={<EyeIcon className={'h-4 w-4'} />} color={'black'} />
+              <Button size={'small'} variant={'filled'} className={'text-nowrap !bg-red-500 !text-white hover:!bg-red-700 active:!bg-red-300'} rounded='small' shape='square' startAdornment={<BagCrossIcon className={'h-4 w-4'} />} color={'black'} />
             </Div>
           );
         },
@@ -95,19 +95,21 @@ const Category = () => {
   );
 
   return (
-    <DataTable
-      header={header}
-      column={columns}
-      data={data}
-      currentPage={1}
-      getCurrentPage={() => { }}
-      lastPage={12}
-      nextPage={2}
-      perPage={10}
-      previousPage={0}
-      total={50}
-      mobileColumns={['name', 'firstName', 'lastName']}
-    />
+    <Div className={'w-full'}>
+      <DataTable
+        header={header}
+        column={columns}
+        data={data}
+        currentPage={1}
+        getCurrentPage={() => { }}
+        lastPage={12}
+        nextPage={2}
+        perPage={10}
+        previousPage={0}
+        total={50}
+        mobileColumns={['name', 'firstName', 'lastName']}
+      />
+    </Div>
   );
 };
 

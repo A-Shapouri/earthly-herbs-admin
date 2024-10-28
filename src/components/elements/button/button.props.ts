@@ -1,5 +1,5 @@
 import { LegacyRef, ReactNode } from 'react';
-import { OverridableStringUnion, Rounded, Sizes } from '@types';
+import { OverridableStringUnion, Rounded, Sizes, Colors } from '@types';
 import { Types } from '../text/text.props';
 
 export interface ButtonProps extends Omit<React.HTMLProps<HTMLButtonElement | HTMLAnchorElement>, 'size' | 'ref'> {
@@ -7,7 +7,7 @@ export interface ButtonProps extends Omit<React.HTMLProps<HTMLButtonElement | HT
 
   children?: ReactNode
 
-  color?: ButtonColor;
+  color?: OverridableStringUnion<Colors, ButtonPropsColorOverrides>;
 
   size?: Sizes
 
@@ -61,12 +61,12 @@ export interface ButtonProps extends Omit<React.HTMLProps<HTMLButtonElement | HT
 }
 
 export interface ButtonPropsColorOverrides {
+  frost
 }
 
 export interface ButtonPropsShapeOverrides {
 }
 
-export type Variant = 'text' | 'filled';
+export type Variant = 'text' | 'outlined' | 'filled';
 export type Shape = 'square' | 'rectangle'
 export type FontColor = 'white' | 'black'
-export type ButtonColor = 'primary' | 'frost' | 'secondary' | 'inherit'

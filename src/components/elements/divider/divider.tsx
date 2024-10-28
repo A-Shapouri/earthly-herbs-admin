@@ -1,7 +1,7 @@
-import React from 'react'
-import { DividerProps } from './divider.props'
-import classNames from "@utils/helpers/class-names";
-import { COLOR, TYPE } from "./divider.styles";
+import React from 'react';
+import { DividerProps } from './divider.props';
+import classNames from '@utils/helpers/class-names';
+import { COLOR, TYPE } from './divider.styles';
 
 export const Divider = (props: DividerProps) => {
   const { color = 'grey', type = 'solid', className } = props;
@@ -11,7 +11,7 @@ export const Divider = (props: DividerProps) => {
       TYPE[type],
       className
     )} />
-  )
-}
+  );
+};
 
-export default Divider
+export default Divider;
