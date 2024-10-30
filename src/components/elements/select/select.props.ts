@@ -1,4 +1,4 @@
-import { Sizes, Rounded } from '@types';
+import { OverridableStringUnion, Colors, Sizes, Rounded } from '@types';
 import { ReactNode } from 'react';
 
 export interface SelectProps extends Omit<React.HTMLProps<HTMLSelectElement>, 'size' | 'autoComplete' | 'value'> {
@@ -22,7 +22,8 @@ export interface SelectProps extends Omit<React.HTMLProps<HTMLSelectElement>, 's
 
   variant?: Variant
 
-  color?: 'primary' | 'secondary'
+  color?: OverridableStringUnion<Colors,
+    SelectPropsColorOverrides>;
 
   size?: Sizes
 
@@ -37,7 +38,7 @@ export interface SelectProps extends Omit<React.HTMLProps<HTMLSelectElement>, 's
   autoComplete?: boolean
 }
 
-export type Variant = 'outlined' | 'text';
+export type Variant = 'outlined' | 'filled';
 
 export interface SelectPropsColorOverrides {
 

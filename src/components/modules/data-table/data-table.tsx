@@ -258,14 +258,14 @@ const DataTable = (
             })}
           </tbody>
         </table>
-        <Button onClick={handleScrollUp} shape={'square'} size={'large'} rounded={'full'} className={classNames('rotate-180 sticky !p-0 bottom-1 self-center duration-500 transition',
+        <Button color={'slate'} onClick={handleScrollUp} shape={'square'} size={'large'} rounded={'full'} className={classNames('rotate-180 sticky !p-0 bottom-1 self-center duration-500 transition',
           showGoTop ? 'opacity-100 translate-y-4 !h-auto !min-h-12' : 'translate-y-full opacity-0 !h-0 !min-h-[0px]'
         )}>
           <ArrowDownIcon />
         </Button>
         <Div className={'mt-6 bg-control-50 md:h-14 py-2 md:py-0 justify-center items-center rounded-b-xl flex-col'}>
           <Pagination
-            color={'primary'}
+            color={'slate'}
             variant={'filled'}
             getCurrentPage={getCurrentPage}
             isLoading={isLoading}

@@ -1,4 +1,4 @@
-import { Colors } from '@types';
+import { Colors } from "@types";
 
 interface DataInterface {
   label: string;
@@ -15,7 +15,7 @@ export interface BreadcrumbProps {
 
   homeTitleClassName?: string
 
-  color?: Colors | 'grey.50' | 'grey.100' | 'grey.200' | 'grey.300' | 'grey.400' | 'grey.500' | 'grey.600' | 'grey.700' | 'grey.800' | 'grey.900' | 'grey.950' | 'black' | 'white'
+  color?: Colors
 
   dir?: 'ltr' | 'rtl' | 'auto'
 }

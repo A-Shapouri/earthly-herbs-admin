@@ -1,5 +1,5 @@
 import { ReactNode, Ref } from 'react';
-import { Rounded, Sizes } from '@types';
+import { Colors, OverridableStringUnion, Rounded, Sizes } from '@types';
 
 export interface TextFieldProps extends Omit<React.HTMLProps<HTMLInputElement | HTMLTextAreaElement>, 'size' | 'ref'> {
   inputId?: string
@@ -11,6 +11,9 @@ export interface TextFieldProps extends Omit<React.HTMLProps<HTMLInputElement | 
   placeholder?: string
 
   size?: Sizes
+
+  color?: OverridableStringUnion<Colors,
+    TextFieldPropsColorOverrides>;
 
   rounded?: Rounded
 

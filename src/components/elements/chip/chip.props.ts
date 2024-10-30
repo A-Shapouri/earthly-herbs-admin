@@ -1,5 +1,5 @@
 import { CSSProperties, ReactNode } from 'react';
-import { OverridableStringUnion, Rounded } from '@types';
+import { Colors, OverridableStringUnion, Rounded } from '@types';
 import { TextProps } from '../text/text.props';
 
 export interface ChipProps {
@@ -37,6 +37,6 @@ export interface ChipProps {
 export interface ChipPropsColorOverrides {
 }
 
-export type ChipColors = 'primary' | 'secondary' | 'brown' | 'inherit' | 'black'
+export type ChipColors = Colors | 'black'
 
 export type Size = 'small' | 'medium' | 'large';

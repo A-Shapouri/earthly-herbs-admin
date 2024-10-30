@@ -11,13 +11,13 @@ type Item = {
   [key: string]: any
 }
 
-export const Select = ({ size = 'medium', placeholder = 'default text', label, optionsList, value, onChange, id, text, color = 'primary', variant = 'outlined', disabled, error, startAdornment, rounded = 'medium', autoComplete = false }: SelectProps) => {
+export const Select = ({ size = 'medium', placeholder = 'default text', label, optionsList, value, onChange, id, text, color = 'slate', variant = 'outlined', disabled, error, startAdornment, helperText, rounded = 'medium', autoComplete = false }: SelectProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const dropDownRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [selectedText, setSelectedText] = useState<string | undefined>('');
   const [show, setShow] = useState<boolean>(false);
-  const [searchedItems, setSearchedItems] = useState(optionsList);
+  const [searchedItems, setSearchedItems] = useState<any>(optionsList);
 
   // click outside to close dropdown
   useEffect(() => {
@@ -44,7 +44,7 @@ export const Select = ({ size = 'medium', placeholder = 'default text', label, o
   const selectValueByDefault = () => {
     if (value) {
       optionsList && optionsList.length > 0 && typeof optionsList === 'object' && optionsList.map((item) => {
-        if (item[id] == value) {
+        if (item[id] === value) {
           setSelectedText(item[text]);
         }
       });
@@ -92,8 +92,8 @@ export const Select = ({ size = 'medium', placeholder = 'default text', label, o
           className={classNames('flex items-center w-full border p-3',
             autoComplete ? 'cursor-text' : 'cursor-pointer',
             !disabled && (`${VARIANTS[variant]}`),
-            disabled ? `text-grey-500 !cursor-not-allowed border-grey-100 ${variant === 'text' ? 'bg-transparent' : 'bg-white'}` : (error ? `border-danger !text-danger ${variant === 'text' ? '!bg-danger-100 !text-danger-400' : ''}`
-              : (show ? variant === 'text' ? 'border-none' : `${COLORS[color]}` : `${variant === 'text' ? (`${COLORS[color]} border-none`) : 'border-grey-100 hover:border-grey-500'}`)),
+            disabled ? `text-control-500 !cursor-not-allowed border-control-100 ${variant === 'filled' ? 'bg-control-100' : 'bg-white'}` : (error ? `border-danger !text-danger ${variant === 'filled' ? '!bg-danger-100 !text-danger-400' : ''}`
+              : (show ? `${COLORS[color]}` : `${variant === 'filled' ? (`${COLORS[color]} border !border-control hover:!border-control-dark`) : 'border-control hover:border-control-dark'}`)),
             SIZES[size],
             startAdornment ? 'justify-between' : 'justify-end',
             ROUNDED[rounded]
@@ -108,8 +108,8 @@ export const Select = ({ size = 'medium', placeholder = 'default text', label, o
                 show || (selectedText !== '' && selectedText !== undefined) ? 'text-m-sm' : 'text-m-base',
                 'select-none h-auto px-2 absolute duration-200 flex items-center font-family-regular',
                 startAdornment ? 'start-8' : 'start-2',
-                show || (selectedText !== '' && selectedText !== undefined) ? `translate-x-0 text-xs  ${variant === 'text' ? '!top-0 !h-auto !leading-none bg-transparent' : `!start-2 !top-0 translate-y-[-50%] bg-white rounded-lg border-white `}` : '',
-                disabled ? '!cursor-not-allowed text-grey-500' : (error ? 'text-danger' : (show ? `${COLORS[color]}` : 'text-grey-500'))
+                show || (selectedText !== '' && selectedText !== undefined) ? `translate-x-0 text-xs  ${variant === 'filled' ? '!top-0 !h-auto !leading-none bg-transparent' : `!start-2 !top-0 translate-y-[-50%] bg-white rounded-lg border-white `}` : '',
+                disabled ? '!cursor-not-allowed text-control' : (error ? 'text-danger' : (show ? `${COLORS[color]} !bg-white` : 'text-control'))
               )}
             >
               {label}
@@ -120,7 +120,7 @@ export const Select = ({ size = 'medium', placeholder = 'default text', label, o
               className={classNames(
                 'select-none h-auto px-2 absolute duration-200 flex items-center text-m-sm font-family-regular',
                 selectedText !== '' ? `hidden` : startAdornment ? 'start-8' : 'start-2',
-                disabled ? '!bg-transparent' : (error ? 'text-danger' : 'text-grey-500')
+                disabled ? '!bg-transparent' : (error ? 'text-danger' : 'text-control')
               )}
             >
               {placeholder}
@@ -132,7 +132,7 @@ export const Select = ({ size = 'medium', placeholder = 'default text', label, o
               ref={inputRef}
               value={selectedText}
               onChange={handleInputChange}
-              className={classNames(`px-2 z-10 text-m-base sm:text-d-xs font-family-regular flex-1 outline-0 min-w-8 bg-transparent outline-none`,
+              className={classNames(`px-2 z-10 text-m-base sm:text-d-xs md:!text-d-base font-family-regular flex-1 outline-0 min-w-8 bg-transparent outline-none`,
                 disabled ? 'cursor-not-allowed' : 'cursor-text'
               )}
               type={'text'}
@@ -141,17 +141,17 @@ export const Select = ({ size = 'medium', placeholder = 'default text', label, o
           ) : (
             selectedText !== '' && (
               <Div className={'grow flex select-none !leading-none'}>
-                <Text className={'!leading-none'} typography={['xs', 'xs']} align={'right'} color={disabled ? 'grey.500' : 'grey.800'}>
+                <Text className={'!leading-none'} typography={['xs', 'xs']} align={'start'} color={disabled ? 'grey.500' : 'grey.800'}>
                   {selectedText}
                 </Text>
               </Div>
             )
           )}
 
-          <svg className={classNames(`duration-300`,
-            show ? 'rotate-180' : 'rotate-0'
-          )} width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0.916669 1.45837L5 5.54171L9.08334 1.45837" stroke="#4D4D4D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <svg className={classNames(``,
+            show ? 'rotate-0 duration-150' : 'rotate-180 duration-150'
+          )} width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.92 8.04999L10.4 1.52999C9.63002 0.759987 8.37002 0.759987 7.60002 1.52999L1.08002 8.04999" stroke={'currentColor'} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </Div>
 
@@ -159,25 +159,24 @@ export const Select = ({ size = 'medium', placeholder = 'default text', label, o
         <Div
           ref={dropDownRef}
           className={classNames(
-            'mt-2 absolute w-full top-full bg-white rounded shadow-lg p-2 z-50',
+            'mt-2 absolute w-full top-full bg-white border rounded-lg shadow-lg p-2 max-h-[300px] overflow-y-scroll z-50',
             DROPDOWN_COLORS[color],
             show ? 'flex flex-col h-fit z-10' : 'hidden',
-            variant === 'text' ? 'border-none' : 'border'
           )}
         >
           {searchedItems && searchedItems.length > 0 && typeof searchedItems === 'object' ? searchedItems.map((option: any) => (
             <Div
               className={classNames('flex justify-between items-center hover:bg-control-100 rounded cursor-pointer',
-                option[text] === selectedText ? 'bg-primary-50 hover:bg-control-100 hover:!text-white hover:!fill-white' : 'bg-white',
+                option[text] === selectedText ? 'bg-control-100 hover:bg-control-100 hover:!text-white hover:!fill-white' : 'bg-white',
                 HOVER_COLORS[color]
               )}
               key={option[id]}
               data-name={option[id]}
             >
               <Text
-                color={`${option[text] === selectedText ? 'black' : 'grey.600'}`}
+                color={`${option[text] === selectedText ? 'grey.800' : 'grey.600'}`}
                 align={'start'}
-                type={`${option[text] === selectedText ? 'medium' : 'normal'}`}
+                type={`${option[text] === selectedText ? 'bold' : 'light'}`}
                 typography={['xs', 'xs']}
                 data-name={option[id]}
                 key={option[id]}
@@ -185,11 +184,18 @@ export const Select = ({ size = 'medium', placeholder = 'default text', label, o
                 className={`px-2 grow py-2 select-none hover:!text-white`}>
                 {option[text]}
               </Text>
+
+              {option[text] === selectedText ? (
+                <svg
+                  width="15" height="11" viewBox="0 0 15 11" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.33336 8.64332L12.9934 0.982483L14.1725 2.16082L5.33336 11L0.0300293 5.69665L1.20836 4.51832L5.33336 8.64332Z" />
+                </svg>
+              ) : null}
             </Div>
           )) : (
             <Text
               color={'grey.400'}
-              typography={['xs', 'xs']}
+              typography={['sm', 'sm']}
               align={'right'}>
               There is no item to show!
             </Text>
@@ -197,7 +203,15 @@ export const Select = ({ size = 'medium', placeholder = 'default text', label, o
         </Div>
       </Div>
 
-    </Div >
+      {helperText ? (
+        <Div className={'px-3 select-none'}>
+          <Text color={disabled ? 'grey.500' : (error ? 'danger' : 'grey.400')} typography={['xs', 'xs']}>
+            {helperText}
+          </Text>
+        </Div>
+      ) : null}
+
+    </Div>
 
   );
 };

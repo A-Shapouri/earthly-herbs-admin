@@ -21,7 +21,7 @@ export interface PaginationProps {
 
   showTotal?: boolean
 
-  color?: 'primary' | 'secondary' | 'frost'
+  color?: 'primary' | 'secondary' | 'frost' | 'slate'
 
   variant?: 'filled' | 'text'
 

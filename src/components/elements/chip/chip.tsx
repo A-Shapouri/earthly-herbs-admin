@@ -1,8 +1,9 @@
 'use client';
+
 import React from 'react';
 import { ChipProps } from './chip.props';
 import classNames from '@utils/helpers/class-names';
-import { COLORS, HOVER_COLORS, ICON_SIZE, OUTLINED_COLORS, OUTLINED_HOVER_COLORS, REVERSE_COLORS, REVERSE_HOVER_COLORS, ROUNDED, SIZES } from './chip.style';
+import { COLORS, HOVER_COLORS, ICON_SIZE, OUTLINED_COLORS, OUTLINED_HOVER_COLORS, REVERSE_COLORS, REVERSE_HOVER_COLORS, ROUNDED, SIZES, TYPOGRAPHY } from './chip.style';
 import Text from '../text';
 import Div from '../div';
 import { Sizes } from '@types';
@@ -47,7 +48,7 @@ export const Chip = (
         </div>
       ) : null}
       {value ? (
-        <Text color={'inherit'} type={'medium'} {...textProps}>
+        <Text color={'inherit'} type={'medium'} typography={[TYPOGRAPHY[size], TYPOGRAPHY[size]]} {...textProps}>
           {value}
         </Text>
       ) : null}

@@ -30,7 +30,7 @@ const Menu = () => {
   {
     title: 'Catalog',
     key: 'Users',
-    route: '#',
+    route: '/en/',
     subRoutes: [{
       title: 'Category',
       route: getParseRoute({ pathname: routes['route.catalog.category.index'], locale: lang }),
@@ -67,53 +67,55 @@ const Menu = () => {
               <details
                 key={`menu_${index}`}
                 // @ts-ignore
-                open={expandedMenu ? !!item.subRoutes.find(item => routes[item.route] === pathname) : false}
+                open={expandedMenu ? !!item.subRoutes.find(item => item.route === pathname) : false}
                 className={'flex flex-col w-full transition-all duration-1000 open:transition-all open:duration-1000 select-none [&_span]:open:rotate-180'}>
                 <summary
                   className={classNames('!text-control-100 !p-2 !pr-4 flex w-full justify-between transition-all duration-1000 open:transition-all open:duration-1000 rounded-lg h-10 md:h-12 items-center',
                     // @ts-ignore
-                    item.subRoutes.find(item => routes[item.route] === pathname) ? 'bg-control-700' : ''
+                    item.subRoutes.find(item => item.route === pathname) ? 'bg-control-700' : ''
                   )}>
                   <Div
                     className={'transition-all duration-1000 open:transition-all open:duration-1000 cursor-pointer w-full self-center items-center justify-start gap-4 flex-row'}>
                     {MenuIcons[item.key]}
-                    <Text className={`!text-inherit ${expandedMenu ? '' : 'opacity-0 group-hover:opacity-100'}`} type={'bold'} typography={['sm', 'sm']}>
+                    <Text className={`!text-inherit duration-500 transition-all ${expandedMenu ? '' : 'opacity-0 group-hover:opacity-100'}`} type={'bold'} typography={['sm', 'sm']}>
                       {item.title}
                     </Text>
                   </Div>
-                  <span className={`flex cursor-pointer rotate-0 transform transition-all duration-300 ${expandedMenu ? '' : 'opacity-0 group-hover:opacity-100'}`}>
+                  <span className={`flex cursor-pointer rotate-0 transform transition-all duration-500 ${expandedMenu ? '' : 'opacity-0 group-hover:opacity-100'}`}>
                     <ArrowDownIcon />
                   </span>
                 </summary>
-                {item.subRoutes && item.subRoutes.length ? item.subRoutes.map((subItem, index) => (
-                  <Div key={`subMenu_${index}`} className={'ml-7'}>
-                    <Button
-                      variant={'text'}
-                      fontType={'medium'}
-                      href={routes[subItem.route]}
-                      className={classNames(
-                        'w-full !justify-end',
-                        // @ts-ignore
-                        pathname === routes[subItem.route] ? '!text-tertiary' : '!text-control-100',
-                        expandedMenu ? '' : 'hidden group-hover:flex'
-                      )}>
-                      {subItem.title}
-                    </Button>
-                  </Div>
-                )) : null}
+                {item.subRoutes && item.subRoutes.length ? item.subRoutes.map((subItem, index) => {
+                  return (
+                    <Div key={`subMenu_${index}`} className={'ml-7'}>
+                      <Button
+                        variant={'text'}
+                        fontType={'medium'}
+                        href={subItem.route}
+                        className={classNames(
+                          'w-full !justify-end',
+                          // @ts-ignore
+                          pathname === subItem.route ? '!text-white' : '!text-control-100',
+                          expandedMenu ? '' : 'hidden group-hover:flex'
+                        )}>
+                        {subItem.title}
+                      </Button>
+                    </Div>
+                  )
+                }) : null}
               </details>
             ) : (
               <Div key={`menu_${index}`} className={'flex-col w-full'}>
                 <Button
                   variant={'text'}
-                  href={routes[item.route]}
+                  href={item.route}
                   endAdornment={MenuIcons[item.key]}
                   className={classNames('cursor-pointer w-full self-center items-center !justify-end !gap-4 !p-2 !pr-4 !text-control-100',
-                    pathname === routes[item.route] ? 'bg-control-700' : '',
+                    pathname === item.route ? 'bg-control-700' : '',
                   )}>
                   <Text
-                    className={classNames('',
-                      expandedMenu ? 'transition-all duration-1000 !min-w-full' : 'opacity-0 group-hover:opacity-100 !min-w-0 group-hover:!min-w-full'
+                    className={classNames('duration-500 transition-all',
+                      expandedMenu ? '!min-w-full' : 'opacity-0 group-hover:opacity-100 !min-w-0 group-hover:!min-w-full'
                     )}
                     align={'start'}
                     type={'bold'}
