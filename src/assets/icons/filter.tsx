@@ -1,5 +1,4 @@
 const FilterIcon = () => {
-
   return (
     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_67_1970)">
@@ -13,7 +12,7 @@ const FilterIcon = () => {
         </clipPath>
       </defs>
     </svg>
-  )
-}
+  );
+};
 
 export default FilterIcon;

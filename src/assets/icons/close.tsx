@@ -6,5 +6,4 @@ const CloseIcon = () => {
   );
 };
 
-
 export default CloseIcon;
