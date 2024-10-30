@@ -94,14 +94,13 @@ const Menu = () => {
                         href={subItem.route}
                         className={classNames(
                           'w-full !justify-end',
-                          // @ts-ignore
                           pathname === subItem.route ? '!text-white' : '!text-control-100',
                           expandedMenu ? '' : 'hidden group-hover:flex'
                         )}>
                         {subItem.title}
                       </Button>
                     </Div>
-                  )
+                  );
                 }) : null}
               </details>
             ) : (

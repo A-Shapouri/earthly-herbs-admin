@@ -14,11 +14,7 @@ import { MenuItemProps } from '@layouts/menu/menu-item.props';
 import { MenuIcons } from '@layouts/menu/menu.data';
 import routes from '@routes';
 
-interface MobileHeaderProps {
-  pageTitle?: string
-}
-
-const MobileHeader = ({ pageTitle }: MobileHeaderProps) => {
+const MobileHeader = () => {
   const pathname = usePathname();
   const [drawer, setDrawer] = useState(false);
   const menuInfo = [];
