@@ -1,7 +1,3 @@
-import { brown } from "@colors/brown";
-import { desolace } from "@colors/desolace";
-import { flurries } from "@colors/flurries";
-import { frost } from "@colors/frost";
 
 export const MOBILE_SIZE = {
   'tiny': 'text-m-tiny',

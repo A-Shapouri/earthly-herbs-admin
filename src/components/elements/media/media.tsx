@@ -1,7 +1,7 @@
 import React from 'react';
-import { MediaProps } from "./media.props";
-import classNames from "@utils/helpers/class-names";
-import { STYLES } from "./media.style";
+import { MediaProps } from './media.props';
+import classNames from '@utils/helpers/class-names';
+import { STYLES } from './media.style';
 
 export const Media = (props: MediaProps) => {
   const { children, style, at, greaterThan, lessThan, between, className } = props;
@@ -12,6 +12,6 @@ export const Media = (props: MediaProps) => {
       className,
     )}>{children}</div>
   );
-}
+};
 
 export default Media;

@@ -1,3 +1,3 @@
-import MultiRangeSlider from './multi-range-slider'
+import MultiRangeSlider from './multi-range-slider';
 
 export default MultiRangeSlider;

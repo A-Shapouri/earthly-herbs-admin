@@ -1,7 +1,7 @@
 import React from 'react';
 import './multi-range-slider.scss';
-import Div from '@elements/div'
-import Text from '@elements/text'
+import Div from '@elements/div';
+import Text from '@elements/text';
 
 const RangeSlider = ({ min, max, value, step, onChange }) => {
   const [minValue, setMinValue] = React.useState(value ? value.min : min);

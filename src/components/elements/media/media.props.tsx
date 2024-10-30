@@ -1,4 +1,4 @@
-import {ReactNode} from "react";
+import { ReactNode } from 'react';
 
 export interface MediaProps {
   children?: ReactNode
@@ -7,11 +7,11 @@ export interface MediaProps {
 
   style?: any
 
-  at?: "xs" | "sm" | "md" | "lg"
+  at?: 'xs' | 'sm' | 'md' | 'lg'
 
-  lessThan?: "md" | "lg"
+  lessThan?: 'md' | 'lg'
 
-  greaterThan?: "xs" | "sm"
+  greaterThan?: 'xs' | 'sm'
 
-  between?: "xs-lg"
+  between?: 'xs-lg'
 }

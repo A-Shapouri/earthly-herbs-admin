@@ -1,10 +1,10 @@
-import {CSSProperties, ReactNode} from "react";
+import { CSSProperties, ReactNode } from 'react';
 
 export interface DivProps {
   itemScope?: any
-  
+
   itemType?: string
-  
+
   itemProp?: string
 
   children?: ReactNode

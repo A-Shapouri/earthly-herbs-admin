@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { DivProps } from './div.props'
+import { DivProps } from './div.props';
 
 export const Div = forwardRef<any, DivProps>(function Div(props, ref) {
   const { children, style, onClick, dangerouslySetInnerHTML, dataTestId, role, className, id, onMouseOver, onMouseLeave, ...rest } = props;
@@ -20,7 +20,7 @@ export const Div = forwardRef<any, DivProps>(function Div(props, ref) {
     >
       {children}
     </div>
-  )
-})
+  );
+});
 
 export default Div;

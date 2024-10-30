@@ -37,7 +37,7 @@ export const SIZES = {
   medium: 'h-10 md:h-12',
   small: 'h-8 md:h-10',
   tiny: 'h-6 md:h-8',
-}
+};
 
 export const HOVER_COLORS = {
   primary: 'hover:bg-primary hover:text-white',

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { ButtonProps } from './button.props';
 import classNames from '@utils/helpers/class-names';
 import { COLOR_VARIANTS, DISABLED_VARIANTS, ICON_SIZES, ROUNDED, SHAPES, SIZES } from './button.style';
@@ -49,11 +49,15 @@ export const Button = (props: ButtonProps) => {
     const btn = event?.currentTarget;
     const diameter = Math.max(btn.clientWidth, btn.clientHeight);
     const radius = diameter / 2;
-    const circle = rippleRef.current
+    const circle = rippleRef.current;
 
+    //@ts-ignore
     circle.style.width = circle.style.height = `${diameter}px`;
+    //@ts-ignore
     circle.style.left = `${event.clientX - (btn.offsetLeft + radius)}px`;
+    //@ts-ignore
     circle.style.top = `${event.clientY - (btn.offsetTop + radius)}px`;
+    //@ts-ignore
     circle.classList.add('ripple');
 
     const ripple = btn.getElementsByClassName('ripple')[0];

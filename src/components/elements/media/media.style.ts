@@ -1,4 +1,4 @@
-import {MediaProps} from './media.props'
+import { MediaProps } from './media.props';
 
 export const AT = {
   'xs': 'at-xs:flex',
@@ -21,7 +21,7 @@ export const BETWEEN = {
   'xs-lg': 'bw-xs-lg:flex',
 };
 
-export const STYLES = ({at, lessThan, greaterThan, between}: MediaProps) => {
+export const STYLES = ({ at, lessThan, greaterThan, between }: MediaProps) => {
   let className = 'hidden';
 
   if (at) {
@@ -35,4 +35,4 @@ export const STYLES = ({at, lessThan, greaterThan, between}: MediaProps) => {
   }
 
   return className;
-}
+};
