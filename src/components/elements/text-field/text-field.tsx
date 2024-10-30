@@ -145,7 +145,7 @@ export const TextField = React.forwardRef<any, TextFieldProps>(function CustomIn
           <Text className={'flex flex-row gap-x-2 items-center'} typography={['sm', 'sm']} color={disabled ? 'grey.100' : (error ? 'danger' : 'grey.500')}>
             {error ? <NoticeIcon /> : null} {helperText}
           </Text>
-          <Text direction={'ltr'} typography={['sm', 'sm']} color={disabled ? 'grey.100' : (error ? 'danger' : 'grey.500')}>
+          <Text dir={'ltr'} typography={['sm', 'sm']} color={disabled ? 'grey.100' : (error ? 'danger' : 'grey.500')}>
             {maxLength && hasCounter ? `${count} / ${maxLength}` : null}
           </Text>
         </div>
