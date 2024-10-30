@@ -1,5 +1,5 @@
 import React from 'react';
-import { classNames } from '@pezeshk-book/ui-kit';
+import classNames from '@utils/helpers/class-names';
 
 const HamburgerMenuIcon = ({ close, fill, className = 'h-6 w-6' }: { close: boolean, fill?: string, className?: string }) => {
   return (
