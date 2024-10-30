@@ -48,9 +48,12 @@ export const Chip = (
         </div>
       ) : null}
       {value ? (
-        <Text color={'inherit'} type={'medium'} typography={[TYPOGRAPHY[size], TYPOGRAPHY[size]]} {...textProps}>
-          {value}
-        </Text>
+        <>
+          {/*@ts-ignore*/}
+          <Text color={'inherit'} type={'medium'} typography={[TYPOGRAPHY[size], TYPOGRAPHY[size]]} {...textProps}>
+            {value}
+          </Text>
+        </>
       ) : null}
       {endAdornment ? (
         <div className={classNames(`flex h-full items-center justify-center`, endAdornmentClassName)}>
