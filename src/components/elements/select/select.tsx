@@ -204,15 +204,25 @@ export const Select = ({ size = 'medium', placeholder = 'default text', label, o
       </Div>
 
       {helperText ? (
-        <Div className={'px-3 select-none'}>
-          <Text color={disabled ? 'grey.500' : (error ? 'danger' : 'grey.400')} typography={['xs', 'xs']}>
-            {helperText}
+        <div className={'flex flex-row justify-between mt-1'}>
+          <Text className={'flex flex-row gap-x-2 items-center !text-danger-500'} typography={['xxs', 'xxs']} color={'danger'}>
+            {<NoticeIcon />} {helperText}
           </Text>
-        </Div>
-      ) : null}
+        </div>
+      ) : null
+      }
+    </Div >
 
-    </Div>
+  );
+};
 
+const NoticeIcon = () => {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.99992 2.33325C11.4053 2.33325 14.1666 5.09392 14.1666 8.49992C14.1666 11.9053 11.4053 14.6666 7.99992 14.6666C4.59392 14.6666 1.83325 11.9053 1.83325 8.49992C1.83325 5.09392 4.59392 2.33325 7.99992 2.33325Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M7.99865 5.96936V8.91536" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M7.99847 11.0306H8.00518" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 };
 

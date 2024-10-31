@@ -141,11 +141,11 @@ export const TextField = React.forwardRef<any, TextFieldProps>(function CustomIn
         </div>
       ) : null}
       {helperText || (maxLength && hasCounter) ? (
-        <div className={'flex flex-row justify-between px-3'}>
-          <Text className={'flex flex-row gap-x-2 items-center'} typography={['sm', 'sm']} color={disabled ? 'grey.100' : (error ? 'danger' : 'grey.500')}>
+        <div className={'flex flex-row justify-between mt-1'}>
+          <Text className={'flex flex-row gap-x-2 items-center'} typography={['xxs', 'xxs']} color={disabled ? 'grey.100' : (error ? 'danger' : 'grey.500')}>
             {error ? <NoticeIcon /> : null} {helperText}
           </Text>
-          <Text dir={'ltr'} typography={['sm', 'sm']} color={disabled ? 'grey.100' : (error ? 'danger' : 'grey.500')}>
+          <Text dir={'ltr'} typography={['xs', 'xs']} color={disabled ? 'grey.100' : (error ? 'danger' : 'grey.500')}>
             {maxLength && hasCounter ? `${count} / ${maxLength}` : null}
           </Text>
         </div>

@@ -7,17 +7,32 @@ import Drawer from '@elements/drawer';
 import ArrowDownIcon from '@icons-components/arrow-down';
 import LogoImage from '../../../../../public/images/earthly-logo.png';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useParams } from 'next/navigation';
 import HamburgerMenuIcon from '@icons-components/ham-menu';
-import ProfileMenu from '@layouts/header/desktop/components/profile-menu';
-import { MenuItemProps } from '@layouts/menu/menu-item.props';
 import { MenuIcons } from '@layouts/menu/menu.data';
 import routes from '@routes';
+import getParseRoute from '@utils/helpers/parse-route';
+import { DictionariesTypes } from '@dictionaries';
 
 const MobileHeader = () => {
   const pathname = usePathname();
   const [drawer, setDrawer] = useState(false);
-  const menuInfo = [];
+  const { lang } = useParams<{ lang: DictionariesTypes }>();
+
+  const menuInfo = [{
+    title: 'Dashboard',
+    key: 'Dashboard',
+    route: getParseRoute({ pathname: routes['route.home.index'], locale: lang }),
+  },
+  {
+    title: 'Catalog',
+    key: 'Users',
+    route: '/en/',
+    subRoutes: [{
+      title: 'Category',
+      route: getParseRoute({ pathname: routes['route.catalog.category.index'], locale: lang }),
+    }],
+  }];
   const handleClick = () => {
     setDrawer(false);
   };
@@ -25,7 +40,6 @@ const MobileHeader = () => {
   return (
     <Div className={'flex-col w-full gap-4 z-10'}>
       <Div className={'justify-between items-center w-full px-4'}>
-        <ProfileMenu />
         <Button
           className={'!px-0 !justify-end'}
           size={'large'}
@@ -38,13 +52,14 @@ const MobileHeader = () => {
         </Button>
       </Div>
 
-      <Drawer className={'!bg-control-800'} anchor={'start'} open={drawer} onClose={() => setDrawer(false)}>
-        <Div className={'flex-col items-start bg-control-800 w-full h-[inherit] py-5 gap-8 px-4'}>
-          <Div className={'relative w-16 h-16'}>
-            <Image src={LogoImage} alt={'پزشک بوک'} />
+      <Drawer className={'!bg-slate-800 !overflow-hidden'} anchor={'end'} open={drawer} onClose={() => setDrawer(false)}>
+        <Div className={'flex-col items-start bg-slate-800 w-full h-[inherit] py-5 gap-8 px-4 !overflow-hidden'}>
+          <Div className={'relative gap-4'}>
+            <Image src={LogoImage} alt='logo' />
+            <Text color={'white'} typography={['xl', 'xl']}>Earthly Herbs</Text>
           </Div>
           <Div className={'flex-col gap-2 w-full'}>
-            {menuInfo.length && menuInfo.map((item: MenuItemProps, index: number) => (
+            {menuInfo.length && menuInfo.map((item: any, index: number) => (
               item.subRoutes && item.subRoutes.length > 0 ? (
                 <details key={`menu_${index}`} className={'flex flex-col w-full transition-all duration-1000 open:transition-all open:duration-1000 select-none'}>
                   <summary className={'flex w-full justify-between list-none transition-all duration-1000 open:transition-all open:duration-1000 h-10 items-center'}>
@@ -61,7 +76,7 @@ const MobileHeader = () => {
                     <ArrowDownIcon className={'text-control-100'} />
                   </summary>
                   {item.subRoutes && item.subRoutes.length ? item.subRoutes.map((subItem, index) => (
-                    <Div key={`subMenu_${index}`} className={'mr-7'}>
+                    <Div key={`subMenu_${index}`} className={'mr-7 items-end'}>
                       <Button
                         onClick={() => handleClick()}
                         variant={'text'}
@@ -84,8 +99,8 @@ const MobileHeader = () => {
                     onClick={() => handleClick()}
                     // @ts-ignore
                     href={routes[item.route]}
-                    startAdornment={MenuIcons[item.key]}
-                    className={'cursor-pointer w-full self-center items-center !justify-start !gap-4 !px-0 !text-control-100'}>
+                    endAdornment={MenuIcons[item.key]}
+                    className={'cursor-pointer w-full self-center items-center !justify-end !gap-4 !px-0 !text-control-100'}>
                     {item.title}
                   </Button>
                 </Div>

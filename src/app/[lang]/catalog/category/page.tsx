@@ -101,7 +101,7 @@ const Category = () => {
 
   return (
     <Div className={'flex-col justify-center w-full gap-4 md:gap-8'}>
-      <Div className={'flex-col sm:flex-row w-full justify-between'}>
+      <Div className={'flex-col sm:flex-row w-full justify-between gap-4'}>
         <Breadcrumbs
           breadcrumbsData={[
             {
@@ -111,7 +111,7 @@ const Category = () => {
         />
         <Text type={'bold'} typography={['xl', 'xl']} align={'start'}>Category</Text>
       </Div>
-      <Div className={'self-end gap-x-4'}>
+      <Div className={'self-end gap-x-4 justify-between w-full md:w-auto'}>
         <Button
           href={getParseRoute({ pathname: routes['route.catalog.category.create'], locale: 'en' })}
           className={'w-32'}
@@ -143,7 +143,7 @@ const Category = () => {
         perPage={10}
         previousPage={0}
         total={50}
-        mobileColumns={['name', 'firstName', 'lastName']}
+        mobileColumns={['name', 'operations']}
       />
       <Filter
         isShow={isSearchShow}

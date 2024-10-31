@@ -231,7 +231,7 @@ const DataTable = (
                     </tr>
                   )}
                   {row.getIsSelected() && (
-                    <tr className={classNames('bg-primary-50')}>
+                    <tr className={classNames('bg-slate-50')}>
                       <td colSpan={row.getVisibleCells().length}>
                         <Div className={'flex-col'}>
                           {row.getAllCells().map((mobileCell) => {
@@ -239,7 +239,7 @@ const DataTable = (
                               return null;
                             }
                             return (
-                              <Div key={mobileCell.id} className={'gap-2 p-2 items-start'}>
+                              <Div key={mobileCell.id} className={'gap-2 p-2 items-center'}>
                                 {/*@ts-ignore*/}
                                 <Text typography={['sm', 'sm']} type={'bold'}>{header[mobileCell.column.id]}:</Text>
                                 {flexRender(
@@ -259,7 +259,7 @@ const DataTable = (
           </tbody>
         </table>
         <Button color={'slate'} onClick={handleScrollUp} shape={'square'} size={'large'} rounded={'full'} className={classNames('rotate-180 sticky !p-0 bottom-1 self-center duration-500 transition',
-          showGoTop ? 'opacity-100 translate-y-4 !h-auto !min-h-12' : 'translate-y-full opacity-0 !h-0 !min-h-[0px]'
+          showGoTop ? 'opacity-100 translate-y-4 !h-auto' : 'translate-y-full opacity-0 !h-0 !min-h-[0px]'
         )}>
           <ArrowDownIcon />
         </Button>
