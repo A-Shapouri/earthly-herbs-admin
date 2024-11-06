@@ -9,6 +9,8 @@ export interface DividerProps {
 
   className?: string | undefined;
 
+  shade?: 'light' | 'normal' | 'dark'
+
 }
 
 export interface DividerPropsColorOverrides {

@@ -189,7 +189,7 @@ const DataTable = (
                           <SortTableIcon direction={header.column.getIsSorted() as string} />
                         </Div>
                       ) : null}
-                      <Text color={header.column.getIsSorted() ? 'primary' : 'grey.800'} typography={['sm', 'sm']} type={'bold'}>
+                      <Text color={header.column.getIsSorted() ? 'slate' : 'grey.800'} typography={['sm', 'sm']} type={'medium'}>
                         {header.isPlaceholder
                           ? null
                           : flexRender(
@@ -207,7 +207,7 @@ const DataTable = (
             {table.getRowModel().rows.map((row) => {
               return (
                 <Fragment key={row.id}>
-                  <tr className={'h-16 hover:bg-control-50 hover:shadow-2xl border-b '}>
+                  <tr className={'h-16 transition-all duration-300 hover:bg-slate-100 hover:shadow-2xl border-b '}>
                     {row.getVisibleCells().map(cell => {
                       return (
                         <td className={'px-1'} key={cell.id}>

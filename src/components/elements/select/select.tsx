@@ -11,7 +11,7 @@ type Item = {
   [key: string]: any
 }
 
-export const Select = ({ size = 'medium', placeholder = 'default text', label, optionsList, value, onChange, id, text, color = 'slate', variant = 'outlined', disabled, error, startAdornment, helperText, rounded = 'medium', autoComplete = false }: SelectProps) => {
+export const Select = ({ size = 'medium', placeholder = 'default text', label, optionsList, value, onChange, id, text, color = 'slate', variant = 'outlined', disabled, error, startAdornment, helperText, rounded = 'medium', autoComplete = false, className }: SelectProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const dropDownRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -85,7 +85,7 @@ export const Select = ({ size = 'medium', placeholder = 'default text', label, o
   };
 
   return (
-    <Div ref={wrapperRef} className={'flex flex-col items-start justify-between relative w-full h-auto'}>
+    <Div ref={wrapperRef} className={classNames('flex flex-col items-start justify-between relative w-full h-auto', className)}>
       <Div className={'relative w-full'}>
         <Div
           onClick={handleListDisplay}
