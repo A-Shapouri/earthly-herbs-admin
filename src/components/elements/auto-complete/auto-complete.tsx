@@ -9,7 +9,7 @@ import Div from '@elements/div';
 import Text from '@elements/text';
 import { AutoCompleteProps } from './auto-complete.props';
 
-const AutoComplete = ({ label, placeholder, emptyLabel, searchList }: AutoCompleteProps) => {
+const AutoComplete = ({ label, placeholder, emptyLabel, searchList, className }: AutoCompleteProps) => {
   const [showList, setShowList] = useState<boolean>(false);
   const [searchResults, setSearchResults] = useState<Array<string>>(searchList);
   const [value, setValue] = useState('');
@@ -36,11 +36,11 @@ const AutoComplete = ({ label, placeholder, emptyLabel, searchList }: AutoComple
   }
 
   return (
-    <Div className={''}>
+    <Div className={className}>
       <Popper position={'bottom'} showPopper={showList} handlePopper={handlePopper} className={'w-full'}>
         <PopperHandler>
           <TextField
-            rounded='small'
+            rounded='medium'
             color={'slate'}
             onChange={handleInputChange}
             value={value}

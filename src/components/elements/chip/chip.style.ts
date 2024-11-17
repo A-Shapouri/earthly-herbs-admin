@@ -231,8 +231,8 @@ export const TYPOGRAPHY = {
   huge: TypographyEnum['base'],
   large: TypographyEnum['sm'],
   medium: TypographyEnum['xs'],
-  small: TypographyEnum['xs'],
-  tiny: TypographyEnum['xs'],
+  small: TypographyEnum['xxs'],
+  tiny: TypographyEnum['xxs'],
 };
 
 export const ICON_SIZE = {

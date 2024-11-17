@@ -7,12 +7,19 @@ import getParseRoute from '@utils/helpers/parse-route';
 import routes from '@routes';
 import { DictionariesTypes } from '@dictionaries';
 import { useParams } from 'next/navigation';
-import Sections from '@layouts/section';
 import Header from '@layouts/section/sub-components/header';
 import SectionItem from '@layouts/section/sub-components/section-item';
 import General from './sub-components/general';
 import Links from './sub-components/links';
 import Data from './sub-components/data';
+import Attributes from './sub-components/attributes';
+import Recurring from './sub-components/recurring';
+import Discount from './sub-components/discount';
+import Special from './sub-components/special';
+import Images from './sub-components/images';
+import RewardPoints from './sub-components/reward-points';
+import Seo from './sub-components/seo';
+import Design from './sub-components/design/design';
 
 const Menu = [
   {
@@ -26,6 +33,38 @@ const Menu = [
   {
     id: 'links',
     title: 'Links',
+  },
+  {
+    id: 'attributes',
+    title: 'Attributes',
+  },
+  {
+    id: 'recurring',
+    title: 'Recurring',
+  },
+  {
+    id: 'discount',
+    title: 'Discount',
+  },
+  {
+    id: 'special',
+    title: 'Special',
+  },
+  {
+    id: 'image',
+    title: 'Image',
+  },
+  {
+    id: 'reward_points',
+    title: 'Reward Points',
+  },
+  {
+    id: 'seo',
+    title: 'SEO',
+  },
+  {
+    id: 'design',
+    title: 'Design',
   },
 ];
 
@@ -45,7 +84,7 @@ const ProductDetails = ({ name }: { name?: string }) => {
   return (
     <Div className='flex-col justify-center w-full gap-4 md:gap-8'>
       <Div className={'w-full gap-2 md:gap-4 md:justify-end justify-between'}>
-        <Button href={getParseRoute({ pathname: routes['route.catalog.category.index'], locale: lang })} rounded={'small'} size={'small'} color={'slate'} startAdornment={<RedoIcon />}>Return to List</Button>
+        <Button href={getParseRoute({ pathname: routes['route.catalog.products.index'], locale: lang })} rounded={'small'} size={'small'} color={'slate'} startAdornment={<RedoIcon />}>Return to List</Button>
         {name ? (
           <Button onClick={handleUpdate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Update</Button>
         ) : (
@@ -62,6 +101,30 @@ const ProductDetails = ({ name }: { name?: string }) => {
         </SectionItem>
         <SectionItem isActive={section === 'links'}>
           <Links />
+        </SectionItem>
+        <SectionItem isActive={section === 'attributes'}>
+          <Attributes />
+        </SectionItem>
+        <SectionItem isActive={section === 'recurring'}>
+          <Recurring />
+        </SectionItem>
+        <SectionItem isActive={section === 'discount'}>
+          <Discount />
+        </SectionItem>
+        <SectionItem isActive={section === 'special'}>
+          <Special />
+        </SectionItem>
+        <SectionItem isActive={section === 'image'}>
+          <Images />
+        </SectionItem>
+        <SectionItem isActive={section === 'reward_points'}>
+          <RewardPoints />
+        </SectionItem>
+        <SectionItem isActive={section === 'seo'}>
+          <Seo />
+        </SectionItem>
+        <SectionItem isActive={section === 'design'}>
+          <Design />
         </SectionItem>
       </Div>
     </Div>

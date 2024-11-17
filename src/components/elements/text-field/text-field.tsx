@@ -38,7 +38,7 @@ export const TextField = React.forwardRef<any, TextFieldProps>(function CustomIn
   } = props;
 
   const [count, setCount] = useState(0);
-
+  console.log(ROUNDED[rounded])
   const onChangeTextInput = (e: any) => {
     setCount(e?.target?.value?.length || 0);
     if (onChange && typeof onChange === 'function') {

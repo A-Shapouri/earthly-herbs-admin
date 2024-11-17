@@ -3,4 +3,5 @@ export interface AutoCompleteProps {
     placeholder?: string
     emptyLabel: string
     searchList: Array<string>
+    className?: string
 }

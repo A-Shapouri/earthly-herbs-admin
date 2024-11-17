@@ -13,7 +13,7 @@ type Item = {
   [key: string]: any
 }
 
-export const MultiSelect = ({ size = 'medium', label, placeholder = 'enter your text', optionsList, value, onChange, id = 'id', text = 'name', color = 'primary', variant = 'outlined', disabled, error, startAdornment, helperText, rounded = 'small', direction = 'ltr' }: MultiSelectProps) => {
+export const MultiSelect = ({ size = 'medium', label, placeholder = 'enter your text', optionsList, value, onChange, id = 'id', text = 'name', color = 'primary', variant = 'outlined', disabled, error, startAdornment, helperText, rounded = 'small', direction = 'ltr', className }: MultiSelectProps) => {
   // refs
   const wrapperRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -83,7 +83,7 @@ export const MultiSelect = ({ size = 'medium', label, placeholder = 'enter your 
   };
 
   return (
-    <Div className={'flex flex-col items-start relative w-full h-auto'}>
+    <Div className={classNames('flex flex-col items-start relative w-full h-auto', className)}>
       <Div ref={wrapperRef} className={'relative w-full'}>
         <Div
           onClick={handleListDisplay}
@@ -122,7 +122,7 @@ export const MultiSelect = ({ size = 'medium', label, placeholder = 'enter your 
             </span>
           ) : null}
 
-          <Div className={'flex flex-wrap items-center grow w-0 gap-1 my-1 z-10'}>
+          <Div className={'flex flex-wrap items-center grow w-0 gap-1 my-1 z-[5]'}>
             {value && value.length >= 1 && (
               value.map((item, index) => (
                 <Div key={index} className={'flex flex-wrap items-center select-none gap-1 h-auto'}>

@@ -34,6 +34,8 @@ export interface MultiSelectProps {
   rounded?: 'full' | 'huge' | 'large' | 'medium' | 'small' | 'tiny' | 'none'
 
   direction?: 'rtl' | 'ltr'
+
+  className?: string
 }
 
 export type Variant = 'outlined' | 'filled';

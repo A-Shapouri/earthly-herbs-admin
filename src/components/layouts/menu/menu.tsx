@@ -34,7 +34,48 @@ const Menu = () => {
     subRoutes: [{
       title: 'Category',
       route: getParseRoute({ pathname: routes['route.catalog.category.index'], locale: lang }),
-    }],
+    },
+    {
+      title: 'Products',
+      route: getParseRoute({ pathname: routes['route.catalog.products.index'], locale: lang }),
+    },
+    {
+      title: 'Recurring Profiles',
+      route: getParseRoute({ pathname: routes['route.catalog.recurring-profiles.index'], locale: lang }),
+    },
+    {
+      title: 'Filters',
+      route: getParseRoute({ pathname: routes['route.catalog.filters.index'], locale: lang }),
+    },
+    {
+      title: 'Attributes',
+      route: getParseRoute({ pathname: routes['route.catalog.attributes.index'], locale: lang }),
+    },
+    {
+      title: 'Attribute Groups',
+      route: getParseRoute({ pathname: routes['route.catalog.attribute-groups.index'], locale: lang }),
+    },
+    {
+      title: 'Options',
+      route: getParseRoute({ pathname: routes['route.catalog.options.index'], locale: lang }),
+    },
+    {
+      title: 'Manufacturers',
+      route: getParseRoute({ pathname: routes['route.catalog.manufacturers.index'], locale: lang }),
+    },
+    {
+      title: 'Downloads',
+      route: getParseRoute({ pathname: routes['route.catalog.downloads.index'], locale: lang }),
+    },
+    {
+      title: 'Reviews',
+      route: getParseRoute({ pathname: routes['route.catalog.reviews.index'], locale: lang }),
+    },
+    {
+      title: 'Information',
+      route: getParseRoute({ pathname: routes['route.catalog.information.index'], locale: lang }),
+    },
+    ],
   }];
 
   const handleExpandedMenu = () => {
@@ -90,6 +131,7 @@ const Menu = () => {
                     <Div key={`subMenu_${index}`} className={'ml-7'}>
                       <Button
                         variant={'text'}
+                        size='small'
                         fontType={'medium'}
                         href={subItem.route}
                         className={classNames(

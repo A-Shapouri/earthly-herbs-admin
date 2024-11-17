@@ -5,8 +5,9 @@ import { SectionItemProps } from './section-item.props';
 
 const SectionItem = ({ children, isActive }: SectionItemProps) => {
   return (
-    <Div className={classNames('flex-col w-full', isActive ? 'visible' : 'hidden')}>
-      <Div className={'w-full bg-white md:p-8 rounded-lg rounded-tr-none flex-col z-[2]'}>
+    <Div className={classNames('flex-col w-full top-12 left-0 transition-all duration-500',
+      isActive ? 'visible' : 'hidden')}>
+      <Div className={'w-full rounded-lg rounded-tr-none flex-col z-[2]'}>
         {children}
       </Div>
     </Div>

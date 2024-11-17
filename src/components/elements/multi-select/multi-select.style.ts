@@ -37,7 +37,7 @@ export const SIZES = {
   medium: 'min-h-10 md:min-h-12 h-auto',
   small: 'min-h-8 md:min-h-10 h-auto',
   tiny: 'min-h-6 md:min-h-8 h-auto',
-}
+};
 
 export const HOVER_COLORS = {
   primary: 'hover:bg-primary hover:text-white',
@@ -93,7 +93,7 @@ export const TEXT_SIZE = {
   medium: '!text-m-sm sm:!text-t-sm md:!text-d-sm',
   large: '!text-m-sm sm:!text-t-sm md:!text-d-sm',
   huge: '!text-m-base sm:!text-t-base md:!text-d-base',
-}
+};
 
 export const DROPDOWN_BORDER_COLOR = {
   primary: 'border-primary-dark',
@@ -126,4 +126,4 @@ export const DROPDOWN_BORDER_COLOR = {
   fuchsia: 'border-fuchsia-700',
   pink: 'border-pink-700',
   rose: 'border-rose-700',
-}
+};
