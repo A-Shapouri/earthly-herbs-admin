@@ -48,6 +48,7 @@ const DownloadDetails = ({ name }: { name?: string }) => {
       </Div>
       <MainSection title='Recurring Profile'>
         <TextField
+          rounded='small'
           size='small'
           onChange={(e) => handleChangeValue({ id: 'name', value: e.target.value })}
           className={'w-full md:col-span-3'}
@@ -57,33 +58,37 @@ const DownloadDetails = ({ name }: { name?: string }) => {
           helperText={state.nameError ? 'name is requiered!' : undefined}
         />
         <TextField
+          rounded='small'
           size='small'
           type={'number'}
           onChange={(e) => handleChangeValue({ id: 'sort_order', value: e.target.value })}
-          className={'w-full col-span-2 col-start-1'}
+          className={'w-full md:col-span-2 col-start-1'}
           error={state.sortOrderError}
           value={state?.sort_order}
           label={'Price'}
           helperText={state.sortOrderError ? 'price is requiered!' : undefined}
         />
         <TextField
+          rounded='small'
           size='small'
           type={'number'}
           onChange={(e) => handleChangeValue({ id: 'duration', value: e.target.value })}
-          className={'w-full col-span-2'}
+          className={'w-full md:col-span-2'}
           label={'Duration'}
           helperText={state.sortOrderError ? 'price is requiered!' : undefined}
         />
         <TextField
+          rounded='small'
           size='small'
           type={'number'}
           onChange={(e) => handleChangeValue({ id: 'cycle', value: e.target.value })}
-          className={'w-full col-span-2'}
+          className={'w-full md:col-span-2'}
           label={'Cycle'}
           helperText={state.sortOrderError ? 'cycle is requiered!' : undefined}
         />
         <Select
-          className=' col-span-2'
+          rounded='small'
+          className='md:col-span-2'
           size='small'
           label={'Status'}
           optionsList={[{ id: 1, title: 'Enabled' }, { id: 2, title: 'Disabled' }]}
@@ -94,7 +99,8 @@ const DownloadDetails = ({ name }: { name?: string }) => {
           helperText={state.statusError ? 'status is requiered!' : undefined}
           text={'title'} />
         <Select
-          className=' col-span-2'
+          rounded='small'
+          className='md:col-span-2'
           size='small'
           label={'Frequency'}
           optionsList={[{ id: 1, title: 'Day' }, { id: 2, title: 'Week' }, { id: 3, title: 'Semi Month' }, { id: 4, title: 'Month' }, { id: 5, title: 'Year' }]}
@@ -105,33 +111,37 @@ const DownloadDetails = ({ name }: { name?: string }) => {
       </MainSection>
       <MainSection title='Trial Profile'>
         <TextField
+          rounded='small'
           size='small'
           type={'number'}
           onChange={(e) => handleChangeValue({ id: 'sort_order', value: e.target.value })}
-          className={'w-full col-span-2 col-start-1'}
+          className={'w-full md:col-span-2 col-start-1'}
           error={state.sortOrderError}
           value={state?.sort_order}
           label={'Trial Price'}
           helperText={state.sortOrderError ? 'price is requiered!' : undefined}
         />
         <TextField
+          rounded='small'
           size='small'
           type={'number'}
           onChange={(e) => handleChangeValue({ id: 'duration', value: e.target.value })}
-          className={'w-full col-span-2'}
+          className={'w-full md:col-span-2'}
           label={'Trial Duration'}
           helperText={state.sortOrderError ? 'price is requiered!' : undefined}
         />
         <TextField
+          rounded='small'
           size='small'
           type={'number'}
           onChange={(e) => handleChangeValue({ id: 'cycle', value: e.target.value })}
-          className={'w-full col-span-2'}
+          className={'w-full md:col-span-2'}
           label={'Trial Cycle'}
           helperText={state.sortOrderError ? 'cycle is requiered!' : undefined}
         />
         <Select
-          className=' col-span-2'
+          rounded='small'
+          className='md:col-span-2'
           size='small'
           label={'Trial Status'}
           optionsList={[{ id: 1, title: 'Enabled' }, { id: 2, title: 'Disabled' }]}
@@ -142,7 +152,8 @@ const DownloadDetails = ({ name }: { name?: string }) => {
           helperText={state.statusError ? 'status is requiered!' : undefined}
           text={'title'} />
         <Select
-          className=' col-span-2'
+          rounded='small'
+          className='md:col-span-2'
           size='small'
           label={'Trial Frequency'}
           optionsList={[{ id: 1, title: 'Day' }, { id: 2, title: 'Week' }, { id: 3, title: 'Semi Month' }, { id: 4, title: 'Month' }, { id: 5, title: 'Year' }]}
@@ -151,10 +162,11 @@ const DownloadDetails = ({ name }: { name?: string }) => {
           id={'id'}
           text={'title'} />
         <TextField
+          rounded='small'
           size='small'
           type={'number'}
           onChange={(e) => handleChangeValue({ id: 'cycle', value: e.target.value })}
-          className={'w-full col-span-2'}
+          className={'w-full md:col-span-2'}
           label={'Sort Order'}
         />
       </MainSection>

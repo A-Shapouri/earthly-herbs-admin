@@ -101,7 +101,6 @@ const Information = () => {
         perPage={10}
         previousPage={0}
         total={50}
-        mobileColumns={['name', 'operations']}
       />
       <Filter
         isShow={isSearchShow}

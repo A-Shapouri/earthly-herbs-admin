@@ -72,7 +72,7 @@ const AttributeDetails = ({ name }: { name?: string }) => {
           rounded='small'
           type={'number'}
           onChange={(e) => handleChangeValue({ id: 'sortOrder', value: e.target.value })}
-          className={'w-full col-span-2 col-start-1'}
+          className={'w-full md:col-span-2 col-start-1'}
           label={'Sort Order'}
         />
       </MainSection>

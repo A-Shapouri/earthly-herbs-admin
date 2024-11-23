@@ -57,8 +57,8 @@ const DataTable = (
       accessorKey: 'mobileExpander',
       header: () => null,
       cell: ({ row }) => {
-        return row.getCanSelect() ? (
-          <Div className={'relative justify-center items-center text-primary'}>
+        return row.getCanSelect() && mobileColumns ? (
+          <Div className={'relative justify-center items-center text-slate-800'}>
             <Checkbox
               className={'!p-0 absolute !border-none !bg-transparent z-[9]'}
               size={'tiny'}
@@ -211,7 +211,7 @@ const DataTable = (
                     {row.getVisibleCells().map(cell => {
                       return (
                         <td className={'px-1'} key={cell.id}>
-                          <Div className={'flex-col items-center'}>
+                          <Div className={'flex-col items-center w-full'}>
                             {
                               flexRender(
                                 cell.column.columnDef.cell,
@@ -241,7 +241,7 @@ const DataTable = (
                             return (
                               <Div key={mobileCell.id} className={'gap-2 p-2 items-center'}>
                                 {/*@ts-ignore*/}
-                                <Text typography={['sm', 'sm']} type={'bold'}>{header[mobileCell.column.id]}:</Text>
+                                <Text typography={['sm', 'sm']} className='whitespace-nowrap' type={'bold'}>{header[mobileCell.column.id]}:</Text>
                                 {flexRender(
                                   mobileCell.column.columnDef.cell,
                                   mobileCell.getContext()

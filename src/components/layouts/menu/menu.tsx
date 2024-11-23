@@ -81,7 +81,6 @@ const Menu = () => {
   const handleExpandedMenu = () => {
     store.dispatch({ type: HomeActionTypes.SET_EXPANDED_MENU, data: { expandedMenu: !expandedMenu } });
   };
-
   return (
     <Div className={'z-10 bg-slate-800 min-h-screen pb-10 pt-4 px-4 rounded-tr-xl'}>
       <Div
@@ -108,17 +107,18 @@ const Menu = () => {
               <details
                 key={`menu_${index}`}
                 // @ts-ignore
-                open={expandedMenu ? !!item.subRoutes.find(item => item.route === pathname) : false}
+                open={expandedMenu ? !!item.subRoutes.find(item => pathname.includes(item.route)) : false}
                 className={'flex flex-col w-full transition-all duration-1000 open:transition-all open:duration-1000 select-none [&_span]:open:rotate-180'}>
                 <summary
-                  className={classNames('!text-control-100 !p-2 !pr-4 flex w-full justify-between transition-all duration-1000 open:transition-all open:duration-1000 rounded-lg h-10 md:h-12 items-center',
+                  className={classNames('!text-control-100 mb-4 !p-2 !pr-4 flex w-full justify-between transition-all duration-1000 open:transition-all open:duration-1000 rounded-sm h-10 md:h-10 items-center',
                     // @ts-ignore
-                    item.subRoutes.find(item => item.route === pathname) ? 'bg-control-700' : ''
+                    item.subRoutes.find(item => pathname.includes(item.route)) && expandedMenu ? 'bg-control-700' : '',
+                    item.subRoutes.find(item => pathname.includes(item.route)) ? 'group-hover:bg-control-700' : ''
                   )}>
                   <Div
                     className={'transition-all duration-1000 open:transition-all open:duration-1000 cursor-pointer w-full self-center items-center justify-start gap-4 flex-row'}>
                     {MenuIcons[item.key]}
-                    <Text className={`!text-inherit duration-500 transition-all ${expandedMenu ? '' : 'opacity-0 group-hover:opacity-100'}`} type={'bold'} typography={['sm', 'sm']}>
+                    <Text className={`whitespace-nowrap !text-inherit duration-500 transition-all ${expandedMenu ? '' : 'opacity-0 group-hover:opacity-100'}`} type={'bold'} typography={['sm', 'sm']}>
                       {item.title}
                     </Text>
                   </Div>
@@ -134,9 +134,11 @@ const Menu = () => {
                         size='small'
                         fontType={'medium'}
                         href={subItem.route}
+                        rounded='small'
                         className={classNames(
-                          'w-full !justify-end',
-                          pathname === subItem.route ? '!text-white' : '!text-control-100',
+                          'w-full !justify-end whitespace-nowrap',
+                          pathname.includes(subItem.route) && expandedMenu ? '!text-white bg-control-700' : '!text-control-100',
+                          pathname.includes(subItem.route) ? 'group-hover:bg-control-700' : '',
                           expandedMenu ? '' : 'hidden group-hover:flex'
                         )}>
                         {subItem.title}
@@ -148,14 +150,16 @@ const Menu = () => {
             ) : (
               <Div key={`menu_${index}`} className={'flex-col w-full'}>
                 <Button
+                  rounded='small'
                   variant={'text'}
                   href={item.route}
                   endAdornment={MenuIcons[item.key]}
                   className={classNames('cursor-pointer w-full self-center items-center !justify-end !gap-4 !p-2 !pr-4 !text-control-100',
-                    pathname === item.route ? 'bg-control-700' : '',
+                    item.route.startsWith(pathname) && expandedMenu ? 'bg-control-700' : '',
+                    item.route.startsWith(pathname) ? 'group-hover:bg-control-700' : '',
                   )}>
                   <Text
-                    className={classNames('duration-500 transition-all',
+                    className={classNames('duration-500 transition-all whitespace-nowrap',
                       expandedMenu ? '!min-w-full' : 'opacity-0 group-hover:opacity-100 !min-w-0 group-hover:!min-w-full'
                     )}
                     align={'start'}

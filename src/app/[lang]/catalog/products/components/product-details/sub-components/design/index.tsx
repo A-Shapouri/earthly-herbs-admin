@@ -1,3 +1,3 @@
-import Seo from './seo';
+import Design from './design';
 
-export default Seo;
+export default Design;

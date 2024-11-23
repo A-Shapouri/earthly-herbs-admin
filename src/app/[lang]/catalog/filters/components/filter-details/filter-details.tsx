@@ -49,6 +49,7 @@ const FilterDetails = ({ name }: { name?: string }) => {
       <MainSection title='Filter Group'>
         <TextField
           size='small'
+          rounded='small'
           onChange={(e) => handleChangeValue({ id: 'name', value: e.target.value })}
           className={'w-full md:col-span-3'}
           error={state.nameError}
@@ -57,10 +58,11 @@ const FilterDetails = ({ name }: { name?: string }) => {
           helperText={state.nameError ? 'Filter Group Name is requiered!' : undefined}
         />
         <TextField
+          rounded='small'
           size='small'
           type={'number'}
           onChange={(e) => handleChangeValue({ id: 'cycle', value: e.target.value })}
-          className={'w-full col-span-2 col-start-1'}
+          className={'w-full md:col-span-2 col-start-1'}
           label={'Sort Order'}
         />
       </MainSection>

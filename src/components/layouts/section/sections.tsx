@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Div from '@elements/div'
-import { SectionsProps, SectionTypes } from './sections.props';
+import { SectionsProps } from './sections.props';
 
 const Sections = ({ menu }: SectionsProps) => {
-  const [section, setSection] = useState<SectionTypes>('info');
+  const [section, setSection] = useState('info');
 
-  const handleChangeSection = ({ section }: { section: SectionTypes }) => {
+  const handleChangeSection = ({ section }: { section: string }) => {
     setSection(section);
   };
 

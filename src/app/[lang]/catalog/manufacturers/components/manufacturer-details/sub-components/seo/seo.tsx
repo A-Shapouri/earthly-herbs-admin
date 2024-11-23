@@ -13,8 +13,8 @@ const Seo = () => {
 
   return (
     <Div className={'w-full gap-6 grid md:grid-cols-6 grid-cols-1 mt-4'}>
-      <MainSection title='Primary Info' className='col-span-6'>
-        <Div className='col-span-6 w-full grid grid-cols-3 mt-8'>
+      <MainSection title='Primary Info' className='md:col-span-6'>
+        <Div className='md:col-span-6 w-full grid grid-cols-3 md:mt-8 mt-2'>
           <Div className='flex-col gap-3 col-span-1'>
             <Text>Stores</Text>
             <Divider shade='dark' color='slate' />
@@ -27,7 +27,7 @@ const Seo = () => {
               onChange={(e) => handleChangeValue({ id: 'description', value: e.target.value })}
               className={'w-full md:col-span-6'}
               size='small'
-              rounded='medium'
+              rounded='small'
               label={'Keyword'}
             />
           </Div>

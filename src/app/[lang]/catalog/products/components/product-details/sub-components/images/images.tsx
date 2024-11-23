@@ -41,7 +41,7 @@ const Images = () => {
   };
 
   return (
-    <Div className={'w-full gap-6 grid grid-cols-2 mt-4'}>
+    <Div className={'w-full gap-6 grid grid-cols-1 md:grid-cols-2 mt-4'}>
       <MainSection title={`Default Image`} className=''>
         <Div className='w-full col-span-6'>
           <Uploader initial={initial ? null : InitialImage} file={initial} fileCallback={handleUploadInitialImage} title={'please click here to upload image'} />
@@ -58,7 +58,7 @@ const Images = () => {
                 <Uploader file={item.image} fileCallback={(state) => handleUploadImage(state, index)} title={'please click here to upload image'} />
                 <TextField
                   size='small'
-                  rounded='medium'
+                  rounded='small'
                   onChange={(e) => handleChangeValue({ id: 'parent_id', value: e.target.value })}
                   className={'w-full'}
                   label={'Sort Order'}
@@ -68,7 +68,7 @@ const Images = () => {
           </MainSection>
         );
       })}
-      <Div className='justify-start items-start col-span-1'>
+      <Div className='md:justify-start md:items-start justify-center col-span-1'>
         <Button onClick={handleAddRow} color={'emerald'} shape='square' startAdornment={<AddIcon />} />
       </Div>
     </Div>

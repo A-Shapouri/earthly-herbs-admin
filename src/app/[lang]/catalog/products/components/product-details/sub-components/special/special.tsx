@@ -81,7 +81,7 @@ const Special = () => {
               <Div className='justify-end'>
                 <Chip size='small' onClick={() => handleRemoveRow(index)} onDelete={() => handleRemoveRow(index)} variant={'reverse'} className={'self-start'} color={'danger'} value={'Remove'} />
               </Div>
-              <Div className='gap-4'>
+              <Div className='gap-4 flex-col md:flex-row'>
                 <Select
                   rounded='small'
                   value={''}

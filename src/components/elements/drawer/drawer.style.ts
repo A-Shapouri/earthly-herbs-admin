@@ -2,13 +2,13 @@ const Anchor = {
   start: {
     enterAnimation: 'translate-x-0',
     exitAnimation: 'translate-x-full',
-    childrenLocation: 'flex-row-reverse',
+    childrenLocation: 'flex-row',
     childrenSize: 'w-80 max-w-[90%] h-screen',
   },
   end: {
     enterAnimation: '-translate-x-0',
     exitAnimation: '-translate-x-full',
-    childrenLocation: 'flex-row',
+    childrenLocation: 'flex-row-reverse',
     childrenSize: 'w-80 max-w-[90%] h-screen',
   },
   top: {

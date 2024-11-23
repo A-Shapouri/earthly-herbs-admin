@@ -11,7 +11,7 @@ const ClientLayout = ({ children }: { children: ReactNode }) => {
       <Suspense>
         <ProgressBar
           height={'6px'}
-          color={'#27d4a8'}
+          color={'#64748b'}
           options={{ showSpinner: false }}
           shallowRouting
         />

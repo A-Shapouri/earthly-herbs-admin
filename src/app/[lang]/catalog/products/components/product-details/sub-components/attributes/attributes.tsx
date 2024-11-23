@@ -36,15 +36,15 @@ const Attributes = () => {
   };
 
   return (
-    <Div className={'w-full gap-6 grid grid-cols-2 mt-4'}>
+    <Div className={'w-full gap-6 grid md:grid-cols-2 grid-cols-1 mt-4'}>
       {list.map((item, index) => {
         return (
-          <MainSection key={index} title={`Attribute ${index + 1}`} className='flex- flex-col col-span-1'>
-            <Div className='grid grid-cols-3 col-span-6 gap-6 items-center justify-center'>
-              <Div className='col-span-3 justify-end'>
+          <MainSection key={index} title={`Attribute ${index + 1}`} className='flex flex-col col-span-1'>
+            <Div className='grid md:grid-cols-3 grid-cols-1 md:col-span-6 md:gap-6 gap-4 items-center justify-center'>
+              <Div className='md:col-span-3 justify-end'>
                 <Chip size='small' onClick={() => handleRemoveRow(index)} onDelete={() => handleRemoveRow(index)} variant={'reverse'} className={'self-start'} color={'danger'} value={'Remove'} />
               </Div>
-              <Div className='col-span-2'>
+              <Div className='md:col-span-2'>
                 <AutoComplete
                   className='w-full'
                   searchList={['Test 1', 'Test 2', 'Test 3', 'Test 4', 'Test 5', 'Test 6']}
@@ -52,7 +52,7 @@ const Attributes = () => {
                   emptyLabel='No Result'
                 />
               </Div>
-              <Div className='col-span-3'>
+              <Div className='md:col-span-3'>
                 <TextField
                   onChange={(e) => handleChangeValue({ id: 'description', value: e.target.value })}
                   className={'w-full'}
@@ -67,7 +67,7 @@ const Attributes = () => {
           </MainSection>
         );
       })}
-      <Div className='justify-start items-start col-span-1'>
+      <Div className='md:justify-start md:items-start justify-center col-span-1'>
         <Button onClick={handleAddRow} color={'emerald'} shape='square' startAdornment={<AddIcon />} />
       </Div>
     </Div>

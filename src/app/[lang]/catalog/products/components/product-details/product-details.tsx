@@ -19,7 +19,7 @@ import Special from './sub-components/special';
 import Images from './sub-components/images';
 import RewardPoints from './sub-components/reward-points';
 import Seo from './sub-components/seo';
-import Design from './sub-components/design/design';
+import Design from './sub-components/design';
 
 const Menu = [
   {
@@ -72,10 +72,8 @@ const ProductDetails = ({ name }: { name?: string }) => {
   const { lang } = useParams<{ lang: DictionariesTypes }>();
   const [section, setSection] = useState<string>('general');
   const handleCreate = () => {
-    dispatch({ type: 'CHECK_ERROR' });
   };
   const handleUpdate = () => {
-    dispatch({ type: 'CHECK_ERROR' });
   };
   const handleChangeSection = (id: string) => {
     setSection(id);

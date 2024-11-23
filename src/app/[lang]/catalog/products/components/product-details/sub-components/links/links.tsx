@@ -37,13 +37,13 @@ const Links = () => {
     <Div className={'w-full gap-6 grid md:grid-cols-6 grid-cols-1 mt-4'}>
       <MainSection title='Primary Info' className='col-span-4'>
         <AutoComplete
-          className='col-span-3'
+          className='md:col-span-3'
           searchList={['-- None --', 'Apple', 'Canon', 'HTC', 'Hewlett-Packard', 'Palm']}
           label='Manufacturer'
           emptyLabel='No Result'
         />
         <MultiSelect
-          className='col-span-5'
+          className='md:col-span-5'
           color='slate'
           size='small'
           rounded='small'
@@ -55,7 +55,7 @@ const Links = () => {
           value={categories}
         />
         <MultiSelect
-          className='col-span-5'
+          className='md:col-span-5'
           color='slate'
           size='small'
           rounded='small'
@@ -67,7 +67,7 @@ const Links = () => {
           value={filters}
         />
         <MultiSelect
-          className='col-span-5'
+          className='md:col-span-5'
           color='slate'
           size='small'
           rounded='small'
@@ -79,7 +79,7 @@ const Links = () => {
           value={downloads}
         />
         <MultiSelect
-          className='col-span-5'
+          className='md:col-span-5'
           color='slate'
           size='small'
           rounded='small'

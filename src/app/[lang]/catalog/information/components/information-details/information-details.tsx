@@ -12,7 +12,7 @@ import SectionItem from '@layouts/section/sub-components/section-item';
 import General from './sub-components/general';
 import Data from './sub-components/data';
 import Seo from './sub-components/seo';
-import Design from './sub-components/design/design';
+import Design from './sub-components/design';
 
 const Menu = [
   {
@@ -37,10 +37,10 @@ const InformationDetails = ({ name }: { name?: string }) => {
   const { lang } = useParams<{ lang: DictionariesTypes }>();
   const [section, setSection] = useState<string>('general');
   const handleCreate = () => {
-    dispatch({ type: 'CHECK_ERROR' });
+    // dispatch({ type: 'CHECK_ERROR' });
   };
   const handleUpdate = () => {
-    dispatch({ type: 'CHECK_ERROR' });
+    // dispatch({ type: 'CHECK_ERROR' });
   };
   const handleChangeSection = (id: string) => {
     setSection(id);

@@ -55,6 +55,7 @@ const Category = () => {
         cell: info => <Image width={40} height={40} src={info.getValue()} alt='image' />,
       },
       {
+        header: header.name,
         accessorFn: row => row.name,
         id: 'name',
         cell: info => {

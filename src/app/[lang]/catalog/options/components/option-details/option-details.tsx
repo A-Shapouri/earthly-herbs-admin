@@ -48,6 +48,7 @@ const OptionDetails = ({ name }: { name?: string }) => {
       </Div>
       <MainSection title='Option Details'>
         <TextField
+          rounded='small'
           size='small'
           onChange={(e) => handleChangeValue({ id: 'name', value: e.target.value })}
           className={'w-full md:col-span-3'}
@@ -57,10 +58,11 @@ const OptionDetails = ({ name }: { name?: string }) => {
           helperText={state.nameError ? 'Option Name is requiered!' : undefined}
         />
         <TextField
+          rounded='small'
           size='small'
           type={'number'}
           onChange={(e) => handleChangeValue({ id: 'cycle', value: e.target.value })}
-          className={'w-full col-span-2 col-start-1'}
+          className={'w-full md:col-span-2 col-start-1'}
           label={'Sort Order'}
         />
       </MainSection>

@@ -83,11 +83,11 @@ const Products = () => {
         <Breadcrumbs
           breadcrumbsData={[
             {
-              label: 'Category',
+              label: 'Products',
             },
           ]}
         />
-        <Text type={'bold'} typography={['xl', 'xl']} align={'start'}>Category</Text>
+        <Text type={'bold'} typography={['xl', 'xl']} align={'start'}>Products</Text>
       </Div>
       <Div className={'self-end gap-x-4 justify-between w-full md:w-auto'}>
         <Button

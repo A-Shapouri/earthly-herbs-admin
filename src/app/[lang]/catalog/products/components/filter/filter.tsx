@@ -32,10 +32,11 @@ const Filter = ({ getSearchResult, loading, isShow, closeModal }: { getSearchRes
 
   return (
     <Modal open={isShow} onClose={closeModal}>
-      <Div className={`relative w-11/12 md:w-2/3 md:h-auto h-3/4 bg-white z-40 rounded-3xl md:p-4 pt-2 px-2 pb-0 flex flex-col justify-center items-center self-center gap-8`}>
+      <Div className={`relative w-11/12 md:w-2/3 md:h-auto h-fit bg-white z-40 rounded-3xl md:p-4 pt-2 px-2 pb-0 flex flex-col justify-center items-center self-center gap-8`}>
         <Chip onClick={closeModal} onDelete={closeModal} variant={'outlined'} className={'self-start'} color={'danger'} value={'Close'} />
         <Div className={'grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 w-11/12 md:w-2/3'}>
           <TextField
+            rounded='small'
             label={'Name'}
             size={'small'}
             className={'w-full'}
@@ -43,6 +44,7 @@ const Filter = ({ getSearchResult, loading, isShow, closeModal }: { getSearchRes
             onChange={(e) => handleChangeValue({ id: 'name', value: e.target.value })}
           />
           <Select
+            rounded='small'
             size={'small'}
             label={'Status'}
             optionsList={[{ id: 1, title: 'Enabled' }, { id: 2, title: 'Disabled' }]}
@@ -51,6 +53,7 @@ const Filter = ({ getSearchResult, loading, isShow, closeModal }: { getSearchRes
             id={'id'}
             text={'title'} />
           <TextField
+            rounded='small'
             label={'Parent'}
             size={'small'}
             className={'w-full'}
@@ -69,7 +72,7 @@ const Filter = ({ getSearchResult, loading, isShow, closeModal }: { getSearchRes
             color={'slate'}
             disabled={loading}
             loading={loading}
-            rounded='medium'
+            rounded='small'
             startAdornment={<SearchIcon />}
             onClick={handleSearchResult}
             className={'w-full'}>
@@ -80,7 +83,7 @@ const Filter = ({ getSearchResult, loading, isShow, closeModal }: { getSearchRes
             variant={'outlined'}
             disabled={loading}
             loading={loading}
-            rounded='medium'
+            rounded='small'
             startAdornment={<RedoIcon />}
             onClick={handleInitialStore}
             className={'w-full'}>

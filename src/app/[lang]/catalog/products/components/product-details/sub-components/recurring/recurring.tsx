@@ -34,43 +34,39 @@ const Recurring = () => {
   };
 
   return (
-    <Div className={'w-full gap-6 grid grid-cols-2 mt-4'}>
+    <Div className={'w-full gap-6 grid md:grid-cols-2 grid-cols-1 mt-4'}>
       {list.map((item, index) => {
         return (
-          <MainSection key={index} title={`Recuuring ${index + 1}`} className='flex- flex-col col-span-1'>
-            <Div className='grid grid-cols-2 col-span-6 gap-6 items-center justify-center'>
-              <Div className='col-span-3 justify-end'>
+          <MainSection key={index} title={`Recuuring ${index + 1}`} className='flex flex-col col-span-1'>
+            <Div className='grid grid-cols-1 md:grid-cols-2 md:col-span-6 gap-6 items-center justify-center'>
+              <Div className='md:col-span-3 justify-end'>
                 <Chip size='small' onClick={() => handleRemoveRow(index)} onDelete={() => handleRemoveRow(index)} variant={'reverse'} className={'self-start'} color={'danger'} value={'Remove'} />
               </Div>
-              <Div>
-                <Select
-                  rounded='small'
-                  value={''}
-                  size='small'
-                  className='col-span-3 w-full'
-                  label={'Recurring Profile'}
-                  optionsList={[{ id: 1, title: 'Profile_1' }, { id: 2, title: 'Profile_2' }, { id: 3, title: 'Profile_3' }, { id: 4, title: 'Profile_4' }]}
-                  onChange={(newValue) => handleChangeValue({ id: 'status', value: newValue })}
-                  id={'id'}
-                  text={'title'} />
-              </Div>
-              <Div>
-                <Select
-                  rounded='small'
-                  value={''}
-                  size='small'
-                  className='col-span-3 w-full'
-                  label={'Customer Group'}
-                  optionsList={[{ id: 1, title: 'Group_1' }, { id: 2, title: 'Group_2' }, { id: 3, title: 'Group_3' }, { id: 4, title: 'Group_4' }]}
-                  onChange={(newValue) => handleChangeValue({ id: 'status', value: newValue })}
-                  id={'id'}
-                  text={'title'} />
-              </Div>
+              <Select
+                rounded='small'
+                value={''}
+                size='small'
+                className='md:col-span-3 w-full'
+                label={'Recurring Profile'}
+                optionsList={[{ id: 1, title: 'Profile_1' }, { id: 2, title: 'Profile_2' }, { id: 3, title: 'Profile_3' }, { id: 4, title: 'Profile_4' }]}
+                onChange={(newValue) => handleChangeValue({ id: 'status', value: newValue })}
+                id={'id'}
+                text={'title'} />
+              <Select
+                rounded='small'
+                value={''}
+                size='small'
+                className='md:col-span-3 w-full'
+                label={'Customer Group'}
+                optionsList={[{ id: 1, title: 'Group_1' }, { id: 2, title: 'Group_2' }, { id: 3, title: 'Group_3' }, { id: 4, title: 'Group_4' }]}
+                onChange={(newValue) => handleChangeValue({ id: 'status', value: newValue })}
+                id={'id'}
+                text={'title'} />
             </Div>
           </MainSection>
         );
       })}
-      <Div className='justify-start items-start col-span-1'>
+      <Div className='md:justify-start md:items-start justify-center col-span-1'>
         <Button onClick={handleAddRow} color={'emerald'} shape='square' startAdornment={<AddIcon />} />
       </Div>
     </Div>

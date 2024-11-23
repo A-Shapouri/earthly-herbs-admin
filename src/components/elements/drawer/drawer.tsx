@@ -11,7 +11,7 @@ export const Drawer = ({ open, onClose, anchor = 'start', children, className }:
 
   return (
     <div className={classNames(
-      open ? `${Anchor[anchor].enterAnimation} transition-colors duration-500` : `${Anchor[anchor].exitAnimation} duration-0 transition-all delay-700 `,
+      open ? `${Anchor[anchor].enterAnimation} transition-colors duration-500` : `${Anchor[anchor].exitAnimation} duration-0 transition-all delay-500`,
       `fixed top-0 right-0 z-20 h-screen w-screen ease-in-out overflow-hidden`
     )}>
       <div className={classNames(

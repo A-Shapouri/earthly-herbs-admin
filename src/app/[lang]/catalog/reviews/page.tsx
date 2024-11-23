@@ -118,7 +118,7 @@ const Reviews = () => {
         perPage={10}
         previousPage={0}
         total={50}
-        mobileColumns={['name', 'operations']}
+        mobileColumns={['product', 'operations']}
       />
       <Filter
         isShow={isSearchShow}

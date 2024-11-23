@@ -42,14 +42,14 @@ const FilterValue = () => {
   };
 
   return (
-    <Div className={'w-full gap-6 grid grid-cols-2 mt-4 col-span-6'}>
+    <Div className={'w-full gap-6 grid grid-cols-1 md:grid-cols-2 mt-4 col-span-6'}>
       {list.map((item, index) => {
         return (
-          <Div key={index} className='grid grid-cols-1 col-span-6 gap-6 items-center justify-center border border-opacity-55 rounded-lg p-4'>
+          <Div key={index} className='grid grid-cols-1 md:col-span-6 gap-6 items-center justify-center border border-opacity-55 rounded-lg p-4'>
             <Div className='justify-end'>
               <Chip size='small' onClick={() => handleRemoveRow(index)} onDelete={() => handleRemoveRow(index)} variant={'reverse'} className={'self-start'} color={'danger'} value={'Remove'} />
             </Div>
-            <Div className='grid gap-4 grid-cols-3 items-center'>
+            <Div className='grid gap-4 grid-cols-1 md:grid-cols-3 items-center'>
               <TextField
                 size='small'
                 rounded='small'
@@ -57,9 +57,6 @@ const FilterValue = () => {
                 className={'w-full col-span-1'}
                 label={'Option Value Name'}
               />
-              <Div>
-                <Uploader file={item.image} fileCallback={(state) => handleUploadImage(state, index)} title={'please click here to upload image'} />
-              </Div>
               <TextField
                 size='small'
                 rounded='small'
@@ -67,11 +64,14 @@ const FilterValue = () => {
                 className={'w-full col-span-1'}
                 label={'Sort Order'}
               />
+              <Div>
+                <Uploader file={item.image} fileCallback={(state) => handleUploadImage(state, index)} title={'please click here to upload image'} />
+              </Div>
             </Div>
           </Div>
         );
       })}
-      <Div className='justify-end items-end col-span-1'>
+      <Div className='md:justify-end md:items-end justify-center col-span-1'>
         <Button onClick={handleAddRow} color={'emerald'} shape='square' startAdornment={<AddIcon />} />
       </Div>
     </Div>
