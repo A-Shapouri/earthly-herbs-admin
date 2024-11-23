@@ -40,7 +40,7 @@ const AutoComplete = ({ label, placeholder, emptyLabel, searchList, className }:
       <Popper position={'bottom'} showPopper={showList} handlePopper={handlePopper} className={'w-full'}>
         <PopperHandler>
           <TextField
-            rounded='medium'
+            rounded='small'
             color={'slate'}
             onChange={handleInputChange}
             value={value}
