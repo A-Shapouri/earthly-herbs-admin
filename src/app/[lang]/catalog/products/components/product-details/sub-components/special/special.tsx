@@ -83,7 +83,7 @@ const Special = () => {
               </Div>
               <Div className='gap-4'>
                 <Select
-                  rounded='medium'
+                  rounded='small'
                   value={''}
                   size='small'
                   className='w-full'
@@ -94,14 +94,14 @@ const Special = () => {
                   text={'title'} />
                 <TextField
                   size='small'
-                  rounded='medium'
+                  rounded='small'
                   onChange={(e) => handleChangeValue({ id: 'parent_id', value: e.target.value })}
                   className={'w-full'}
                   label={'Priority'}
                 />
                 <TextField
                   size='small'
-                  rounded='medium'
+                  rounded='small'
                   onChange={(e) => handleChangeValue({ id: 'parent_id', value: e.target.value })}
                   className={'w-full'}
                   label={'Price'}
@@ -111,7 +111,7 @@ const Special = () => {
                     <TextField
                       value={item.startDate}
                       size='small'
-                      rounded='medium'
+                      rounded='small'
                       className={'w-full'}
                       label={'Date Start'}
                       endAdornment={<Button variant='text' size='small' startAdornment={<CalendarIcon />} />}
@@ -131,7 +131,7 @@ const Special = () => {
                     <TextField
                       value={item.endDate}
                       size='small'
-                      rounded='medium'
+                      rounded='small'
                       className={'w-full'}
                       label={'Date End'}
                       endAdornment={<Button variant='text' size='small' startAdornment={<CalendarIcon />} />}

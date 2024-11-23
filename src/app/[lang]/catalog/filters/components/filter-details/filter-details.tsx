@@ -4,13 +4,13 @@ import { SaveIcon, RedoIcon } from '../../../../../../assets/pb-icons';
 import { initialState, reducer } from './store';
 import Button from '@elements/button';
 import Div from '@elements/div';
-import Select from '@elements/select';
 import TextField from '@elements/text-field';
 import getParseRoute from '@utils/helpers/parse-route';
 import routes from '@routes';
 import { DictionariesTypes } from '@dictionaries';
 import { useParams } from 'next/navigation';
 import MainSection from '@layouts/main-section';
+import FilterValue from './sub-components/discount';
 
 const FilterDetails = ({ name }: { name?: string }) => {
   const { lang } = useParams<{ lang: DictionariesTypes }>();
@@ -65,7 +65,7 @@ const FilterDetails = ({ name }: { name?: string }) => {
         />
       </MainSection>
       <MainSection title='Filter Values'>
-
+        <FilterValue />
       </MainSection>
     </Div>
   );

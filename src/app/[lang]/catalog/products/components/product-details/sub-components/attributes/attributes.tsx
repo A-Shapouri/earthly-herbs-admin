@@ -56,7 +56,7 @@ const Attributes = () => {
                 <TextField
                   onChange={(e) => handleChangeValue({ id: 'description', value: e.target.value })}
                   className={'w-full'}
-                  rounded='medium'
+                  rounded='small'
                   multiline={true}
                   maxRows={4}
                   inputClassName={'!min-h-36'}

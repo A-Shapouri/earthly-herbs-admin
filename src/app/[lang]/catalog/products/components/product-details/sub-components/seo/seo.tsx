@@ -27,7 +27,7 @@ const Seo = () => {
               onChange={(e) => handleChangeValue({ id: 'description', value: e.target.value })}
               className={'w-full md:col-span-6'}
               size='small'
-              rounded='medium'
+              rounded='small'
               label={'Keyword'}
             />
           </Div>

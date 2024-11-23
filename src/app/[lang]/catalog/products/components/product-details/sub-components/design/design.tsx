@@ -24,7 +24,7 @@ const Design = () => {
             <Text>Layout Override</Text>
             <Divider shade='dark' color='slate' />
             <Select
-              rounded='medium'
+              rounded='small'
               value={''}
               size='small'
               className='col-span-3 w-full'

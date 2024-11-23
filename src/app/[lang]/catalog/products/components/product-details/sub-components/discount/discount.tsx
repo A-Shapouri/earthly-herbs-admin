@@ -85,7 +85,7 @@ const Discount = () => {
               </Div>
               <Div className='gap-4'>
                 <Select
-                  rounded='medium'
+                  rounded='small'
                   value={''}
                   size='small'
                   className='w-full'
@@ -96,21 +96,21 @@ const Discount = () => {
                   text={'title'} />
                 <TextField
                   size='small'
-                  rounded='medium'
+                  rounded='small'
                   onChange={(e) => handleChangeValue({ id: 'parent_id', value: e.target.value })}
                   className={'w-full'}
                   label={'Quantity'}
                 />
                 <TextField
                   size='small'
-                  rounded='medium'
+                  rounded='small'
                   onChange={(e) => handleChangeValue({ id: 'parent_id', value: e.target.value })}
                   className={'w-full'}
                   label={'Priority'}
                 />
                 <TextField
                   size='small'
-                  rounded='medium'
+                  rounded='small'
                   onChange={(e) => handleChangeValue({ id: 'parent_id', value: e.target.value })}
                   className={'w-full'}
                   label={'Price'}
@@ -120,7 +120,7 @@ const Discount = () => {
                     <TextField
                       value={item.startDate}
                       size='small'
-                      rounded='medium'
+                      rounded='small'
                       className={'w-full'}
                       label={'Date Start'}
                       endAdornment={<Button variant='text' size='small' startAdornment={<CalendarIcon />} />}
@@ -140,7 +140,7 @@ const Discount = () => {
                     <TextField
                       value={item.endDate}
                       size='small'
-                      rounded='medium'
+                      rounded='small'
                       className={'w-full'}
                       label={'Date End'}
                       endAdornment={<Button variant='text' size='small' startAdornment={<CalendarIcon />} />}

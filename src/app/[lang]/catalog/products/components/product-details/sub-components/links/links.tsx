@@ -46,7 +46,7 @@ const Links = () => {
           className='col-span-5'
           color='slate'
           size='small'
-          rounded='medium'
+          rounded='small'
           label='Categories'
           onChange={handleCategories}
           optionsList={[{ id: 1, name: 'Category_1' }, { id: 2, name: 'Category_2' }, { id: 3, name: 'Category_3' }, { id: 4, name: 'Category_4' }]}
@@ -58,7 +58,7 @@ const Links = () => {
           className='col-span-5'
           color='slate'
           size='small'
-          rounded='medium'
+          rounded='small'
           label='Filters'
           onChange={handleFilters}
           optionsList={[{ id: 1, name: 'Filter_1' }, { id: 2, name: 'Filter_2' }, { id: 3, name: 'Filter_3' }, { id: 4, name: 'Filter_4' }]}
@@ -70,7 +70,7 @@ const Links = () => {
           className='col-span-5'
           color='slate'
           size='small'
-          rounded='medium'
+          rounded='small'
           label='Downloads'
           onChange={handleDownloads}
           optionsList={[{ id: 1, name: 'Download_1' }, { id: 2, name: 'Download_2' }, { id: 3, name: 'Download_3' }, { id: 4, name: 'Download_4' }]}
@@ -82,7 +82,7 @@ const Links = () => {
           className='col-span-5'
           color='slate'
           size='small'
-          rounded='medium'
+          rounded='small'
           label='Related Products'
           onChange={handleProducts}
           optionsList={[{ id: 1, name: 'Product_1' }, { id: 2, name: 'Product_2' }, { id: 3, name: 'Product_3' }, { id: 4, name: 'Product_4' }]}

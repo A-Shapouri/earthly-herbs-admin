@@ -18,7 +18,7 @@ const RewardPoints = () => {
           onChange={(e) => handleChangeValue({ id: 'description', value: e.target.value })}
           className={'w-full md:col-span-6'}
           size='small'
-          rounded='medium'
+          rounded='small'
           label={'Points'}
         />
         <Div className='col-span-6 w-full grid grid-cols-3 mt-8'>
@@ -34,7 +34,7 @@ const RewardPoints = () => {
               onChange={(e) => handleChangeValue({ id: 'description', value: e.target.value })}
               className={'w-full md:col-span-6'}
               size='small'
-              rounded='medium'
+              rounded='small'
               label={'Points'}
             />
           </Div>

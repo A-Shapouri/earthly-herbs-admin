@@ -39,35 +39,35 @@ export const Button = (props: ButtonProps) => {
 
   const rippleRef = useRef();
   const clickOnButton = (event: any) => {
-    rippleEffect(event);
+    // rippleEffect(event);
     if (!disabled && onClick && typeof onClick !== 'undefined') {
       onClick();
     }
   };
 
-  const rippleEffect = (event: any) => {
-    const btn = event?.currentTarget;
-    const diameter = Math.max(btn.clientWidth, btn.clientHeight);
-    const radius = diameter / 2;
-    const circle = rippleRef.current;
+  // const rippleEffect = (event: any) => {
+  //   const btn = event?.currentTarget;
+  //   const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+  //   const radius = diameter / 2;
+  //   const circle = rippleRef.current;
 
-    //@ts-ignore
-    circle.style.width = circle.style.height = `${diameter}px`;
-    //@ts-ignore
-    circle.style.left = `${event.clientX - (btn.offsetLeft + radius)}px`;
-    //@ts-ignore
-    circle.style.top = `${event.clientY - (btn.offsetTop + radius)}px`;
-    //@ts-ignore
-    circle.classList.add('ripple');
+  //   //@ts-ignore
+  //   circle.style.width = circle.style.height = `${diameter}px`;
+  //   //@ts-ignore
+  //   circle.style.left = `${event.clientX - (btn.offsetLeft + radius)}px`;
+  //   //@ts-ignore
+  //   circle.style.top = `${event.clientY - (btn.offsetTop + radius)}px`;
+  //   //@ts-ignore
+  //   circle.classList.add('ripple');
 
-    const ripple = btn.getElementsByClassName('ripple')[0];
+  //   const ripple = btn.getElementsByClassName('ripple')[0];
 
-    if (ripple) {
-      ripple.remove();
-    }
+  //   if (ripple) {
+  //     ripple.remove();
+  //   }
 
-    btn.appendChild(circle);
-  };
+  //   btn.appendChild(circle);
+  // };
 
   const buttonProps = {
     href: href,

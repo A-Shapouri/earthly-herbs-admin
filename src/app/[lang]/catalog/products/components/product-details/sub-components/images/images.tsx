@@ -3,15 +3,9 @@ import 'react-calendar/dist/Calendar.css';
 import Div from '@elements/div';
 import MainSection from '../main-section';
 import Button from '@elements/button';
-import { AddIcon, CalendarIcon } from '../../../../../../../../assets/pb-icons';
-import Select from '@elements/select';
+import { AddIcon } from '../../../../../../../../assets/pb-icons';
 import Chip from '@elements/chip';
 import TextField from '@elements/text-field';
-import Calendar from 'react-calendar';
-import Popper from '@elements/popper';
-import PopperContent from '@elements/popper/popper-content';
-import PopperHandler from '@elements/popper/popper-handler';
-import convertDate from '@utils/date/convert-date';
 import Uploader from '@modules/uploader';
 import InitialImage from '../../../../../../../../../public/images/products/initial.png';
 
@@ -39,7 +33,6 @@ const Images = () => {
   const handleUploadImage = (state, index) => {
     const tempList = JSON.parse(JSON.stringify(list));
     tempList[index].image = state;
-    console.log(tempList, state)
     setList(tempList);
   };
 
