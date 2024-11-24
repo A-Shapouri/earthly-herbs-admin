@@ -174,13 +174,13 @@ const DataTable = (
       </Div>
       <Div className={'bg-white w-full rounded-xl max-w-full flex-col relative'}>
         <table
-          className={'w-full table-auto'}>
-          <thead className={'bg-control-50 h-14 sticky top-0 z-[9]'}>
+          className={'w-full rounded-xl table-auto'}>
+          <thead className={'bg-control-50 h-14 sticky top-0 z-[9] rounded-t-lg'}>
             {table.getHeaderGroups().map(headerGroup => (
-              <tr key={headerGroup.id}>
+              <tr className='rounded-t-xl' key={headerGroup.id}>
                 {headerGroup.headers.map(header => (
                   <th
-                    className={'hover:cursor-pointer'}
+                    className={'hover:cursor-pointer hover:-translate-y-2 transition-all duration-300'}
                     onClick={header.column.getToggleSortingHandler()}
                     key={header.id}>
                     <Div className={'justify-center items-center gap-1'}>
@@ -189,7 +189,7 @@ const DataTable = (
                           <SortTableIcon direction={header.column.getIsSorted() as string} />
                         </Div>
                       ) : null}
-                      <Text color={header.column.getIsSorted() ? 'slate' : 'grey.800'} typography={['sm', 'sm']} type={'medium'}>
+                      <Text color={header.column.getIsSorted() ? 'slate' : 'black'} typography={['xs', 'xs']} type={'medium'}>
                         {header.isPlaceholder
                           ? null
                           : flexRender(
@@ -207,11 +207,11 @@ const DataTable = (
             {table.getRowModel().rows.map((row) => {
               return (
                 <Fragment key={row.id}>
-                  <tr className={'h-16 transition-all duration-300 hover:bg-slate-100 hover:shadow-2xl border-b '}>
+                  <tr className={'h-16 transition-all duration-300 group hover:bg-slate-100 hover:shadow-2xl border-b '}>
                     {row.getVisibleCells().map(cell => {
                       return (
                         <td className={'px-1'} key={cell.id}>
-                          <Div className={'flex-col items-center w-full'}>
+                          <Div className={'flex-col items-center w-full *:transition-all *:duration-300 *:group-hover:scale-110 *:group-hover:-translate-y-1'}>
                             {
                               flexRender(
                                 cell.column.columnDef.cell,

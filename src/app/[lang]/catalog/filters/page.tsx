@@ -28,11 +28,13 @@ const Filters = () => {
     () => [
       {
         accessorFn: row => row.name,
+        header: header.name,
         id: 'name',
         cell: info => <Text align='center' className='w-full' color={'black'} typography={['xs', 'xs']}>{info.row.original.name}</Text>,
       },
       {
         accessorFn: row => row.sortOrder,
+        header: header.sortOrder,
         id: 'sortOrder',
         //@ts-ignore
         cell: info => <Text color={'black'} typography={['xs', 'xs']}>{info.getValue()}</Text>,

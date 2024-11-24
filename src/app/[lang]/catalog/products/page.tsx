@@ -31,31 +31,37 @@ const Products = () => {
         id: 'image',
         accessorKey: 'image',
         enableSorting: false,
+        header: header.image,
         //@ts-ignore
         cell: info => <Image width={40} height={40} src={info.getValue()} alt='image' />,
       },
       {
         accessorFn: row => row.name,
+        header: header.name,
         id: 'name',
         cell: info => <Text align='center' className='w-full' color={'black'} typography={['xs', 'xs']}>{info.row.original.name}</Text>,
       },
       {
         accessorFn: row => row.model,
+        header: header.model,
         id: 'model',
         cell: info => <Text align='center' className='w-full' color={'black'} typography={['xs', 'xs']}>{info.row.original.model}</Text>,
       },
       {
         accessorFn: row => row.price,
+        header: header.price,
         id: 'price',
         cell: info => <Text align='center' className='w-full' color={'black'} typography={['xs', 'xs']}>${info.row.original.price}</Text>,
       },
       {
         accessorFn: row => row.quantity,
+        header: header.quantity,
         id: 'quantity',
         cell: info => <Text align='center' className='w-full' color={'black'} typography={['xs', 'xs']}>{info.row.original.quantity}</Text>,
       },
       {
         accessorFn: row => row.status,
+        header: header.status,
         id: 'status',
         cell: info => <Text align='center' className='w-full' color={'black'} typography={['xs', 'xs']}>{info.row.original.status}</Text>,
       },

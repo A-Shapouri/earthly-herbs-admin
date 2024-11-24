@@ -78,6 +78,7 @@ const Category = () => {
       },
       {
         accessorFn: row => row.sortOrder,
+        header: header.sortOrder,
         id: 'sortOrder',
         //@ts-ignore
         cell: info => <Text color={'black'} typography={['xs', 'xs']}>{info.getValue()}</Text>,
