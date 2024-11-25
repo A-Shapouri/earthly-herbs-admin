@@ -9,6 +9,8 @@ import TextField from '@elements/text-field';
 import Div from '@elements/div';
 import { RedoIcon, SearchIcon } from '../../../../../../assets/pb-icons';
 import { initialState, reducer } from './store';
+import { motion, AnimatePresence } from 'motion/react';
+
 
 const Filter = ({ getSearchResult, loading, isShow, closeModal }: { getSearchResult: any, loading: boolean, isShow: boolean, closeModal: () => void }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -32,7 +34,8 @@ const Filter = ({ getSearchResult, loading, isShow, closeModal }: { getSearchRes
 
   return (
     <Modal open={isShow} onClose={closeModal}>
-      <Div className={`relative w-11/12 md:w-2/3 md:h-auto bg-white z-40 rounded-3xl md:p-4 pt-2 px-2 pb-0 flex flex-col justify-center items-center self-center gap-8`}>
+      <Div
+        className={`flex relative w-11/12 md:w-2/3 md:h-auto bg-white z-40 rounded-3xl md:p-4 pt-2 px-2 pb-0 flex-col justify-center items-center self-center gap-8`}>
         <Chip onClick={closeModal} onDelete={closeModal} variant={'outlined'} className={'self-start'} color={'danger'} value={'Close'} />
         <Div className={'grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 w-11/12 md:w-2/3'}>
           <TextField

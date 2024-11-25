@@ -11,6 +11,7 @@ import Header from '@layouts/section/sub-components/header';
 import SectionItem from '@layouts/section/sub-components/section-item';
 import General from './sub-components/general';
 import Seo from './sub-components/seo';
+import { motion, AnimatePresence } from 'motion/react';
 
 const Menu = [
   {
@@ -48,12 +49,22 @@ const ManufacturerDetails = ({ name }: { name?: string }) => {
       </Div>
       <Div className={'justify-start w-full flex-col'}>
         <Header menu={Menu} handleChangeSection={handleChangeSection} section={section} />
-        <SectionItem isActive={section === 'general'}>
-          <General />
-        </SectionItem>
-        <SectionItem isActive={section === 'seo'}>
-          <Seo />
-        </SectionItem>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={section || 'empty'}
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 50, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <SectionItem isActive={section === 'general'}>
+              <General />
+            </SectionItem>
+            <SectionItem isActive={section === 'seo'}>
+              <Seo />
+            </SectionItem>
+          </motion.div>
+        </AnimatePresence>
       </Div>
     </Div>
   );

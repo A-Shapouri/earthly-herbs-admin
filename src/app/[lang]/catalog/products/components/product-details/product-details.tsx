@@ -20,6 +20,7 @@ import Images from './sub-components/images';
 import RewardPoints from './sub-components/reward-points';
 import Seo from './sub-components/seo';
 import Design from './sub-components/design';
+import { motion, AnimatePresence } from 'motion/react';
 
 const Menu = [
   {
@@ -91,39 +92,49 @@ const ProductDetails = ({ name }: { name?: string }) => {
       </Div>
       <Div className={'justify-start w-full flex-col'}>
         <Header menu={Menu} handleChangeSection={handleChangeSection} section={section} />
-        <SectionItem isActive={section === 'general'}>
-          <General />
-        </SectionItem>
-        <SectionItem isActive={section === 'data'}>
-          <Data />
-        </SectionItem>
-        <SectionItem isActive={section === 'links'}>
-          <Links />
-        </SectionItem>
-        <SectionItem isActive={section === 'attributes'}>
-          <Attributes />
-        </SectionItem>
-        <SectionItem isActive={section === 'recurring'}>
-          <Recurring />
-        </SectionItem>
-        <SectionItem isActive={section === 'discount'}>
-          <Discount />
-        </SectionItem>
-        <SectionItem isActive={section === 'special'}>
-          <Special />
-        </SectionItem>
-        <SectionItem isActive={section === 'image'}>
-          <Images />
-        </SectionItem>
-        <SectionItem isActive={section === 'reward_points'}>
-          <RewardPoints />
-        </SectionItem>
-        <SectionItem isActive={section === 'seo'}>
-          <Seo />
-        </SectionItem>
-        <SectionItem isActive={section === 'design'}>
-          <Design />
-        </SectionItem>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={section || 'empty'}
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 50, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <SectionItem isActive={section === 'general'}>
+              <General />
+            </SectionItem>
+            <SectionItem isActive={section === 'data'}>
+              <Data />
+            </SectionItem>
+            <SectionItem isActive={section === 'links'}>
+              <Links />
+            </SectionItem>
+            <SectionItem isActive={section === 'attributes'}>
+              <Attributes />
+            </SectionItem>
+            <SectionItem isActive={section === 'recurring'}>
+              <Recurring />
+            </SectionItem>
+            <SectionItem isActive={section === 'discount'}>
+              <Discount />
+            </SectionItem>
+            <SectionItem isActive={section === 'special'}>
+              <Special />
+            </SectionItem>
+            <SectionItem isActive={section === 'image'}>
+              <Images />
+            </SectionItem>
+            <SectionItem isActive={section === 'reward_points'}>
+              <RewardPoints />
+            </SectionItem>
+            <SectionItem isActive={section === 'seo'}>
+              <Seo />
+            </SectionItem>
+            <SectionItem isActive={section === 'design'}>
+              <Design />
+            </SectionItem>
+          </motion.div>
+        </AnimatePresence>
       </Div>
     </Div>
   );

@@ -137,13 +137,10 @@ const Menu = () => {
         <Div className={'flex-col gap-2 w-full'}>
           {menuInfo.length ? menuInfo.map((item: any, index: number) => (
             item.subRoutes && item.subRoutes.length > 0 ? (
-              <details
-                key={`menu_${index}`}
-                // @ts-ignore
-                open={expandedMenu ? !!item.subRoutes.find(item => pathname.includes(item.route)) : false}
+              <details key={`menu_${index}`} open={expandedMenu ? !!item.subRoutes.find(item => pathname.includes(item.route)) : false}
                 className={'flex flex-col w-full transition-all duration-1000 open:transition-all open:duration-1000 select-none [&_span]:open:rotate-180'}>
                 <summary
-                  className={classNames('!text-control-100 !p-2 !pr-4 flex w-full justify-between transition-all duration-1000 open:transition-all open:duration-1000 rounded-md h-10 md:h-10 items-center',
+                  className={classNames('!text-control-100 !p-2 mb-1 !pr-4 flex w-full justify-between transition-all duration-1000 open:transition-all open:duration-1000 rounded-md h-10 md:h-10 items-center',
                     // @ts-ignore
                     item.subRoutes.find(item => pathname.includes(item.route)) && expandedMenu ? 'bg-control-700' : '',
                     item.subRoutes.find(item => pathname.includes(item.route)) ? 'group-hover:bg-control-700' : ''
@@ -161,7 +158,7 @@ const Menu = () => {
                 </summary>
                 {item.subRoutes && item.subRoutes.length ? item.subRoutes.map((subItem, index) => {
                   return (
-                    <Div key={`subMenu_${index}`} className={'ml-7 rounded-md mr-2 *:hover:text-white hover:translate-x-3 hover:bg-teal-800 transition-all duration-300'}>
+                    <Div key={`subMenu_${index}`} className={'ml-7 rounded-md mr-2 *:hover:text-white transition-all duration-300'}>
                       <Button
                         variant={'text'}
                         size='small'
@@ -169,7 +166,7 @@ const Menu = () => {
                         href={subItem.route}
                         rounded='medium'
                         className={classNames(
-                          'w-full !justify-end whitespace-nowrap mb-1',
+                          'w-full !justify-end whitespace-nowrap mb-1 hover:translate-x-3 hover:bg-teal-800 transition-all duration-300',
                           pathname.includes(subItem.route) && expandedMenu ? '!text-white bg-control-700' : '!text-control-100',
                           pathname.includes(subItem.route) ? 'group-hover:bg-control-700' : '',
                           expandedMenu ? '' : 'hidden group-hover:flex'
