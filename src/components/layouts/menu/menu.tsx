@@ -4,7 +4,6 @@ import Button from '@elements/button';
 import classNames from '@utils/helpers/class-names';
 import Div from '@elements/div';
 import Text from '@elements/text';
-import ArrowDownIcon from '@icons-components/arrow-down';
 import { useParams, usePathname } from 'next/navigation';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/root-reducer';
@@ -17,6 +16,7 @@ import getParseRoute from '@utils/helpers/parse-route';
 import { DictionariesTypes } from '@dictionaries';
 import EaerthlyLogo from '../../../../public/images/earthly-logo.png';
 import Image from 'next/image';
+import AnimatedDetail from './animated-detail';
 
 const Menu = () => {
   const pathname = usePathname();
@@ -137,46 +137,7 @@ const Menu = () => {
         <Div className={'flex-col gap-2 w-full'}>
           {menuInfo.length ? menuInfo.map((item: any, index: number) => (
             item.subRoutes && item.subRoutes.length > 0 ? (
-              <details key={`menu_${index}`} open={expandedMenu ? !!item.subRoutes.find(item => pathname.includes(item.route)) : false}
-                className={'flex flex-col w-full transition-all duration-1000 open:transition-all open:duration-1000 select-none [&_span]:open:rotate-180'}>
-                <summary
-                  className={classNames('!text-control-100 !p-2 mb-1 !pr-4 flex w-full justify-between transition-all duration-1000 open:transition-all open:duration-1000 rounded-md h-10 md:h-10 items-center',
-                    // @ts-ignore
-                    item.subRoutes.find(item => pathname.includes(item.route)) && expandedMenu ? 'bg-control-700' : '',
-                    item.subRoutes.find(item => pathname.includes(item.route)) ? 'group-hover:bg-control-700' : ''
-                  )}>
-                  <Div
-                    className={'transition-all duration-1000 open:transition-all open:duration-1000 cursor-pointer w-full self-center items-center justify-start gap-4 flex-row'}>
-                    {MenuIcons[item.key]}
-                    <Text className={`whitespace-nowrap !text-inherit duration-500 transition-all ${expandedMenu ? '' : 'opacity-0 group-hover:opacity-100'}`} type={'bold'} typography={['sm', 'sm']}>
-                      {item.title}
-                    </Text>
-                  </Div>
-                  <span className={`flex cursor-pointer rotate-0 transform transition-all duration-500 ${expandedMenu ? '' : 'opacity-0 group-hover:opacity-100'}`}>
-                    <ArrowDownIcon />
-                  </span>
-                </summary>
-                {item.subRoutes && item.subRoutes.length ? item.subRoutes.map((subItem, index) => {
-                  return (
-                    <Div key={`subMenu_${index}`} className={'ml-7 rounded-md mr-2 *:hover:text-white transition-all duration-300'}>
-                      <Button
-                        variant={'text'}
-                        size='small'
-                        fontType={'medium'}
-                        href={subItem.route}
-                        rounded='medium'
-                        className={classNames(
-                          'w-full !justify-end whitespace-nowrap mb-1 hover:translate-x-3 hover:bg-teal-800 transition-all duration-300',
-                          pathname.includes(subItem.route) && expandedMenu ? '!text-white bg-control-700' : '!text-control-100',
-                          pathname.includes(subItem.route) ? 'group-hover:bg-control-700' : '',
-                          expandedMenu ? '' : 'hidden group-hover:flex'
-                        )}>
-                        {subItem.title}
-                      </Button>
-                    </Div>
-                  );
-                }) : null}
-              </details>
+              <AnimatedDetail item={item} expandedMenu={expandedMenu} key={`menu_${index}`} />
             ) : (
               <Div key={`menu_${index}`} className={'flex-col w-full'}>
                 <Button
@@ -209,3 +170,4 @@ const Menu = () => {
 };
 
 export default Menu;
+

@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import classNames from '@utils/helpers/class-names';
 import Button from '@elements/button';
 import Div from '@elements/div';
 import Text from '@elements/text';
 import Drawer from '@elements/drawer';
-import ArrowDownIcon from '@icons-components/arrow-down';
 import LogoImage from '../../../../../public/images/earthly-logo.png';
 import LogoImageDesktop from '../../../../../public/images/earthly-logo-desktop.png';
 import { usePathname, useParams } from 'next/navigation';
@@ -15,6 +13,7 @@ import routes from '@routes';
 import getParseRoute from '@utils/helpers/parse-route';
 import { DictionariesTypes } from '@dictionaries';
 import Image from 'next/image'
+import AnimatedDetail from './animated-detail'
 
 const MobileHeader = () => {
   const pathname = usePathname();
@@ -75,6 +74,39 @@ const MobileHeader = () => {
       route: getParseRoute({ pathname: routes['route.catalog.information.index'], locale: lang }),
     },
     ],
+  }, {
+    title: 'Localisation',
+    key: 'Settings',
+    route: '/en/',
+    subRoutes: [{
+      title: 'Store Location',
+      route: getParseRoute({ pathname: routes['route.localisations.store-location.index'], locale: lang }),
+    },
+    {
+      title: 'Languages',
+      route: getParseRoute({ pathname: routes['route.localisations.languages.index'], locale: lang }),
+    },
+    {
+      title: 'Currencies',
+      route: getParseRoute({ pathname: routes['route.localisations.currencies.index'], locale: lang }),
+    },
+    {
+      title: 'Zones',
+      route: getParseRoute({ pathname: routes['route.localisations.zones.index'], locale: lang }),
+    },
+    {
+      title: 'Geo Zones',
+      route: getParseRoute({ pathname: routes['route.localisations.geo-zones.index'], locale: lang }),
+    },
+    {
+      title: 'Length Classes',
+      route: getParseRoute({ pathname: routes['route.localisations.length-classes.index'], locale: lang }),
+    },
+    {
+      title: 'Weight Classes',
+      route: getParseRoute({ pathname: routes['route.localisations.weight-classes.index'], locale: lang }),
+    },
+    ],
   }];
 
   const handleClick = () => {
@@ -111,51 +143,16 @@ const MobileHeader = () => {
           <Div className={'flex-col gap-2 w-full'}>
             {menuInfo.length && menuInfo.map((item: any, index: number) => (
               item.subRoutes && item.subRoutes.length > 0 ? (
-                <details key={`menu_${index}`} className={'flex flex-col w-full transition-all duration-1000 open:transition-all open:duration-1000 select-none'}>
-                  <summary className={classNames(
-                    'flex w-full justify-between list-none transition-all duration-1000 open:transition-all open:duration-1000 h-9 mb-2 items-center',
-                    item.subRoutes.find(item => pathname.includes(item.route)) ? 'bg-control-700' : '',
-                  )}>
-                    <Div className={classNames(
-                      'transition-all text-white h-9 duration-1000 open:transition-all open:duration-1000 cursor-pointer w-full self-center items-center justify-start gap-4',
-                      // @ts-ignore
-
-                    )}>
-                      {MenuIcons[item.key]}
-                      <Text className={'!text-inherit'} type={'bold'} typography={['sm', 'sm']}>
-                        {item.title}
-                      </Text>
-                    </Div>
-                    <ArrowDownIcon className={'text-control-100'} />
-                  </summary>
-                  {item.subRoutes && item.subRoutes.length ? item.subRoutes.map((subItem, index) => (
-                    <Div key={`subMenu_${index}`} className={'mr-7 items-end'}>
-                      <Button
-                        onClick={() => handleClick()}
-                        variant={'text'}
-                        rounded='small'
-                        className={classNames(
-                          'w-full !justify-end',
-                          // @ts-ignore
-                          pathname.includes(subItem.route) ? '!text-white bg-control-700' : '!text-control-100')
-                        }
-                        // @ts-ignore
-                        href={subItem.route}
-                        prefetch={false}>
-                        {subItem.title}
-                      </Button>
-                    </Div>
-                  )) : null}
-                </details>
+                <AnimatedDetail item={item} key={`menu_${index}`} handleClick={handleClick} />
               ) : (
-                <Div key={`menu_${index}`} className={'flex-col w-full'}>
+                <Div key={`menu_${index}`} className={'flex-col w-full px-2'}>
                   <Button
                     variant={'text'}
                     onClick={() => handleClick()}
                     // @ts-ignore
                     href={item.route}
                     endAdornment={MenuIcons[item.key]}
-                    className={'cursor-pointer w-full self-center items-center !justify-end !gap-4 !px-0 !text-control-100'}>
+                    className={'cursor-pointer w-full self-center items-center !justify-end !gap-4 !px-0 py-1 !text-control-100'}>
                     {item.title}
                   </Button>
                 </Div>
