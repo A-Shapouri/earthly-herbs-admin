@@ -22,6 +22,7 @@ import useWindowDimensions from '@hooks/use-window-dimensions';
 import ArrowDownIcon from '@icons-components/arrow-down';
 import AddIcon from '@icons-components/add-icon';
 import SortTableIcon from '@icons-components/sort-table';
+import { motion } from 'motion/react';
 
 const DataTable = (
   {
@@ -65,7 +66,7 @@ const DataTable = (
               onChange={row.getToggleSelectedHandler()}
               checked={row.getIsSelected()}
             />
-            <AddIcon className={classNames('absolute transition-all duration-500', row.getIsSelected() ? 'rotate-[225deg]' : '')} />
+            <AddIcon className={classNames('absolute transition-all duration-500', row.getIsSelected() ? 'rotate-[225deg]' : '')}/>
           </Div>
         ) : null;
       },
@@ -89,7 +90,7 @@ const DataTable = (
           >
             <ArrowDownIcon className={classNames(
               'transition-all duration-300',
-              row.getIsExpanded() ? 'rotate-180' : '')} />
+              row.getIsExpanded() ? 'rotate-180' : '')}/>
           </Button>
         ) : null;
       },
@@ -167,7 +168,7 @@ const DataTable = (
           }
           return (
             <FormControlLabel key={column.id} className={'p-2'} label={header[column.id]}>
-              <Checkbox checked={column.getIsVisible()} onChange={column.getToggleVisibilityHandler()} />
+              <Checkbox checked={column.getIsVisible()} onChange={column.getToggleVisibilityHandler()}/>
             </FormControlLabel>
           );
         })}
@@ -186,7 +187,7 @@ const DataTable = (
                     <Div className={'justify-center items-center gap-1'}>
                       {header.column.getCanSort() ? (
                         <Div className={'text-control-800'}>
-                          <SortTableIcon direction={header.column.getIsSorted() as string} />
+                          <SortTableIcon direction={header.column.getIsSorted() as string}/>
                         </Div>
                       ) : null}
                       <Text color={header.column.getIsSorted() ? 'slate' : 'black'} typography={['xs', 'xs']} type={'medium'}>
@@ -207,7 +208,7 @@ const DataTable = (
             {table.getRowModel().rows.map((row) => {
               return (
                 <Fragment key={row.id}>
-                  <tr className={'h-16 transition-all duration-300 group hover:bg-slate-100 hover:shadow-2xl border-b '}>
+                  <motion.tr initial={{ y: 2000 }} transition={{ duration: 0.5, ease: 'easeInOut', type: 'spring' }} animate={{ y: 0 }} className={'h-16 transition-all duration-300 group hover:bg-slate-100 hover:shadow-2xl border-b '}>
                     {row.getVisibleCells().map(cell => {
                       return (
                         <td className={'px-1'} key={cell.id}>
@@ -222,7 +223,7 @@ const DataTable = (
                         </td>
                       );
                     })}
-                  </tr>
+                  </motion.tr>
                   {row.getIsExpanded() && (
                     <tr>
                       <td colSpan={row.getVisibleCells().length}>
@@ -261,7 +262,7 @@ const DataTable = (
         <Button color={'slate'} onClick={handleScrollUp} shape={'square'} size={'large'} rounded={'full'} className={classNames('rotate-180 sticky !p-0 bottom-1 self-center duration-500 transition',
           showGoTop ? 'opacity-100 translate-y-4 !h-auto' : 'translate-y-full opacity-0 !h-0 !min-h-[0px]'
         )}>
-          <ArrowDownIcon />
+          <ArrowDownIcon/>
         </Button>
         <Div className={'mt-6 bg-control-50 md:h-14 py-2 md:py-0 justify-center items-center rounded-b-xl flex-col'}>
           <Pagination
