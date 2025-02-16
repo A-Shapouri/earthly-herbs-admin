@@ -81,8 +81,8 @@ const Menu = () => {
     key: 'Settings',
     route: '/en/',
     subRoutes: [{
-      title: 'Store Location',
-      route: getParseRoute({ pathname: routes['route.localisations.store-location.index'], locale: lang }),
+      title: 'Countries',
+      route: getParseRoute({ pathname: routes['route.localisations.countries.index'], locale: lang }),
     },
     {
       title: 'Languages',
@@ -93,20 +93,64 @@ const Menu = () => {
       route: getParseRoute({ pathname: routes['route.localisations.currencies.index'], locale: lang }),
     },
     {
+      title: 'Locations',
+      route: getParseRoute({ pathname: routes['route.localisations.locations.index'], locale: lang }),
+    },
+    {
+      title: 'Stores',
+      route: getParseRoute({ pathname: routes['route.localisations.stores.index'], locale: lang }),
+    },
+    {
+      title: 'Geo Zones',
+      route: getParseRoute({ pathname: routes['route.localisations.geoZones.index'], locale: lang }),
+    },
+    {
       title: 'Zones',
       route: getParseRoute({ pathname: routes['route.localisations.zones.index'], locale: lang }),
     },
     {
-      title: 'Geo Zones',
-      route: getParseRoute({ pathname: routes['route.localisations.geo-zones.index'], locale: lang }),
+      title: 'Length Classes',
+      route: getParseRoute({ pathname: routes['route.localisations.lengthClasses.index'], locale: lang }),
     },
     {
-      title: 'Length Classes',
-      route: getParseRoute({ pathname: routes['route.localisations.length-classes.index'], locale: lang }),
+      title: 'Length Class Descriptions',
+      route: getParseRoute({ pathname: routes['route.localisations.lengthClassDescriptions.index'], locale: lang }),
     },
     {
       title: 'Weight Classes',
-      route: getParseRoute({ pathname: routes['route.localisations.weight-classes.index'], locale: lang }),
+      route: getParseRoute({ pathname: routes['route.localisations.weightClasses.index'], locale: lang }),
+    },
+    {
+      title: 'Weight Class Descriptions',
+      route: getParseRoute({ pathname: routes['route.localisations.weightClassDescriptions.index'], locale: lang }),
+    },
+    {
+      title: 'Stock Statuses',
+      route: getParseRoute({ pathname: routes['route.localisations.stockStatuses.index'], locale: lang }),
+    },
+    {
+      title: 'Tax Classes',
+      route: getParseRoute({ pathname: routes['route.localisations.taxClasses.index'], locale: lang }),
+    },
+    {
+      title: 'Tax Rates',
+      route: getParseRoute({ pathname: routes['route.localisations.taxRates.index'], locale: lang }),
+    },
+    {
+      title: 'Settings',
+      route: getParseRoute({ pathname: routes['route.localisations.settings.index'], locale: lang }),
+    },
+    {
+      title: 'Uploads',
+      route: getParseRoute({ pathname: routes['route.localisations.uploads.index'], locale: lang }),
+    },
+    {
+      title: 'Shipping Couriers',
+      route: getParseRoute({ pathname: routes['route.localisations.shippingCouriers.index'], locale: lang }),
+    },
+    {
+      title: 'Statistics',
+      route: getParseRoute({ pathname: routes['route.localisations.statistics.index'], locale: lang }),
     },
     ],
   }];

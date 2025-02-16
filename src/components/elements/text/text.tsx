@@ -9,7 +9,7 @@ const Text = (
     variant = 'p',
     className,
     typography = ['md', 'md'],
-    color = 'black',
+    color = 'grey.800',
     align = 'start',
     type = 'normal',
     style,

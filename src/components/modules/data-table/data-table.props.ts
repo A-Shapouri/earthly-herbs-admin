@@ -33,5 +33,11 @@ export interface DataTableProps {
 
   getLimit?: (event: string) => void
 
-  columnOrder?:boolean
+  columnOrder?: boolean
+
+  updateData?: (value: string, info?: string | object) => void
+
+  select?: boolean
+
+  selectedRows?: (rows: Array<ColumnDef<any>>) => void
 }

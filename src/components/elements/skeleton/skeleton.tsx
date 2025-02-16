@@ -8,6 +8,7 @@ export const Skeleton = ({ className, shape = 'rectangular', size = 'medium', co
     <div
       role="status"
       className={classNames(
+        'animate-pulse',
         className,
         COLORS[color],
         size ? SIZES[size] : 'h-fit',

@@ -38,7 +38,6 @@ export const TextField = React.forwardRef<any, TextFieldProps>(function CustomIn
   } = props;
 
   const [count, setCount] = useState(0);
-  console.log(ROUNDED[rounded])
   const onChangeTextInput = (e: any) => {
     setCount(e?.target?.value?.length || 0);
     if (onChange && typeof onChange === 'function') {
@@ -48,7 +47,7 @@ export const TextField = React.forwardRef<any, TextFieldProps>(function CustomIn
 
   const ClassName = classNames(
     `flex w-full duration-75 px-3 text-control-800 placeholder:text-control placeholder-shown:!text-m-base`,
-    `peer z-[2] block w-full appearance-none text-m-sm sm:text-t-sm md:text-d-sm outline-none ${placeholderPosition === 'center' ? 'text-center' : ''}`,
+    `peer z-[2] block w-full appearance-none text-m-sm sm:text-t-sm md:text-d-sm outline-none`,
     SIZES[size],
     ROUNDED[rounded],
     VARIANTS[variant],

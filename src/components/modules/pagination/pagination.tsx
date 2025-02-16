@@ -48,9 +48,9 @@ export const Pagination = ({ isLoading, currentPage = 1, lastPage, getCurrentPag
   };
 
   return (
-    <Div className={'flex-col-reverse sm:flex-row w-full justify-between items-center gap-y-2 px-4'}>
-      <Div className={'flex justify-start items-center'}>
-        <Div className={'items-center gap-6 justify-start md:absolute'}>
+    <Div className={'flex-col-reverse sm:flex-row w-full justify-between items-center gap-y-4 p-4'}>
+      <Div className={'flex justify-start items-center w-full sm:w-auto'}>
+        <Div className={'items-center gap-6 justify-between w-full sm:w-auto sm:absolute'}>
           {showTotal ? (
             <Text color={'grey.500'} typography={['xs', 'xs']} className={'text-ellipsis whitespace-nowrap'}>
               {`show ${(currentPage - 1) * parseInt(limit) + 1} to ${lastPage === currentPage ? total : parseInt(limit) * currentPage} from ${total}`}
@@ -67,13 +67,13 @@ export const Pagination = ({ isLoading, currentPage = 1, lastPage, getCurrentPag
                 text={'count'}
                 optionsList={Limits}
                 variant={'outlined'}
-                color={'primary'}
+                color={'slate'}
               />
             </Div>
           ) : null}
         </Div>
       </Div>
-      <ul dir={'ltr'} className={'flex flex-row gap-x-0.5 md:gap-x-2 items-center md:justify-start justify-center'}>
+      <ul dir={'ltr'} className={'flex flex-row gap-x-0.5 sm:gap-x-2 items-center sm:justify-start justify-between w-full sm:w-auto'}>
         <li>
           <Button
             disabled={currentPage === 1 || isLoading}

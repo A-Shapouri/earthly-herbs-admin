@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
 import TextField from '@elements/text-field';
@@ -13,6 +13,10 @@ const AutoComplete = ({ label, placeholder, emptyLabel, searchList, className }:
   const [showList, setShowList] = useState<boolean>(false);
   const [searchResults, setSearchResults] = useState<Array<string>>(searchList);
   const [value, setValue] = useState('');
+
+  useEffect(() => {
+    setSearchResults(searchList);
+  }, [searchList]);
 
   const handlePopper = () => {
     setShowList(!showList);
@@ -33,7 +37,7 @@ const AutoComplete = ({ label, placeholder, emptyLabel, searchList, className }:
   const handleSelectValue = (value: string) => {
     setValue(value);
     setShowList(false);
-  }
+  };
 
   return (
     <Div className={className}>

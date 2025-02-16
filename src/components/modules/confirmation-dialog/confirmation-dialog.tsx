@@ -8,7 +8,7 @@ import { ConfirmationDialogProps } from './confirmation-dialog.props';
 const ConfirmationDialog = ({ open, onClose, alertText, submitText = 'Confirm', cancelText = 'Cancel', submitHandler, cancelHandler, loading }: ConfirmationDialogProps) => {
   return (
     <Modal open={open} onClose={onClose}>
-      <Div className={'bg-white px-6 py-4 justify-between flex-col rounded-lg w-11/12 max-w-[600px] md:min-w-96 min-h-40 gap-6 z-40'}>
+      <Div className={'bg-white px-6 py-4 justify-between flex-col rounded-md w-11/12 max-w-[600px] md:min-w-96 min-h-40 gap-6 z-40'}>
         <Text align='center' color={'slate'}>{alertText}</Text>
         <Div className={'w-full gap-4'}>
           {submitHandler && typeof submitHandler === 'function' ? (
@@ -16,7 +16,7 @@ const ConfirmationDialog = ({ open, onClose, alertText, submitText = 'Confirm', 
               disabled={loading}
               loading={loading}
               color={'slate'}
-              rounded={'medium'}
+              rounded={'small'}
               onClick={submitHandler}
               className={'w-1/2'}>
               {submitText}
@@ -28,7 +28,7 @@ const ConfirmationDialog = ({ open, onClose, alertText, submitText = 'Confirm', 
             onClick={cancelHandler && typeof cancelHandler === 'function' ? cancelHandler : onClose}
             color={'danger'}
             variant={'outlined'}
-            rounded={'medium'}
+            rounded={'small'}
             className={'w-1/2'}>
             {cancelText}
           </Button>

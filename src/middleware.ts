@@ -1,17 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
+import routes from '@routes';
 
 export async function middleware(req: NextRequest, res: NextResponse) {
-  const { pathname } = req.nextUrl;
+  const token = await req.cookies.get('token')?.value;
 
-  if (pathname === '/') {
-    return NextResponse.redirect(new URL(encodeURI('/en'), req.url), 308)
+  const { origin, pathname } = req.nextUrl;
+
+  if (!token && pathname !== routes['route.auth.login']) {
+    return NextResponse.redirect(`${origin}${routes['route.auth.login']}`, 307);
   }
 
-  const pattern = /\.(html)$/g;
-  const isValid = pattern.test(decodeURI(pathname));
-  if (isValid) {
-    const newRedirectRoute = decodeURI(pathname).replace(pattern, '');
-    return NextResponse.redirect(new URL(encodeURI(newRedirectRoute), req.url), 308);
+  if (token && (pathname === '/' || pathname === routes['route.auth.login'])) {
+    return NextResponse.redirect(`${origin}/en${routes['route.home.index']}`, 307);
   }
 
   return NextResponse.next();

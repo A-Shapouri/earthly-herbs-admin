@@ -61,8 +61,8 @@
       "@dictionaries-client": [
         "dictionaries/dictionaries-client.ts"
       ],
-      "@pb-icons/*": [
-        "assets/icons/pb-icons/*"
+      "@icons": [
+        "assets/pb-icons"
       ]
     },
     "incremental": true,

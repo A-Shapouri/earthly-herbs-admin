@@ -11,7 +11,7 @@ export interface TextProps {
   className?: string
 
   /**
-   * Typography 
+   * Typography
    * @property [Mobile, Desktop]
    * @param tiny M-7px | D-8xp
    * @param xxs M-10px | D-12px
@@ -31,7 +31,7 @@ export interface TextProps {
   align?: Align
 
   /**
-   * Font Weight 
+   * Font Weight
    * @property light - 300
    * @property medium - 400
    * @property normal - 500
@@ -45,7 +45,7 @@ export interface TextProps {
   disabled?: boolean
 
   /**
-  * Direction 
+  * Direction
   * @param rtl
   * @param ltr
   * @param auto
@@ -55,7 +55,7 @@ export interface TextProps {
   onClick?: () => void
 }
 
-export type Variants = 'p' | 'body' | 'caption' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span'
+export type Variants = 'p' | 'body' | 'caption' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span' | 'li'
 export type Typography = 'tiny' | 'xxs' | 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | 'xxl' | 'huge'
 export type TextColors = Colors | 'brown' | 'grey.50' | 'grey.100' | 'grey.200' | 'grey.300' | 'grey.400' | 'grey.500' | 'grey.600' | 'grey.700' | 'grey.800' | 'grey.900' | 'grey.950' | 'black' | 'white'
 export type Align = 'right' | 'left' | 'center' | 'justify' | 'start' | 'end' | 'inherit'
