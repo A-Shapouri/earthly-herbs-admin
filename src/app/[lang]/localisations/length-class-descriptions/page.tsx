@@ -34,6 +34,10 @@ const LengthClassDescriptions = () => {
     total,
     currentPage,
     lastPage,
+    handlePreviousPage,
+    handleGetPage,
+    handleNextPage,
+    handleGetLimit,
   } = useFetchDatatable({
     getCallbackData: (props: LengthClassDescriptionsListProps) => lengthClassDescriptionsListApi({ ...props }),
   });
@@ -110,12 +114,13 @@ const LengthClassDescriptions = () => {
         header={header}
         column={columns}
         data={data || []}
+        getLimit={handleGetLimit}
         currentPage={currentPage + 1}
-        getCurrentPage={() => {}}
+        getCurrentPage={handleGetPage}
         lastPage={lastPage + 1}
-        nextPage={() => {}}
+        nextPage={handleNextPage}
         perPage={perPage || 10}
-        previousPage={() => {}}
+        previousPage={handlePreviousPage}
         total={total || 50}
         mobileColumns={['title', 'unit', 'operations']}
       />

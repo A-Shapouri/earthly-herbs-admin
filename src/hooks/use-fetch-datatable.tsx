@@ -5,10 +5,10 @@ import { AlertActions } from '@store/alert/alert-action';
 interface DataType {
   data: Array<any>,
   pagination: {
-    lastPage: 0,
-    perPage: 0,
-    currentPage: 0,
-    total: 0,
+    lastPage: number,
+    perPage: number,
+    currentPage: number,
+    total: number,
   },
 }
 
@@ -67,7 +67,7 @@ const useFetchDatatable = ({ getCallbackData }: DataTableProps) => {
       setSortDirection('desc');
       getData({
         ...props,
-        limit: data?.pagination?.perPage,
+        perPage: data?.pagination?.perPage,
         sort: sortKey,
         direction: sortDirection,
         page: 0,
@@ -76,9 +76,10 @@ const useFetchDatatable = ({ getCallbackData }: DataTableProps) => {
   };
 
   const handleNextPage = (props?: any) => {
+    console.log({ props });
     getData({
       ...props,
-      limit: data?.pagination?.perPage,
+      perPage: data?.pagination?.perPage,
       page: data?.pagination?.currentPage + 1,
       sort: sortKey,
       direction: sortDirection,
@@ -88,7 +89,7 @@ const useFetchDatatable = ({ getCallbackData }: DataTableProps) => {
   const handlePreviousPage = (props?: any) => {
     getData({
       ...props,
-      limit: data?.pagination?.perPage,
+      perPage: data?.pagination?.perPage,
       page: data?.pagination?.currentPage - 1,
       sort: sortKey,
       direction: sortDirection,
@@ -98,18 +99,19 @@ const useFetchDatatable = ({ getCallbackData }: DataTableProps) => {
   const handleGetPage = (n: number, props?: any) => {
     getData({
       ...props,
-      limit: data?.pagination?.perPage,
-      page: n,
+      perPage: data?.pagination?.perPage,
+      page: n - 1,
       sort: sortKey,
       direction: sortDirection,
     });
   };
 
   const handleGetLimit = (limit: string, props?: any) => {
+    console.log(limit, props, data);
     getData({
       ...props,
-      limit: limit,
-      page: 1,
+      perPage: limit,
+      page: data.pagination.currentPage,
       sort: sortKey,
       direction: sortDirection,
     });

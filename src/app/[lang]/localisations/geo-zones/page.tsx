@@ -34,6 +34,10 @@ const GeoZones = () => {
     total,
     currentPage,
     lastPage,
+    handleGetPage,
+    handleGetLimit,
+    handleNextPage,
+    handlePreviousPage,
   } = useFetchDatatable({
     getCallbackData: (props: GeoZonesListProps) => geoZonesListApi({ ...props }),
   });
@@ -110,12 +114,13 @@ const GeoZones = () => {
         header={header}
         column={columns}
         data={data || []}
+        getLimit={handleGetLimit}
         currentPage={currentPage + 1}
-        getCurrentPage={() => {}}
+        getCurrentPage={handleGetPage}
         lastPage={lastPage + 1}
-        nextPage={() => {}}
+        nextPage={handleNextPage}
         perPage={perPage || 10}
-        previousPage={() => {}}
+        previousPage={handlePreviousPage}
         total={total || 50}
         mobileColumns={['name', 'description', 'operations']}
       />

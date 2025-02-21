@@ -73,7 +73,7 @@ export const Pagination = ({ isLoading, currentPage = 1, lastPage, getCurrentPag
           ) : null}
         </Div>
       </Div>
-      <ul dir={'ltr'} className={'flex flex-row gap-x-0.5 sm:gap-x-2 items-center sm:justify-start justify-between w-full sm:w-auto'}>
+      <ul dir={'ltr'} className={'flex flex-row gap-x-0.5 sm:gap-x-2 items-center sm:justify-start justify-center w-full sm:w-auto'}>
         <li>
           <Button
             disabled={currentPage === 1 || isLoading}

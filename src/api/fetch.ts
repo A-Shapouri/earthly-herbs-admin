@@ -26,16 +26,15 @@ export async function fetchApi({ method, payload, withToken, url, cache = 'no-ca
   const baseURL = `http://74.208.77.41:8080/api`;
 
   const CatchFunction = async (error: any) => {
-    const errorResponse = await error.json();
     const errorObject = {
       code: error?.status,
-      message: errorResponse?.data?.error,
+      message: error?.statusText,
     };
     if (error?.status === 401 && window.location.pathname !== routes['api.auth.login']) {
       removeFromCookie('token');
       if (window.location.pathname) {
         setTimeout(() => {
-          // window.location.replace(`${routes['route.auth.login']}?redirect=${encodeURIComponent(window.location.pathname)}`);
+          window.location.replace(`${routes['route.auth.login']}?redirect=${encodeURIComponent(window.location.pathname)}`);
         }, 1000);
       }
     }
@@ -77,11 +76,11 @@ export async function fetchApi({ method, payload, withToken, url, cache = 'no-ca
               return response.blob();
             }
             const pagination = {
-              total: response.headers.get('X-Total-Count') || 0,
-              lastPage: response.headers.get('X-Last-Page') || 0,
-              currentPage: response.headers.get('X-Current-Page') || 0,
-              totalPage: response.headers.get('X-Total-Page') || 0,
-              perPage: response.headers.get('X-Per-Page') || 0,
+              total: parseInt(response.headers.get('X-Total-Count')) || 0,
+              lastPage: parseInt(response.headers.get('X-Last-Page')) || 0,
+              currentPage: parseInt(response.headers.get('X-Current-Page')) || 0,
+              totalPage: parseInt(response.headers.get('X-Total-Page')) || 0,
+              perPage: parseInt(response.headers.get('X-Per-Page')) || 0,
             };
             if (withPagination) {
               const data = await response.json();
