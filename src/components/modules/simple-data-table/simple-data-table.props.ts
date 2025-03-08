@@ -16,4 +16,6 @@ export interface SimpleDataTableProps {
   select?: boolean
 
   selectedRows?: (rows: Array<ColumnDef<any>>) => void
+
+  emptyLabel: string
 }

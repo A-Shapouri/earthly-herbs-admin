@@ -8,13 +8,17 @@ import Uploader from '@modules/uploader';
 import Select from '@elements/select';
 import Checkbox from '@elements/checkbox';
 import FormControlLabel from '@elements/form-control-label';
-import { CategoryDetailsStore } from '../../store';
+import { CategoryGeneralsStore } from './store';
 
-const General = ({ state, dispatch }: {state: CategoryDetailsStore, dispatch: any}) => {
+const General = ({ state, dispatch }: {state: CategoryGeneralsStore, dispatch: any}) => {
   const [image, setImage] = useState<string | null>(null);
 
-  const handleChangeValue = ({ id, value }: { id: string, value: string | boolean }) => {
-
+  const handleChangeValue = ({ key, value }: { key: string, value: string | boolean }) => {
+    dispatch({
+      type: 'SET_GENERAL_VALUE',
+      key: key,
+      value: value,
+    });
   };
 
   return (
@@ -22,70 +26,62 @@ const General = ({ state, dispatch }: {state: CategoryDetailsStore, dispatch: an
       <MainSection priority={2} title='General Info' className='md:row-span-1 md:col-span-2'>
         <TextField
           size='small'
-          value={state.name}
+          value={state.general.name}
           rounded='small'
-          onChange={(e) => handleChangeValue({ id: 'name', value: e.target.value })}
+          onChange={(e) => handleChangeValue({ key: 'name', value: e.target.value })}
           className={'w-full col-span-1 md:col-span-3'}
           label={'Category Name'}
         />
         <TextField
-          value={state.languageId}
+          value={state.general.parentId}
           size='small'
           rounded='small'
-          onChange={(e) => handleChangeValue({ id: 'parentId', value: e.target.value })}
+          onChange={(e) => handleChangeValue({ key: 'parentId', value: e.target.value })}
           className={'w-full md:col-span-3'}
           label={'Category Parent Id'}
         />
         <TextField
+          value={state.general.slug}
           size='small'
           rounded='small'
-          onChange={(e) => handleChangeValue({ id: 'parent_id', value: e.target.value })}
-          className={'w-full md:col-span-3'}
-          label={'Product Tags'}
-        />
-        <TextField
-          size='small'
-          rounded='small'
-          onChange={(e) => handleChangeValue({ id: 'slug', value: e.target.value })}
+          onChange={(e) => handleChangeValue({ key: 'slug', value: e.target.value })}
           className={'w-full md:col-span-3'}
           label={'Category Slug'}
+        />
+        <TextField
+          value={state.general.column}
+          size='small'
+          rounded='small'
+          onChange={(e) => handleChangeValue({ key: 'column', value: e.target.value })}
+          className={'w-full md:col-span-3'}
+          label={'Category Column'}
         />
       </MainSection>
       <MainSection priority={3} title='Secondary Info' className='md:row-span-1 md:col-span-2'>
         <TextField
           size='small'
-          rounded='small'
-          onChange={(e) => handleChangeValue({ id: 'column', value: e.target.value })}
-          className={'w-full md:col-span-3'}
-          label={'Category Column'}
-        />
-        <TextField
-          size='small'
-          // disabled={loading || storeLoading || updateLoading}
-          // value={state.data.sortOrder}
+          value={state.general.sortOrder}
           rounded='small'
           type={'number'}
-          onChange={(e) => handleChangeValue({ id: 'sortOrder', value: e.target.value })}
+          onChange={(e) => handleChangeValue({ key: 'sortOrder', value: e.target.value })}
           className={'w-full md:col-span-2 md:col-start-1'}
           label={'Category Sort Order'}
         />
         <Select
           rounded='small'
-          value={''}
-          // value={state.data.status.toString()}
+          value={state.general.status.toString()}
           size='small'
           className='w-full md:col-span-2'
-          // disabled={loading || storeLoading || updateLoading}
           label={'Category Status'}
           optionsList={[{ id: '1', title: 'Active' }, { id: '0', title: 'In Active' }]}
-          onChange={(newValue) => handleChangeValue({ id: 'status', value: newValue })}
+          onChange={(newValue) => handleChangeValue({ key: 'status', value: newValue })}
           id={'id'}
           text={'title'}/>
         <FormControlLabel label={'Top'}>
           <Checkbox
-            onChange={() => handleChangeValue({ id: 'postcodeRequired', value: false })}
+            onChange={() => handleChangeValue({ key: 'top', value: !state.general.top })}
             color={'slate'}
-            checked={false}
+            checked={state.general.top}
           />
         </FormControlLabel>
       </MainSection>

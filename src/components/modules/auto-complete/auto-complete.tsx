@@ -9,7 +9,7 @@ import TextField from '@elements/text-field';
 import ListItem from '@elements/list-item';
 import classNames from '@utils/helpers/class-names';
 
-const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyValue, id, className, SearchValue }: { handleSelect: (value: string) => void, label?: string, getSearchData: any, data: Array<any>, loading: boolean, keyValue: string, id: string, className?: string, SearchValue: string }) => {
+const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyValue, id, className, SearchValue, error, helperText }: { handleSelect: (value: string) => void, label?: string, getSearchData: any, data: Array<any>, loading: boolean, keyValue: string, id: string, className?: string, SearchValue: string, error: boolean, helperText: any }) => {
   const [showList, setShowList] = useState<boolean>(false);
 
   const handlePopper = () => {
@@ -36,7 +36,7 @@ const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyVa
   };
 
   return (
-    <Popper position={'bottom'} showPopper={showList} handlePopper={handlePopper} className={classNames('w-full z-20', className)}>
+    <Popper position={'bottom'} showPopper={showList} handlePopper={handlePopper} className={classNames('w-full', className)}>
       <PopperHandler>
         <TextField
           onClick={handlePopper}
@@ -48,6 +48,8 @@ const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyVa
           className={`w-full`}
           variant={'outlined'}
           label={label}
+          error={error}
+          helperText={helperText}
           endAdornment={
             <svg className={classNames(``,
               showList ? 'rotate-0 duration-150' : 'rotate-180 duration-150'
@@ -63,7 +65,7 @@ const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyVa
         {!loading ? (
           <Div className={'bg-white shadow-lg rounded-md py-2 px-2 border border-slate-500'}>
             {data && data.length ? (
-              <Div className={'flex-col w-full overflow-y-auto min-h-28'}>
+              <Div className={'flex-col w-full overflow-y-auto max-h-28'}>
                 {data.map((item, index) => (
                   <ListItem
                     typography={['xs', 'xs']}

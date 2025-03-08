@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { ColumnDef, flexRender, getCoreRowModel, RowData, useReactTable } from '@tanstack/react-table';
 import useWindowDimensions from '@hooks/use-window-dimensions';
-
+import { AnimatePresence, motion } from 'motion/react';
 import classNames from '@utils/helpers/class-names';
 import Button from '@elements/button';
 import Checkbox from '@elements/checkbox';
@@ -28,6 +28,7 @@ const SimpleDataTable = ( { header,
   updateData,
   select,
   selectedRows,
+  emptyLabel,
 } : SimpleDataTableProps) => {
   const [rowSelection, setRowSelection] = useState({});
   const [columnVisibility, setColumnVisibility] = useState<any>({});
@@ -145,7 +146,7 @@ const SimpleDataTable = ( { header,
           </Div>
         </Div>
       ) : null}
-      <Div className={'bg-white border w-full p-2 rounded-xl max-w-full flex-col relative rounded-lg shadow-md shadow-slate-500'}>
+      <Div className={'bg-white border w-full p-2 max-w-full flex-col relative rounded-lg shadow-md shadow-slate-500'}>
         <table
           className={'w-full table-auto'}>
           <thead className={'bg-control-50 h-8 sticky top-0 z-10'}>
@@ -186,58 +187,73 @@ const SimpleDataTable = ( { header,
             </tbody>
           ) : !isLoading && !data.length ? (
             <tbody>
-              <tr className={'h-48'}>
+              <tr className={'h-10'}>
                 <td colSpan={table.getFlatHeaders().length}>
-                  <Text typography={['sm', 'sm']} type={'bold'}>اطلاعاتی برای نمایش وجود ندارد!</Text>
+                  <Text align={'center'} typography={['sm', 'sm']} type={'bold'}>{emptyLabel}</Text>
                 </td>
               </tr>
             </tbody>
           ) : (
             <tbody>
-              {table.getRowModel().rows.map((row) => {
+              {table.getRowModel().rows.map((row, index) => {
                 return (
                   <Fragment key={row.id}>
-                    <tr className={classNames('h-12',
-                      row.getIsSelected() && 'bg-slate-200')}>
-                      {row.getVisibleCells().map(cell => {
-                        return (
-                          <td className={'px-1'} key={cell.id}>
-                            {isLoading ? (
-                              <Skeleton color={'control'} className={'!max-w-full !min-w-full'}/>
-                            ) : <Div className={'flex-col items-center'}>
-                              {
-                                flexRender(
-                                  cell.column.columnDef.cell,
-                                  cell.getContext()
-                                )
-                              }
-                            </Div>}
+                    <AnimatePresence mode="wait">
+                      <motion.tr
+                        key={row ? row.id : 'empty'}
+                        initial={{ y: 100, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -100, opacity: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className={classNames('h-12 hover:bg-slate-100',
+                          row.getIsSelected() && 'bg-slate-200')}>
+                        {row.getVisibleCells().map(cell => {
+                          return (
+                            <td className={'px-1'} key={cell.id}>
+                              {isLoading ? (
+                                <Skeleton color={'control'} className={'!max-w-full !min-w-full'}/>
+                              ) : <Div className={'flex-col items-center'}>
+                                {
+                                  flexRender(
+                                    cell.column.columnDef.cell,
+                                    cell.getContext()
+                                  )
+                                }
+                              </Div>}
+                            </td>
+                          );
+                        })}
+                      </motion.tr>
+                    </AnimatePresence>
+                    <AnimatePresence>
+                      {rowExpander.indexOf(row.index) !== -1 && (
+                        <motion.tr
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.5, ease: 'easeInOut' }}
+                          className={classNames('bg-slate-50')}>
+                          <td colSpan={row.getVisibleCells().length}>
+                            <Div className={'flex-col'}>
+                              {row.getAllCells().map((mobileCell) => {
+                                if (mobileCell.column.getIsVisible() || mobileCell.column.id === 'expander') {
+                                  return null;
+                                }
+                                return (
+                                  <Div key={mobileCell.id} className={'gap-2 p-2 items-start'}>
+                                    <Text typography={['sm', 'sm']} type={'bold'}>{header[mobileCell.column.id]}:</Text>
+                                    {flexRender(
+                                      mobileCell.column.columnDef.cell,
+                                      mobileCell.getContext()
+                                    )}
+                                  </Div>
+                                );
+                              })}
+                            </Div>
                           </td>
-                        );
-                      })}
-                    </tr>
-                    {rowExpander.indexOf(row.index) !== -1 && (
-                      <tr className={classNames('bg-primary-50')}>
-                        <td colSpan={row.getVisibleCells().length}>
-                          <Div className={'flex-col'}>
-                            {row.getAllCells().map((mobileCell) => {
-                              if (mobileCell.column.getIsVisible() || mobileCell.column.id === 'expander') {
-                                return null;
-                              }
-                              return (
-                                <Div key={mobileCell.id} className={'gap-2 p-2 items-start'}>
-                                  <Text typography={['sm', 'sm']} type={'bold'}>{header[mobileCell.column.id]}:</Text>
-                                  {flexRender(
-                                    mobileCell.column.columnDef.cell,
-                                    mobileCell.getContext()
-                                  )}
-                                </Div>
-                              );
-                            })}
-                          </Div>
-                        </td>
-                      </tr>
-                    )}
+                        </motion.tr>
+                      )}
+                    </AnimatePresence>
                   </Fragment>
                 );
               })}

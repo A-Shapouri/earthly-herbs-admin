@@ -4,6 +4,7 @@ import { ColumnDef } from '@tanstack/react-table';
 import Div from '@elements/div';
 import Button from '@elements/button';
 import { BagCrossIcon, EditIcon } from '@icons';
+import Chip from '@elements/chip';
 
 export const header = {
   name: 'Name',
@@ -18,7 +19,7 @@ export const header = {
   operations: 'Operations',
 };
 
-type Description = {
+export type Description = {
   name: string
   languageId: string
   categoryId: string
@@ -32,24 +33,6 @@ type Description = {
 
 export const columns: ColumnDef<Description>[] = [
   {
-    accessorFn: row => row.name,
-    header: header.name,
-    id: 'name',
-    cell: info => <Text align='center' color={'grey.700'} typography={['xs', 'xs']}>{info.row.original.name || '-'}</Text>,
-  },
-  {
-    accessorFn: row => row.languageId,
-    header: header.language,
-    id: 'language',
-    cell: info => <Text align='center' color={'grey.700'} typography={['xs', 'xs']}>{info.row.original.languageId || '-'}</Text>,
-  },
-  {
-    accessorFn: row => row.categoryId,
-    header: header.category,
-    id: 'category',
-    cell: info => <Text align='center' color={'grey.700'} typography={['xs', 'xs']}>{info.row.original.categoryId || '-'}</Text>,
-  },
-  {
     accessorFn: row => row.description,
     header: header.description,
     id: 'description',
@@ -59,7 +42,16 @@ export const columns: ColumnDef<Description>[] = [
     accessorFn: row => row.status,
     header: header.status,
     id: 'status',
-    cell: info => <Text align='center' color={'grey.700'} typography={['xs', 'xs']}>{info.row.original.status || '-'}</Text>,
+    cell: info => {
+      if (info.row.original.status) {
+        return (
+          <Chip size={'small'} textProps={{ type: 'bold' }} color={'success'} value={'Active'}/>
+        );
+      }
+      return (
+        <Chip size={'small'} color={'danger'} value={'In Active'}/>
+      );
+    },
   },
   {
     accessorFn: row => row.sortOrder,

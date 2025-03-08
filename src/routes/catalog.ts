@@ -16,6 +16,8 @@ export const catalogRoutes = {
   'route.catalog.filters.index': '/catalog/filters',
   'route.catalog.filters.create': '/catalog/filters/create',
   'route.catalog.filters.update': '/catalog/filters/[id]',
+  'api.catalog.filters.index': 'filters',
+  'api.catalog.filters.show': 'filters/[id]',
 
   'route.catalog.attributes.index': '/catalog/attributes',
   'route.catalog.attributes.create': '/catalog/attributes/create',

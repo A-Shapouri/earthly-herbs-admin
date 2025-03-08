@@ -1,7 +1,10 @@
 'use client';
 import React, { useReducer, useEffect, useState } from 'react';
-import { SaveIcon, RedoIcon } from '../../../../../../assets/pb-icons';
-import { initialState, reducer } from './store';
+import { SaveIcon, RedoIcon } from '@icons';
+import { initialDescriptionState, descriptionReducer } from './sub-components/descriptions/store';
+import { initialFilterState, filterReducer } from './sub-components/filters/store';
+import { initialStoreState, storeReducer } from './sub-components/stores/store';
+import { initialGeneralState, generalReducer } from './sub-components/general/store';
 import Button from '@elements/button';
 import Div from '@elements/div';
 import getParseRoute from '@utils/helpers/parse-route';
@@ -9,12 +12,18 @@ import routes from '@routes';
 import { DictionariesTypes } from '@dictionaries';
 import { useParams } from 'next/navigation';
 import Header from '@layouts/section/sub-components/header';
-import { AnimatePresence, motion } from 'motion/react';
 import SectionItem from '@layouts/section/sub-components/section-item';
 import General from './sub-components/general';
 import Stores from './sub-components/stores';
 import Filters from './sub-components/filters';
 import Description from './sub-components/descriptions';
+import useFetchDatatable from '@hooks/use-fetch-datatable';
+import languagesListApi from '@api/languages/list';
+import categoriesListApi from '@api/categories/list';
+import filtersListApi from '@api/filters/list';
+import storesListApi from '@api/stores/list';
+import useUpdate from '@hooks/use-update';
+import categoriesStoreApi, { CategoriesStoreProps } from '@api/categories/store';
 
 const Menu = [
   {
@@ -38,29 +47,92 @@ const Menu = [
 const CategoryDetails = ({ name }: { name?: string }) => {
   const { lang } = useParams<{ lang: DictionariesTypes }>();
 
+  const {
+    data: languageData,
+    loading: languageLoading,
+    getData: getLanguageData,
+  } = useFetchDatatable({
+    getCallbackData: () => languagesListApi({
+      perPage: 100,
+    }),
+  });
+
+  const {
+    data: storesData,
+    loading: storesLoading,
+    getData: getStoresData,
+  } = useFetchDatatable({
+    getCallbackData: () => storesListApi({
+      perPage: 100,
+    }),
+  });
+
+  const {
+    data: filterData,
+    loading: filterLoading,
+    getData: getFilterData,
+  } = useFetchDatatable({
+    getCallbackData: () => filtersListApi({
+      perPage: 100,
+    }),
+  });
+
+  const {
+    data: categoryData,
+    loading: categoryLoading,
+    getData: getCategoryData,
+  } = useFetchDatatable({
+    getCallbackData: () => categoriesListApi({
+      perPage: 100,
+    }),
+  });
+
+  const {
+    loading: storeLoading,
+    setData: storeData,
+  } = useUpdate({
+    getCallbackData: (props: CategoriesStoreProps) => categoriesStoreApi({ ...props }),
+    apiMessageText: 'Store Succeeded',
+    apiMessageDescription: 'A new Category has been added successfully.',
+  });
+
+  useEffect(() => {
+    getLanguageData();
+    getCategoryData();
+    getFilterData();
+    getStoresData();
+  }, []);
+
   const [section, setSection] = useState<string>('general');
+
   const handleCreate = () => {
+    const error = false;
+    if (!error) {
+      storeData({
+        payload: {
+          ...generalState.general,
+          descriptions: descriptionState.description,
+          filters: filterState.filter,
+          stores: storeState.store,
+        },
+      }).then((response) => {
+        console.log(response);
+      });
+    }
   };
+
   const handleUpdate = () => {
   };
   const handleChangeSection = (id: string) => {
     setSection(id);
   };
-  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const handleChangeValue = ({ id, value }: { id: string, value: any }) => {
-    dispatch({
-      type: 'SET_VALUE',
-      id: id,
-      value: value,
-    });
-  };
+  const [descriptionState, descriptionDispatch] = useReducer(descriptionReducer, initialDescriptionState);
+  const [filterState, filterDispatch] = useReducer(filterReducer, initialFilterState);
+  const [storeState, storeDispatch] = useReducer(storeReducer, initialStoreState);
+  const [generalState, generalDispatch] = useReducer(generalReducer, initialGeneralState);
 
-  useEffect(() => {
-    if (name) {
-      handleChangeValue({ id: 'name', value: name });
-    }
-  }, [name]);
+  console.log(descriptionState, filterState, storeState, generalState);
 
   return (
     <Div className='flex-col justify-center w-full gap-4 md:gap-8'>
@@ -69,7 +141,7 @@ const CategoryDetails = ({ name }: { name?: string }) => {
         {name ? (
           <Button onClick={handleUpdate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Update</Button>
         ) : (
-          <Button onClick={handleCreate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Submit</Button>
+          <Button loading={storeLoading} disabled={storeLoading} onClick={handleCreate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Submit</Button>
         )}
       </Div>
       <Div className={'justify-start w-full flex-col'}>
@@ -77,21 +149,36 @@ const CategoryDetails = ({ name }: { name?: string }) => {
         <SectionItem
           isActive={section === 'general'}>
           <General
-            dispatch={dispatch}
-            state={state}
+            dispatch={generalDispatch}
+            state={generalState}
           />
         </SectionItem>
         <SectionItem isActive={section === 'descriptions'}>
           <Description
-            dispatch={dispatch}
-            state={state.description}
+            dispatch={descriptionDispatch}
+            state={descriptionState}
+            categoryData={categoryData}
+            languageData={languageData}
+            loading={languageLoading || categoryLoading}
           />
         </SectionItem>
         <SectionItem isActive={section === 'filters'}>
-          <Filters />
+          <Filters
+            dispatch={filterDispatch}
+            state={filterState}
+            categoryData={categoryData}
+            filterData={filterData}
+            loading={filterLoading || categoryLoading}
+          />
         </SectionItem>
         <SectionItem isActive={section === 'stores'}>
-          <Stores />
+          <Stores
+            dispatch={storeDispatch}
+            state={storeState}
+            categoryData={categoryData}
+            storeData={storesData}
+            loading={storesLoading || categoryLoading}
+          />
         </SectionItem>
       </Div>
     </Div>
