@@ -1,49 +1,83 @@
 export type CategoryDetailsStore = {
+  parentId: string
+  sortOrder: number
+  top: boolean
+  name: string
+  image: string
+  slug: string
+  column: number
+  status: number
+  description: Array<DescriptionType>
+  stores: Array<StoreType>
+  filters: Array<FilterType>
+}
+
+export type DescriptionType = {
+  languageId: string
+  categoryId: string
   name: string
   description: string
-  sort_order: string
-  columns: string
-  parent_id: string
-  top: string
-  meta_title: string
-  meta_description: string
-  meta_keywords: string
+  metaTitle: string
+  metaDescription: string
+  metaKeyword: string
+  sortOrder: string
   status: string
-  seo: Array<string>
-  seo_value: string
-  nameError: boolean
-  sortOrderError: boolean
-  columnsError: boolean
-  paretIdError: boolean
-  statusError: boolean
-  errorFlag: boolean
+}
+
+export type FilterType = {
+  categoryId: string
+  filterId: string
+}
+
+export type StoreType = {
+  categoryId: string
+  storeId: string
 }
 
 export const initialState: CategoryDetailsStore = {
+  parentId: '',
+  sortOrder: 0,
+  top: false,
   name: '',
-  description: '',
-  sort_order: '',
-  columns: '',
-  parent_id: '',
-  top: '',
-  meta_title: '',
-  meta_description: '',
-  meta_keywords: '',
-  status: '',
-  seo: [],
-  seo_value: '',
-  nameError: false,
-  sortOrderError: false,
-  columnsError: false,
-  paretIdError: false,
-  statusError: false,
-  errorFlag: false,
+  image: '',
+  slug: '',
+  column: 0,
+  status: 0,
+  description: [
+    {
+      languageId: '',
+      categoryId: '',
+      name: '',
+      description: '',
+      metaTitle: '',
+      metaDescription: '',
+      metaKeyword: '',
+      sortOrder: '',
+      status: '',
+    },
+  ],
+  stores: [],
+  filters: [],
 };
 
 export const reducer = (state: CategoryDetailsStore, action: any) => {
   switch (action.type) {
     case 'SET_INITIAL':
       return action.data;
+    case 'SET_DESCRIPTION_VALUE': {
+      const descriptionItems = JSON.parse(JSON.stringify(state.description));
+      descriptionItems[action.index][action.key] = action.value;
+      return {
+        ...state,
+        description: descriptionItems,
+      };
+    }
+    case 'ADD_NEW_DESCRIPTION' : {
+      return {
+        ...state,
+        description: [...state.description, initialState.description[0]],
+      };
+    }
     case 'SET_VALUE':
       let nameError = state.nameError;
       let sortOrderError = state.sortOrderError;

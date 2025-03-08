@@ -38,7 +38,7 @@ const MobileHeader = () => {
       route: '/en/',
       subRoutes: [{
         title: 'Category',
-        route: getParseRoute({ pathname: routes['route.catalog.category.index'], locale: lang }),
+        route: getParseRoute({ pathname: routes['route.catalog.categories.index'], locale: lang }),
       },
       {
         title: 'Products',

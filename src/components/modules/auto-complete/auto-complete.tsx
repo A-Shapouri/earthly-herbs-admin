@@ -1,7 +1,5 @@
 'use client';
 import React, { ChangeEvent, useState } from 'react';
-import { SearchIcon } from '@icons';
-import Button from '@elements/button';
 import Div from '@elements/div';
 import Popper from '@elements/popper';
 import PopperContent from '@elements/popper/popper-content';
@@ -24,15 +22,15 @@ const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyVa
     setValue(inputValue);
   };
 
-  const handleSearch = () => {
-    if (value.length) {
-      getSearchData().then(() => {
-        setShowList(true);
-      });
-    } else {
-      setShowList(false);
-    }
-  };
+  // const handleSearch = () => {
+  //   if (value.length) {
+  //     getSearchData(value).then(() => {
+  //       setShowList(true);
+  //     });
+  //   } else {
+  //     setShowList(false);
+  //   }
+  // };
 
   const handleSelectValue = ({ item }: { item: any }) => {
     setValue(item[keyValue]);
@@ -44,33 +42,47 @@ const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyVa
     <Popper position={'bottom'} showPopper={showList} handlePopper={handlePopper} className={classNames('w-full z-20', className)}>
       <PopperHandler>
         <TextField
-          color={'primary'}
+          onClick={handlePopper}
+          color={'slate'}
           onChange={handleInputChange}
           value={value}
+          size={'small'}
+          rounded={'small'}
           className={`w-full`}
           variant={'outlined'}
           label={label}
           endAdornment={
-            <Button
-              onClick={handleSearch}
-              loading={loading}
-              disabled={loading}
-              endAdornment={<SearchIcon />}
-              color={'primary'}
-              shape={'square'}
-              className={'!p-0'}
-              size={'small'}/>
+            <svg className={classNames(``,
+              showList ? 'rotate-0 duration-150' : 'rotate-180 duration-150'
+            )} width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.92 8.04999L10.4 1.52999C9.63002 0.759987 8.37002 0.759987 7.60002 1.52999L1.08002 8.04999"
+                stroke={'currentColor'} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round"
+                strokeLinejoin="round"/>
+            </svg>
           }
         />
       </PopperHandler>
       <PopperContent className={'w-full mt-14 py-2'}>
-        {value.length >= 3 && !loading ? (
-          <Div className={'bg-white shadow-lg rounded-lg py-4 px-2'}>
+        {!loading ? (
+          <Div className={'bg-white shadow-lg rounded-md py-2 px-2 border border-slate-500'}>
             {data && data.length ? (
-              <Div className={'flex-col w-full overflow-y-scroll h-48'}>
+              <Div className={'flex-col w-full overflow-y-auto min-h-28'}>
                 {data.map((item, index) => (
-                  <ListItem typography={['xs', 'xs']} className={'cursor-pointer hover:bg-control-100 rounded'} onClick={() => handleSelectValue({ item: item })} key={index}>
+                  <ListItem
+                    typography={['xs', 'xs']}
+                    className={classNames(
+                      'cursor-pointer hover:bg-slate-500 hover:text-white rounded justify-between',
+                      value === item[keyValue] ? 'bg-control-100' : 'bg-white'
+                    )}
+                    onClick={() => handleSelectValue({ item: item })}
+                    key={index}>
                     {item[keyValue]}
+                    {value === item[keyValue] ? (
+                      <svg
+                        width="15" height="11" viewBox="0 0 15 11" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.33336 8.64332L12.9934 0.982483L14.1725 2.16082L5.33336 11L0.0300293 5.69665L1.20836 4.51832L5.33336 8.64332Z" />
+                      </svg>
+                    ) : null}
                   </ListItem>
                 ))}
               </Div>

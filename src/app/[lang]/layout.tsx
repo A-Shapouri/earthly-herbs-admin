@@ -20,9 +20,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
           </Div>
         </Div>
       </Media>
-      <Div className={classNames('w-full flex-col bg-control-50 overflow-auto min-h-screen transition-all', expandedMenu ? 'md:ml-0 duration-0' : 'md:ml-20 duration-1000')}>
+      <Div className={classNames('min-h-dvh w-full flex-col bg-control-50 overflow-auto transition-all', expandedMenu ? 'md:ml-0 duration-0' : 'md:ml-20 duration-1000')}>
         <Header />
-        <Div className={'flex-col p-4 md:p-8 min-h-screen'}>
+        <Div className={'flex-col p-4 md:p-8'}>
           <Div className={'flex-col bg-control-50 justify-center items-center md:flex-row'}>
             {children}
           </Div>
