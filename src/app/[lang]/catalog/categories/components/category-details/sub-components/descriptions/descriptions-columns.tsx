@@ -7,9 +7,9 @@ import { BagCrossIcon, EditIcon } from '@icons';
 
 export const header = {
   name: 'Name',
-  language: 'Slug ',
-  category: 'Created At',
-  description: 'Updated At',
+  language: 'Language',
+  category: 'Category',
+  description: 'Description',
   status: 'Status',
   sortOrder: 'Sort Order',
   metaTitle: 'Meta Title',
@@ -91,11 +91,11 @@ export const columns: ColumnDef<Description>[] = [
     header: header.operations,
     cell: (info) => {
       const onDelete = () => {
-        info.table.options.meta?.updateData('deleteRecord', info.row.id);
+        info.table.options.meta?.updateData('deleteRecord', info.row.original);
       };
 
       const onEdit = () => {
-        info.table.options.meta?.updateData('editRecord', info.row.id);
+        info.table.options.meta?.updateData('editRecord', info.row.original);
       };
 
       return (

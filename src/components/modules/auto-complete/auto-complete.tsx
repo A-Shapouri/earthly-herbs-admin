@@ -9,8 +9,7 @@ import TextField from '@elements/text-field';
 import ListItem from '@elements/list-item';
 import classNames from '@utils/helpers/class-names';
 
-const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyValue, id, className }: { handleSelect: (value: string) => void, label?: string, getSearchData: any, data: Array<any>, loading: boolean, keyValue: string, id: string, className?: string }) => {
-  const [value, setValue] = useState('');
+const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyValue, id, className, SearchValue }: { handleSelect: (value: string) => void, label?: string, getSearchData: any, data: Array<any>, loading: boolean, keyValue: string, id: string, className?: string, SearchValue: string }) => {
   const [showList, setShowList] = useState<boolean>(false);
 
   const handlePopper = () => {
@@ -19,7 +18,6 @@ const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyVa
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
-    setValue(inputValue);
   };
 
   // const handleSearch = () => {
@@ -33,7 +31,6 @@ const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyVa
   // };
 
   const handleSelectValue = ({ item }: { item: any }) => {
-    setValue(item[keyValue]);
     handleSelect(item);
     setShowList(false);
   };
@@ -45,7 +42,7 @@ const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyVa
           onClick={handlePopper}
           color={'slate'}
           onChange={handleInputChange}
-          value={value}
+          value={SearchValue}
           size={'small'}
           rounded={'small'}
           className={`w-full`}
@@ -72,12 +69,12 @@ const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyVa
                     typography={['xs', 'xs']}
                     className={classNames(
                       'cursor-pointer hover:bg-slate-500 hover:text-white rounded justify-between',
-                      value === item[keyValue] ? 'bg-control-100' : 'bg-white'
+                      SearchValue === item[keyValue] ? 'bg-control-100' : 'bg-white'
                     )}
                     onClick={() => handleSelectValue({ item: item })}
                     key={index}>
                     {item[keyValue]}
-                    {value === item[keyValue] ? (
+                    {SearchValue === item[keyValue] ? (
                       <svg
                         width="15" height="11" viewBox="0 0 15 11" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.33336 8.64332L12.9934 0.982483L14.1725 2.16082L5.33336 11L0.0300293 5.69665L1.20836 4.51832L5.33336 8.64332Z" />

@@ -37,7 +37,7 @@ const Descriptions = ({ state, dispatch }: {state: Array<DescriptionType>, dispa
       index: itemIndex,
     });
   };
-
+  console.log(state, itemIndex);
   const handleAddNewRow = () => {
     if (state[itemIndex].languageId && state[itemIndex].categoryId && state[itemIndex].name && state[itemIndex].description) {
       dispatch({ type: 'ADD_NEW_DESCRIPTION' });
@@ -45,31 +45,14 @@ const Descriptions = ({ state, dispatch }: {state: Array<DescriptionType>, dispa
     }
   };
 
-  const displayRows = useMemo(() => {
-    return state
-      .map((row, i) => {
-        if (i !== itemIndex) {
-          return {
-            languageId: row.languageId ? data.find((value) => value.id === row.languageId).title : '',
-            categoryId: row.categoryId ? data.find((value) => value.id === row.categoryId).title : '',
-            name: row.name,
-            description: row.description,
-            status: row.status,
-            sortOrder: row.sortOrder,
-            metaTitle: row.metaTitle,
-            metaKeywords: row.metaKeyword,
-            metaDescription: row.metaDescription,
-          };
-        }
-        return null;
-      })
-      .filter(Boolean);
-  }, [itemIndex]);
-
-  const handleUpdate = (value?: string, info?: number) => {
-    console.log(value, info);
+  const handleUpdate = (value?: string, info?: object) => {
     if (value === 'editRecord') {
-      setItemIndex(info);
+      const displayRow = state.findIndex((value) => {
+        console.log(value);
+        return value === info;
+      });
+      console.log(info, displayRow);
+      // setItemIndex(displayRow);
     }
   };
 
@@ -77,12 +60,17 @@ const Descriptions = ({ state, dispatch }: {state: Array<DescriptionType>, dispa
     <Div className={'flex-col w-full'}>
       <Div className={'w-full'}>
         {state.length > 1 ? (
-          <SimpleDataTable updateData={handleUpdate} data={displayRows} header={header} column={columns} />
+          <SimpleDataTable
+            updateData={handleUpdate}
+            data={state.filter((_, index) => index !== itemIndex)}
+            header={header}
+            column={columns} />
         ) : null}
       </Div>
       <Div className={'w-full gap-6 grid md:grid-cols-3 grid-cols-1 mt-4 relative'}>
         <MainSection priority={2} title='Description Info' className='md:col-span-2'>
           <AutoComplete
+            SearchValue={data.find((value) => value.id === state[itemIndex].categoryId).title || ''}
             className='md:col-span-3'
             data={data}
             loading={false}
@@ -93,6 +81,7 @@ const Descriptions = ({ state, dispatch }: {state: Array<DescriptionType>, dispa
             label='Category'
           />
           <AutoComplete
+            SearchValue={data.find((value) => value.id === state[itemIndex].languageId).title || ''}
             className='md:col-span-3'
             data={data}
             loading={false}
