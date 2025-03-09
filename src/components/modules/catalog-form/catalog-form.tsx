@@ -14,18 +14,18 @@ type FieldConfig = {
   key: string;
   label: string;
   type: 'text' | 'select' | 'autocomplete' | 'number' | 'textarea';
-  options?: { id: string; title: string }[];
+  options?: { id: string; title: string, name?: string }[];
   dataKey?: string;
   errorMessage?: string;
   className?: string;
 };
 
-type Props<T> = {
+export type CatalogFormProps<T> = {
   title: string;
   state: { data: T[]; error: Record<string, boolean> };
   handleChange: (key: string, value: any) => void;
   handleAdd: () => void;
-  handleUpdate: (actionType: 'edit' | 'delete', index: number) => void;
+  handleUpdate: (actionType: string, index: number) => void;
   fields: {
     main: FieldConfig[],
     secondaryMain?: FieldConfig[],
@@ -36,6 +36,7 @@ type Props<T> = {
   loading?: boolean;
   mainLayout: number;
   subLayout: number;
+  itemIndex: number
 };
 
 const CatalogForm = <T, >({
@@ -50,9 +51,8 @@ const CatalogForm = <T, >({
   loading,
   mainLayout,
   subLayout,
-}: Props<T>) => {
-  const itemIndex = state.data.length - 1;
-
+  itemIndex,
+}: CatalogFormProps<T>) => {
   return (
     <Div className="flex-col w-full">
       <AnimatePresence mode="wait">
@@ -65,7 +65,7 @@ const CatalogForm = <T, >({
           <SimpleDataTable
             mobileColumns={['name', 'description', 'operations']}
             emptyLabel={`Add a new ${title}`}
-            updateData={(_, info) => handleUpdate('edit', dataList.indexOf(info))}
+            updateData={(value, info) => handleUpdate(value, dataList.indexOf(info))}
             data={state.data.filter((_, index) => index !== itemIndex)}
             header={{ name: title }}
             column={tableColumns}
@@ -78,10 +78,11 @@ const CatalogForm = <T, >({
           <MainSection priority={3} title={`${title} Info`} className="md:col-span-2">
             {fields.main.map((field) => {
               if (field.type === 'autocomplete') {
+                console.log(field.key, state.data[itemIndex]);
                 return (
                   <AutoComplete
                     key={field.key}
-                    SearchValue={state.data[itemIndex]?.[field.key] || ''}
+                    SearchValue={state.data[itemIndex]?.[field.key] ? field.options.find((value) => value.id === state.data[itemIndex]?.[field.key]).name || '' : ''}
                     className={field.className}
                     data={field.options}
                     loading={loading}
@@ -136,7 +137,7 @@ const CatalogForm = <T, >({
                 return (
                   <AutoComplete
                     key={field.key}
-                    SearchValue={state.data[itemIndex]?.[field.key] || ''}
+                    SearchValue={state.data[itemIndex]?.[field.key] ? field.options.find((value) => value.id === state.data[itemIndex]?.[field.key]).name || '' : ''}
                     className={field.className}
                     data={field.options}
                     loading={loading}
@@ -191,7 +192,7 @@ const CatalogForm = <T, >({
                 return (
                   <AutoComplete
                     key={field.key}
-                    SearchValue={state.data[itemIndex]?.[field.key] || ''}
+                    SearchValue={state.data[itemIndex]?.[field.key] ? field.options.find((value) => value.id === state.data[itemIndex]?.[field.key]).name || '' : ''}
                     className={field.className}
                     data={field.options}
                     loading={loading}

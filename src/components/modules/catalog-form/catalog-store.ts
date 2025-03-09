@@ -7,7 +7,7 @@ export type ModuleStore<T> = {
 
 type Action<T> =
   | { type: 'SET_VALUE'; key: string; value: any; index: number }
-  | { type: 'ADD_NEW' }
+  | { type: 'ADD_NEW', new: T }
   | { type: 'DELETE'; index: number }
   | { type: 'VALIDATE'; index: number }
   | { type: 'RESET_ERRORS' };
@@ -27,7 +27,7 @@ const moduleReducer = <T>(state: ModuleStore<T>, action: Action<T>) => {
     case 'ADD_NEW':
       return {
         ...state,
-        data: [...state.data, {} as T],
+        data: [...state.data, action.new as T],
       };
     case 'DELETE': {
       const updatedData = [...state.data];
@@ -36,7 +36,7 @@ const moduleReducer = <T>(state: ModuleStore<T>, action: Action<T>) => {
     }
     case 'VALIDATE': {
       const item = state.data[action.index];
-      const errors = Object.keys(item).reduce((acc, key) => {
+      const errors = Object.keys(state.error).reduce((acc, key) => {
         acc[key] = !item[key as keyof T];
         return acc;
       }, {} as Record<string, boolean>);
@@ -60,13 +60,18 @@ export function useModuleForm<T>(initialState: ModuleStore<T>) {
 
   const handleAdd = () => {
     dispatch({ type: 'VALIDATE', index: itemIndex });
-    if (!Object.values(state.error).some(Boolean)) {
-      dispatch({ type: 'ADD_NEW' });
+    const errors = Object.keys(state.error).reduce((acc, key) => {
+      acc[key] = !state.data[itemIndex][key as keyof T];
+      return acc;
+    }, {} as Record<string, boolean>);
+    if (!Object.values(errors).some(Boolean)) {
+      dispatch({ type: 'ADD_NEW', new: initialState.data[0] });
       setItemIndex((prev) => prev + 1);
     }
   };
 
   const handleUpdate = (actionType: 'edit' | 'delete', index: number) => {
+    console.log(index, actionType);
     if (actionType === 'edit') {
       setItemIndex(index);
       dispatch({ type: 'RESET_ERRORS' });

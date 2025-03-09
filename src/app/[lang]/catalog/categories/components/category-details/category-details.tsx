@@ -1,7 +1,7 @@
 'use client';
 import React, { useReducer, useEffect, useState } from 'react';
 import { SaveIcon, RedoIcon } from '@icons';
-import { initialDescriptionState, descriptionReducer } from './sub-components/descriptions/store';
+import { initialDescriptionState } from './sub-components/descriptions/store';
 import { initialFilterState, filterReducer } from './sub-components/filters/store';
 import { initialStoreState, storeReducer } from './sub-components/stores/store';
 import { initialGeneralState, generalReducer } from './sub-components/general/store';
@@ -24,6 +24,7 @@ import filtersListApi from '@api/filters/list';
 import storesListApi from '@api/stores/list';
 import useUpdate from '@hooks/use-update';
 import categoriesStoreApi, { CategoriesStoreProps } from '@api/categories/store';
+import { useModuleForm } from '@modules/catalog-form/catalog-store';
 
 const Menu = [
   {
@@ -46,6 +47,11 @@ const Menu = [
 
 const CategoryDetails = ({ name }: { name?: string }) => {
   const { lang } = useParams<{ lang: DictionariesTypes }>();
+
+  const descriptionForm : any = useModuleForm({
+    data: initialDescriptionState.description,
+    error: initialDescriptionState.error,
+  });
 
   const {
     data: languageData,
@@ -111,7 +117,7 @@ const CategoryDetails = ({ name }: { name?: string }) => {
       storeData({
         payload: {
           ...generalState.general,
-          descriptions: descriptionState.description,
+          descriptions: descriptionForm.state.data,
           filters: filterState.filter,
           stores: storeState.store,
         },
@@ -127,12 +133,9 @@ const CategoryDetails = ({ name }: { name?: string }) => {
     setSection(id);
   };
 
-  const [descriptionState, descriptionDispatch] = useReducer(descriptionReducer, initialDescriptionState);
   const [filterState, filterDispatch] = useReducer(filterReducer, initialFilterState);
   const [storeState, storeDispatch] = useReducer(storeReducer, initialStoreState);
   const [generalState, generalDispatch] = useReducer(generalReducer, initialGeneralState);
-
-  console.log(descriptionState, filterState, storeState, generalState);
 
   return (
     <Div className='flex-col justify-center w-full gap-4 md:gap-8'>
@@ -155,9 +158,7 @@ const CategoryDetails = ({ name }: { name?: string }) => {
         </SectionItem>
         <SectionItem isActive={section === 'descriptions'}>
           <Description
-            dispatch={descriptionDispatch}
-            state={descriptionState}
-            categoryData={categoryData}
+            moduleForm={descriptionForm}
             languageData={languageData}
             loading={languageLoading || categoryLoading}
           />
