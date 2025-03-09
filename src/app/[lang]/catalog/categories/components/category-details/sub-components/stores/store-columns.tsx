@@ -5,7 +5,7 @@ import Button from '@elements/button';
 import { BagCrossIcon, EditIcon } from '@icons';
 
 export const header = {
-  store: 'Store',
+  storeId: 'Store',
   category: 'Category',
   operations: 'Operations',
 };

@@ -5,7 +5,7 @@ import Button from '@elements/button';
 import { BagCrossIcon, EditIcon } from '@icons';
 
 export const header = {
-  filter: 'Filter',
+  filterId: 'Filter',
   category: 'Category',
   operations: 'Operations',
 };

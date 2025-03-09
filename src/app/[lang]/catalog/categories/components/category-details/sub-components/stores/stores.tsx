@@ -10,8 +10,8 @@ const Stores = ({ storeData, loading, moduleForm } : {storeData: Array<any>, loa
   const dynamicColumns: ColumnDef<Store>[] = [
     {
       accessorFn: row => row.storeId,
-      header: header.store,
-      id: 'store',
+      header: header.storeId,
+      id: 'storeId',
       cell: info =>
         <Text
           align='center'

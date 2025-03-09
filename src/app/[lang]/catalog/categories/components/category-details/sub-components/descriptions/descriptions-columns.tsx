@@ -8,8 +8,7 @@ import Chip from '@elements/chip';
 
 export const header = {
   name: 'Name',
-  language: 'Language',
-  category: 'Category',
+  languageId: 'Language',
   description: 'Description',
   status: 'Status',
   sortOrder: 'Sort Order',
@@ -22,7 +21,6 @@ export const header = {
 export type Description = {
   name: string
   languageId: string
-  categoryId: string
   description: string
   status: string
   sortOrder: string

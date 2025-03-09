@@ -15,8 +15,8 @@ const Descriptions = ({ languageData, loading, moduleForm } : {languageData: Arr
     },
     {
       accessorFn: row => row.languageId,
-      header: header.language,
-      id: 'language',
+      header: header.languageId,
+      id: 'languageId',
       cell: info =>
         <Text
           align='center'

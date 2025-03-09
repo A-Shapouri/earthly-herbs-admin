@@ -10,7 +10,7 @@ const Filters = ({ filterData, loading, moduleForm } : {filterData: Array<any>, 
   const dynamicColumns: ColumnDef<Filter>[] = [
     {
       accessorFn: row => row.filterId,
-      header: header.filter,
+      header: header.filterId,
       id: 'filter',
       cell: info =>
         <Text
