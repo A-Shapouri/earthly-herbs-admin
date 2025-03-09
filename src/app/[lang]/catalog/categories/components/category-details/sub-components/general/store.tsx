@@ -88,6 +88,12 @@ export const generalReducer = (state: CategoryGeneralsStore, action: any) => {
         error: initialGeneralState.error,
       };
     }
+    case 'SET_INITIAL_STATE': {
+      return {
+        general: action.general,
+        error: initialGeneralState.error,
+      };
+    }
     default:
       return state;
   }

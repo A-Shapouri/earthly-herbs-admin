@@ -22,11 +22,11 @@ export const columns: ColumnDef<Filter>[] = [
     header: header.operations,
     cell: (info) => {
       const onDelete = () => {
-        info.table.options.meta?.updateData('deleteRecord', info.row.original);
+        info.table.options.meta?.updateData('delete', info.row.original);
       };
 
       const onEdit = () => {
-        info.table.options.meta?.updateData('editRecord', info.row.original);
+        info.table.options.meta?.updateData('edit', info.row.original);
       };
 
       return (
