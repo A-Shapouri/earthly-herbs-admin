@@ -6,6 +6,7 @@ export type ModuleStore<T> = {
 };
 
 type Action<T> =
+  | { type: 'SET_INITIAL', value: Array<T> }
   | { type: 'SET_VALUE'; key: string; value: any; index: number }
   | { type: 'ADD_NEW', new: T }
   | { type: 'DELETE'; index: number }
@@ -14,6 +15,12 @@ type Action<T> =
 
 const moduleReducer = <T>(state: ModuleStore<T>, action: Action<T>) => {
   switch (action.type) {
+    case 'SET_INITIAL':
+      return {
+        ...state,
+        data: action.value,
+      };
+
     case 'SET_VALUE': {
       const updatedData = [...state.data];
       updatedData[action.index] = { ...updatedData[action.index], [action.key]: action.value };
@@ -54,6 +61,10 @@ export function useModuleForm<T>(initialState: ModuleStore<T>) {
   const [state, dispatch] = useReducer(moduleReducer<T>, initialState);
   const [itemIndex, setItemIndex] = useState(state.data.length - 1);
 
+  const handleInitial = (value: Array<T>) => {
+    dispatch({ type: 'SET_INITIAL', value });
+  };
+
   const handleChange = (key: string, value: any) => {
     dispatch({ type: 'SET_VALUE', key, value, index: itemIndex });
   };
@@ -71,7 +82,6 @@ export function useModuleForm<T>(initialState: ModuleStore<T>) {
   };
 
   const handleUpdate = (actionType: 'edit' | 'delete', index: number) => {
-    console.log(index, actionType);
     if (actionType === 'edit') {
       setItemIndex(index);
       dispatch({ type: 'RESET_ERRORS' });
@@ -83,5 +93,5 @@ export function useModuleForm<T>(initialState: ModuleStore<T>) {
     }
   };
 
-  return { state, dispatch, itemIndex, handleChange, handleAdd, handleUpdate };
+  return { state, dispatch, itemIndex, handleChange, handleAdd, handleUpdate, handleInitial };
 }

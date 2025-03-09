@@ -22,7 +22,7 @@ const Descriptions = ({ languageData, loading, moduleForm } : {languageData: Arr
           align='center'
           color={'grey.700'}
           typography={['xs', 'xs']}>
-          {info.row.original.languageId ? languageData.find((value) => value.id === info.row.original.languageId).name || '-' : '-'}
+          {info.row.original.languageId ? languageData.find((value) => value.id === info.row.original.languageId)?.name || '-' : '-'}
         </Text>,
     },
   ];

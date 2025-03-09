@@ -29,7 +29,7 @@ export type CatalogFormProps<T> = {
   fields: {
     main: FieldConfig[],
     secondaryMain?: FieldConfig[],
-    sub: FieldConfig[]
+    sub?: FieldConfig[]
   };
   tableColumns: any[];
   dataList: any[];
@@ -56,33 +56,34 @@ const CatalogForm = <T, >({
   return (
     <Div className="flex-col w-full">
       <AnimatePresence mode="wait">
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: 100, opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="w-full">
-          <SimpleDataTable
-            mobileColumns={['name', 'description', 'operations']}
-            emptyLabel={`Add a new ${title}`}
-            updateData={(value, info) => handleUpdate(value, dataList.indexOf(info))}
-            data={state.data.filter((_, index) => index !== itemIndex)}
-            header={{ name: title }}
-            column={tableColumns}
-          />
-        </motion.div>
+        {state.data.length > 1 ? (
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 100, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="w-full">
+            <SimpleDataTable
+              mobileColumns={['name', 'description', 'operations']}
+              emptyLabel={`Add a new ${title}`}
+              updateData={(value, info) => handleUpdate(value, dataList.indexOf(info))}
+              data={state.data.filter((_, index) => index !== itemIndex)}
+              header={{ name: title }}
+              column={tableColumns}
+            />
+          </motion.div>
+        ) : null}
       </AnimatePresence>
 
       <Div className="w-full gap-6 grid md:grid-cols-3 grid-cols-1 mt-4 relative">
         {mainLayout >= 1 && (
-          <MainSection priority={3} title={`${title} Info`} className="md:col-span-2">
+          <MainSection priority={mainLayout + 1} title={`${title} Info`} className="md:col-span-2">
             {fields.main.map((field) => {
               if (field.type === 'autocomplete') {
-                console.log(field.key, state.data[itemIndex]);
                 return (
                   <AutoComplete
                     key={field.key}
-                    SearchValue={state.data[itemIndex]?.[field.key] ? field.options.find((value) => value.id === state.data[itemIndex]?.[field.key]).name || '' : ''}
+                    SearchValue={state.data[itemIndex][field.key] ? field.options?.find((value) => value?.id === state?.data[itemIndex][field.key])?.name || '' : ''}
                     className={field.className}
                     data={field.options}
                     loading={loading}
@@ -100,7 +101,7 @@ const CatalogForm = <T, >({
                   <Select
                     key={field.key}
                     rounded="small"
-                    value={state.data[itemIndex]?.[field.key]}
+                    value={state.data[itemIndex]?.[field.key].toString()}
                     size="small"
                     className={field.className}
                     disabled={loading}
@@ -119,7 +120,7 @@ const CatalogForm = <T, >({
                   rounded="small"
                   multiline={field.type === 'textarea'}
                   inputClassName={field.type === 'textarea' ? 'min-h-24' : ''}
-                  value={state.data[itemIndex]?.[field.key]}
+                  value={state.data[itemIndex]?.[field.key].toString()}
                   onChange={(e) => handleChange(field.key, e.target.value)}
                   className={field.className}
                   label={field.label}
@@ -131,13 +132,13 @@ const CatalogForm = <T, >({
           </MainSection>
         )}
         {subLayout >= 1 && (
-          <SubSection priority={2} className='md:col-span-1 md:h-fit' title={`Meta Info`}>
+          <SubSection priority={subLayout + 1} className='md:col-span-1 md:h-fit' title={`Meta Info`}>
             {fields.sub.map((field) => {
               if (field.type === 'autocomplete') {
                 return (
                   <AutoComplete
                     key={field.key}
-                    SearchValue={state.data[itemIndex]?.[field.key] ? field.options.find((value) => value.id === state.data[itemIndex]?.[field.key]).name || '' : ''}
+                    SearchValue={state.data[itemIndex][field.key] ? field?.options?.find((value) => value?.id === state?.data[itemIndex][field.key])?.name || '' : ''}
                     className={field.className}
                     data={field.options}
                     loading={loading}
@@ -155,7 +156,7 @@ const CatalogForm = <T, >({
                   <Select
                     key={field.key}
                     rounded="small"
-                    value={state.data[itemIndex]?.[field.key]}
+                    value={state.data[itemIndex]?.[field.key].toString()}
                     size="small"
                     className={field.className}
                     disabled={loading}
@@ -192,7 +193,7 @@ const CatalogForm = <T, >({
                 return (
                   <AutoComplete
                     key={field.key}
-                    SearchValue={state.data[itemIndex]?.[field.key] ? field.options.find((value) => value.id === state.data[itemIndex]?.[field.key]).name || '' : ''}
+                    SearchValue={state.data[itemIndex][field.key] ? field?.options?.find((value) => value?.id === state?.data[itemIndex]?.[field.key])?.name || '' : ''}
                     className={field.className}
                     data={field.options}
                     loading={loading}
@@ -210,7 +211,7 @@ const CatalogForm = <T, >({
                   <Select
                     key={field.key}
                     rounded="small"
-                    value={state.data[itemIndex]?.[field.key]}
+                    value={state.data[itemIndex]?.[field.key].toString()}
                     size="small"
                     className={field.className}
                     disabled={loading}
@@ -240,7 +241,7 @@ const CatalogForm = <T, >({
             })}
           </MainSection>
         )}
-        <SubSection priority={5} className='!py-2 md:col-span-1 !bg-transparent shadow-none !flex justify-start items-start'>
+        <SubSection priority={mainLayout === 1 ? 3 : 5} className='!py-2 md:col-span-1 !bg-transparent shadow-none !flex justify-start items-start'>
           <Button color="emerald" startAdornment={<AddIcon />} rounded="small" onClick={handleAdd}>
             Add New {title}
           </Button>
