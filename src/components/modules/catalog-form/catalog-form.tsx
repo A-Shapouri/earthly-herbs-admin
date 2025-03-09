@@ -37,6 +37,7 @@ export type CatalogFormProps<T> = {
   mainLayout: number;
   subLayout: number;
   itemIndex: number
+  mobileColumns?: Array<string>
 };
 
 const CatalogForm = <T, >({
@@ -52,6 +53,7 @@ const CatalogForm = <T, >({
   mainLayout,
   subLayout,
   itemIndex,
+  mobileColumns = [],
 }: CatalogFormProps<T>) => {
   return (
     <Div className="flex-col w-full">
@@ -64,7 +66,7 @@ const CatalogForm = <T, >({
             transition={{ duration: 0.3 }}
             className="w-full">
             <SimpleDataTable
-              mobileColumns={['name', 'description', 'operations']}
+              mobileColumns={mobileColumns}
               emptyLabel={`Add a new ${title}`}
               updateData={(value, info) => handleUpdate(value, dataList.indexOf(info))}
               data={state.data.filter((_, index) => index !== itemIndex)}

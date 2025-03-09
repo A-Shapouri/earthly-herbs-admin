@@ -29,6 +29,7 @@ const Descriptions = ({ languageData, loading, moduleForm } : {languageData: Arr
 
   return (
     <CatalogForm
+      mobileColumns={['name', 'description', 'operations']}
       loading={loading}
       itemIndex={moduleForm.itemIndex}
       mainLayout={2}
