@@ -15,7 +15,7 @@ const SubSection = ({ children, className, title, priority = 1 }: { children: Re
         exit={{ x: 100, opacity: 0 }}
         transition={{ duration: priority * 0.3, delay: (priority - 1) * 0.3 }}
         className={classNames(
-          'grid grid-cols-1 gap-8 py-8 px-4 bg-white rounded-lg shadow-md shadow-slate-500 w-full',
+          'grid grid-cols-1 gap-6 py-6 px-4 bg-white rounded-lg shadow-md shadow-slate-500 w-full',
           className
         )}>
         {title ? (

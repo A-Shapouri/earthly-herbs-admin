@@ -50,8 +50,13 @@ const moduleReducer = <T>(state: ModuleStore<T>, action: Action<T>) => {
 
       return { ...state, error: errors };
     }
-    case 'RESET_ERRORS':
-      return { ...state, error: {} };
+    case 'RESET_ERRORS': {
+      const errors = Object.keys(state.error).reduce((acc, key) => {
+        acc[key] = false;
+        return acc;
+      }, {} as Record<string, boolean>);
+      return { ...state, error: errors };
+    }
     default:
       return state;
   }
@@ -59,7 +64,7 @@ const moduleReducer = <T>(state: ModuleStore<T>, action: Action<T>) => {
 
 export function useModuleForm<T>(initialState: ModuleStore<T>) {
   const [state, dispatch] = useReducer(moduleReducer<T>, initialState);
-  const [itemIndex, setItemIndex] = useState(state.data.length - 1);
+  const [itemIndex, setItemIndex] = useState<number>(state.data.length - 1);
 
   const handleInitial = (value: Array<T>) => {
     dispatch({ type: 'SET_INITIAL', value });
@@ -83,6 +88,9 @@ export function useModuleForm<T>(initialState: ModuleStore<T>) {
 
   const handleUpdate = (actionType: 'edit' | 'delete', index: number) => {
     if (actionType === 'edit') {
+      if (isObjectEmpty(state.data[itemIndex])) {
+        dispatch({ type: 'DELETE', index: itemIndex });
+      }
       setItemIndex(index);
       dispatch({ type: 'RESET_ERRORS' });
     } else {
@@ -95,3 +103,13 @@ export function useModuleForm<T>(initialState: ModuleStore<T>) {
 
   return { state, dispatch, itemIndex, handleChange, handleAdd, handleUpdate, handleInitial };
 }
+
+const isObjectEmpty = (obj: any) => {
+  return Object.values(obj).every(value =>
+    value === null ||
+    value === undefined ||
+    (typeof value === 'string' && value.trim() === '') ||
+    (Array.isArray(value) && value.length === 0) ||
+    (typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0)
+  );
+};
