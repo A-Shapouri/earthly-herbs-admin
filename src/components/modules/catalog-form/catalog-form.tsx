@@ -18,6 +18,7 @@ type FieldConfig = {
   dataKey?: string;
   errorMessage?: string;
   className?: string;
+  getSearchData?: (searchText: string) => void
 };
 
 export type CatalogFormProps<T> = {
@@ -84,15 +85,16 @@ const CatalogForm = <T, >({
               if (field.type === 'autocomplete') {
                 return (
                   <AutoComplete
+                    getSearchData={(searchText) => field.getSearchData(searchText)}
                     key={field.key}
-                    SearchValue={state.data[itemIndex][field.key] ? field.options?.find((value) => value?.id === state?.data[itemIndex][field.key])?.name || '' : ''}
+                    searchValue={state.data[itemIndex][field.key] ? field.options?.find((value) => value?.id === state?.data[itemIndex][field.key]) || '' : ''}
                     className={field.className}
                     data={field.options}
                     loading={loading}
                     handleSelect={(value: any) => handleChange(field.key, value.id)}
                     label={field.label}
                     error={state.error[field.key]}
-                    helperText={state.error[field.key] ? field.errorMessage : undefined} getSearchData={undefined}
+                    helperText={state.error[field.key] ? field.errorMessage : undefined}
                     keyValue={'name'}
                     id={'id'}
                   />
@@ -103,7 +105,7 @@ const CatalogForm = <T, >({
                   <Select
                     key={field.key}
                     rounded="small"
-                    value={state.data[itemIndex]?.[field.key].toString()}
+                    value={state.data[itemIndex]?.[field.key]?.toString()}
                     size="small"
                     className={field.className}
                     disabled={loading}
@@ -122,7 +124,7 @@ const CatalogForm = <T, >({
                   rounded="small"
                   multiline={field.type === 'textarea'}
                   inputClassName={field.type === 'textarea' ? 'min-h-24' : ''}
-                  value={state.data[itemIndex]?.[field.key].toString()}
+                  value={state?.data[itemIndex]?.[field.key]?.toString()}
                   onChange={(e) => handleChange(field.key, e.target.value)}
                   className={field.className}
                   label={field.label}
@@ -139,15 +141,16 @@ const CatalogForm = <T, >({
               if (field.type === 'autocomplete') {
                 return (
                   <AutoComplete
+                    getSearchData={(searchText) => field.getSearchData(searchText)}
                     key={field.key}
-                    SearchValue={state.data[itemIndex][field.key] ? field?.options?.find((value) => value?.id === state?.data[itemIndex][field.key])?.name || '' : ''}
+                    searchValue={state.data[itemIndex][field.key] ? field?.options?.find((value) => value?.id === state?.data[itemIndex][field.key]) || '' : ''}
                     className={field.className}
                     data={field.options}
                     loading={loading}
                     handleSelect={(value: any) => handleChange(field.key, value.id)}
                     label={field.label}
                     error={state.error[field.key]}
-                    helperText={state.error[field.key] ? field.errorMessage : undefined} getSearchData={undefined}
+                    helperText={state.error[field.key] ? field.errorMessage : undefined}
                     keyValue={'name'}
                     id={'id'}
                   />
@@ -158,7 +161,7 @@ const CatalogForm = <T, >({
                   <Select
                     key={field.key}
                     rounded="small"
-                    value={state.data[itemIndex]?.[field.key].toString()}
+                    value={state.data[itemIndex]?.[field.key]?.toString()}
                     size="small"
                     className={field.className}
                     disabled={loading}
@@ -194,15 +197,16 @@ const CatalogForm = <T, >({
               if (field.type === 'autocomplete') {
                 return (
                   <AutoComplete
+                    getSearchData={(searchText) => field.getSearchData(searchText)}
                     key={field.key}
-                    SearchValue={state.data[itemIndex][field.key] ? field?.options?.find((value) => value?.id === state?.data[itemIndex]?.[field.key])?.name || '' : ''}
+                    searchValue={state.data[itemIndex][field.key] ? field?.options?.find((value) => value?.id === state?.data[itemIndex]?.[field.key]) || '' : ''}
                     className={field.className}
                     data={field.options}
                     loading={loading}
                     handleSelect={(value: any) => handleChange(field.key, value.id)}
                     label={field.label}
                     error={state.error[field.key]}
-                    helperText={state.error[field.key] ? field.errorMessage : undefined} getSearchData={undefined}
+                    helperText={state.error[field.key] ? field.errorMessage : undefined}
                     keyValue={'name'}
                     id={'id'}
                   />
@@ -213,7 +217,7 @@ const CatalogForm = <T, >({
                   <Select
                     key={field.key}
                     rounded="small"
-                    value={state.data[itemIndex]?.[field.key].toString()}
+                    value={state.data[itemIndex]?.[field.key]?.toString()}
                     size="small"
                     className={field.className}
                     disabled={loading}

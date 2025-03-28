@@ -7,9 +7,11 @@ export interface UploadsListProps extends CacheProps{
   sort?: string
 
   perPage?: number
+
+  searchText?: string
 }
 
-const uploadsListApi = ({ page = 0, sort = 'id', perPage = 10 }: UploadsListProps) => {
+const uploadsListApi = ({ page = 0, sort = 'id', perPage = 10, searchText = '' }: UploadsListProps) => {
   return fetchApi({
     method: 'GET',
     url: {
@@ -18,6 +20,7 @@ const uploadsListApi = ({ page = 0, sort = 'id', perPage = 10 }: UploadsListProp
         page: page,
         sort: sort,
         size: perPage,
+        searchText: searchText,
       },
     },
     withToken: true,

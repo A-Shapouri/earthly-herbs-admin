@@ -1,6 +1,8 @@
 'use client';
-import React, { useState } from 'react';
-import { SaveIcon, RedoIcon } from '../../../../../../assets/pb-icons';
+import React, { useReducer, useEffect, useState } from 'react';
+import { SaveIcon, RedoIcon } from '@icons';
+import { initialDescriptionState } from './sub-components/descriptions/store';
+import { initialGeneralState, generalReducer } from './sub-components/general/store';
 import Button from '@elements/button';
 import Div from '@elements/div';
 import getParseRoute from '@utils/helpers/parse-route';
@@ -10,17 +12,24 @@ import { useParams } from 'next/navigation';
 import Header from '@layouts/section/sub-components/header';
 import SectionItem from '@layouts/section/sub-components/section-item';
 import General from './sub-components/general';
-import Links from './sub-components/links';
-import Data from './sub-components/data';
+import Description from './sub-components/descriptions';
 import Attributes from './sub-components/attributes';
-import Recurring from './sub-components/recurring';
-import Discount from './sub-components/discount';
-import Special from './sub-components/special';
-import Images from './sub-components/images';
-import RewardPoints from './sub-components/reward-points';
-import Seo from './sub-components/seo';
-import Design from './sub-components/design';
-import { motion, AnimatePresence } from 'motion/react';
+import useFetchDatatable from '@hooks/use-fetch-datatable';
+import languagesListApi, { LanguagesListProps } from '@api/languages/list';
+import locationsListApi, { LocationsListProps } from '@api/locations/list';
+import stockStatusesListApi, { StockStatusesListProps } from '@api/stock-statuses/list';
+import manufacturersListApi, { ManufacturersListProps } from '@api/manufacturers/list';
+import taxClassesListApi, { TaxClassesListProps } from '@api/tax-classes/list';
+import lengthClassesListApi, { LengthClassesListProps } from '@api/length-classes/list';
+import weightClassesListApi, { WeightClassesListProps } from '@api/weight-classes/list';
+import attributesListApi, { AttributesListProps } from '@api/attributes/list';
+import useUpdate from '@hooks/use-update';
+import attributesStoreApi, { AttributesStoreProps } from '@api/attributes/store';
+import { useModuleForm } from '@modules/catalog-form/catalog-store';
+import useFetch from '@hooks/use-fetch';
+import attributesShowApi from '@api/attributes/show';
+import attributesUpdateApi, { AttributesUpdateProps } from '@api/attributes/update';
+import { useRouter } from 'next-nprogress-bar';
 
 const Menu = [
   {
@@ -28,116 +37,319 @@ const Menu = [
     title: 'General',
   },
   {
-    id: 'data',
-    title: 'Data',
-  },
-  {
-    id: 'links',
-    title: 'Links',
-  },
-  {
     id: 'attributes',
     title: 'Attributes',
+  },
+  {
+    id: 'descriptions',
+    title: 'Descriptions',
+  },
+  {
+    id: 'discounts',
+    title: 'Discounts',
+  },
+  {
+    id: 'filters',
+    title: 'Filters',
+  },
+  {
+    id: 'images',
+    title: 'Images',
+  },
+  {
+    id: 'options',
+    title: 'Options',
   },
   {
     id: 'recurring',
     title: 'Recurring',
   },
   {
-    id: 'discount',
-    title: 'Discount',
+    id: 'relateds',
+    title: 'Relateds',
   },
   {
-    id: 'special',
-    title: 'Special',
+    id: 'rewards',
+    title: 'Rewards',
   },
   {
-    id: 'image',
-    title: 'Image',
+    id: 'specials',
+    title: 'Specials',
   },
   {
-    id: 'reward_points',
-    title: 'Reward Points',
+    id: 'categories',
+    title: 'Categories',
   },
   {
-    id: 'seo',
-    title: 'SEO',
+    id: 'downloads',
+    title: 'Downloads',
   },
   {
-    id: 'design',
-    title: 'Design',
+    id: 'layouts',
+    title: 'Layouts',
+  },
+  {
+    id: 'stores',
+    title: 'Stores',
   },
 ];
 
-const ProductDetails = ({ name }: { name?: string }) => {
-  const { lang } = useParams<{ lang: DictionariesTypes }>();
+const AttributeDetails = () => {
+  const { lang, id } = useParams<{ lang: DictionariesTypes, id: string }>();
   const [section, setSection] = useState<string>('general');
+  const [generalState, generalDispatch] = useReducer(generalReducer, initialGeneralState);
+  const router = useRouter();
+
+  const descriptionForm: any = useModuleForm({
+    data: initialDescriptionState.description,
+    error: initialDescriptionState.error,
+  });
+  const {
+    data: languageData,
+    loading: languageLoading,
+    getData: getLanguageData,
+  } = useFetchDatatable({
+    getCallbackData: (props: LanguagesListProps) => languagesListApi({
+      ...props,
+    }),
+  });
+
+  const {
+    data: locationData,
+    loading: locationLoading,
+    getData: getLocationData,
+  } = useFetchDatatable({
+    getCallbackData: (props: LocationsListProps) => locationsListApi({
+      ...props,
+    }),
+  });
+
+  const {
+    data: manufacturerData,
+    loading: manufacturerLoading,
+    getData: getManufacturerData,
+  } = useFetchDatatable({
+    getCallbackData: (props: ManufacturersListProps) => manufacturersListApi({
+      ...props,
+    }),
+  });
+
+  const {
+    data: taxClassData,
+    loading: taxClassLoading,
+    getData: getTaxClassData,
+  } = useFetchDatatable({
+    getCallbackData: (props: TaxClassesListProps) => taxClassesListApi({
+      ...props,
+    }),
+  });
+
+  const {
+    data: lengthClassData,
+    loading: lengthClassLoading,
+    getData: getLengthClassData,
+  } = useFetchDatatable({
+    getCallbackData: (props: LengthClassesListProps) => lengthClassesListApi({
+      ...props,
+    }),
+  });
+
+  const {
+    data: weightClassData,
+    loading: weightClassLoading,
+    getData: getWeightClassData,
+  } = useFetchDatatable({
+    getCallbackData: (props: WeightClassesListProps) => weightClassesListApi({
+      ...props,
+    }),
+  });
+
+  const {
+    data: stockStatusData,
+    loading: stockStatusLoading,
+    getData: getStockStatusData,
+  } = useFetchDatatable({
+    getCallbackData: (props: StockStatusesListProps) => stockStatusesListApi({
+      ...props,
+    }),
+  });
+
+  const {
+    data: attributesData,
+    loading: attributesLoading,
+    getData: getAttributesData,
+  } = useFetchDatatable({
+    getCallbackData: (props: AttributesListProps) => attributesListApi({
+      ...props,
+    }),
+  });
+
+  const {
+    loading: storeLoading,
+    setData: storeData,
+  } = useUpdate({
+    getCallbackData: (props: AttributesStoreProps) => attributesStoreApi({ ...props }),
+    apiMessageText: 'Store Succeeded',
+    apiMessageDescription: 'A new Attribute has been added successfully.',
+  });
+
+  const {
+    loading: updateLoading,
+    setData: updateData,
+  } = useUpdate({
+    getCallbackData: (props: AttributesUpdateProps) => attributesUpdateApi({ ...props }),
+    apiMessageText: 'Update Succeeded',
+    apiMessageDescription: 'The Attribute has been updated successfully.',
+  });
+
+  const {
+    loading,
+    getData,
+  } = useFetch({
+    getCallbackData: () => attributesShowApi({ id: id }),
+  });
+
+  useEffect(() => {
+    if (id) {
+      getData().then((response) => {
+        generalDispatch({
+          type: 'SET_INITIAL_STATE',
+          general: {
+            name: response?.name,
+            attributeGroupId: response?.attributeGroupId,
+            sortOrder: response?.sortOrder,
+            status: response?.status,
+          },
+        });
+        if (response.descriptions.length) {
+          descriptionForm.handleInitial(response?.descriptions.length
+            ? response?.descriptions.map((
+              { languageId, name, status, sortOrder, id }) =>
+              ({ languageId, name, status, sortOrder, id }))
+            : initialDescriptionState.description);
+        }
+      });
+    }
+  }, [id]);
+
+  useEffect(() => {
+    getLanguageData();
+    getLocationData();
+    getStockStatusData();
+    getManufacturerData();
+    getTaxClassData();
+    getLengthClassData();
+    getWeightClassData();
+    getAttributesData();
+  }, []);
+
   const handleCreate = () => {
+    const error = false;
+    if (!error) {
+      storeData({
+        payload: {
+          ...generalState.general,
+          descriptions: descriptionForm.state.data,
+        },
+      }).then((response) => {
+        router.push(getParseRoute({ pathname: routes['route.catalog.attributes.update'], query: { id: response.id } }));
+      });
+    }
   };
+
   const handleUpdate = () => {
+    const error = false;
+    if (!error) {
+      updateData({
+        id: id,
+        payload: {
+          ...generalState.general,
+          id: id,
+          descriptions: descriptionForm.state.data,
+        },
+      });
+    }
   };
+
   const handleChangeSection = (id: string) => {
     setSection(id);
   };
 
+  if (loading) {
+    return null;
+  }
+
   return (
     <Div className='flex-col justify-center w-full gap-4 md:gap-8'>
       <Div className={'w-full gap-2 md:gap-4 md:justify-end justify-between'}>
-        <Button href={getParseRoute({ pathname: routes['route.catalog.products.index'], locale: lang })} rounded={'small'} size={'small'} color={'slate'} startAdornment={<RedoIcon />}>Return to List</Button>
-        {name ? (
-          <Button onClick={handleUpdate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Update</Button>
+        <Button href={getParseRoute({ pathname: routes['route.catalog.attributes.index'], locale: lang })} rounded={'small'} size={'small'} color={'slate'} startAdornment={<RedoIcon />}>Return to List</Button>
+        {id ? (
+          <Button loading={updateLoading} disabled={updateLoading} onClick={handleUpdate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Update</Button>
         ) : (
-          <Button onClick={handleCreate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Submit</Button>
+          <Button loading={storeLoading} disabled={storeLoading} onClick={handleCreate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Submit</Button>
         )}
       </Div>
       <Div className={'justify-start w-full flex-col'}>
         <Header menu={Menu} handleChangeSection={handleChangeSection} section={section} />
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={section || 'empty'}
-            initial={{ x: -50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 50, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <SectionItem isActive={section === 'general'}>
-              <General />
-            </SectionItem>
-            <SectionItem isActive={section === 'data'}>
-              <Data />
-            </SectionItem>
-            <SectionItem isActive={section === 'links'}>
-              <Links />
-            </SectionItem>
-            <SectionItem isActive={section === 'attributes'}>
-              <Attributes />
-            </SectionItem>
-            <SectionItem isActive={section === 'recurring'}>
-              <Recurring />
-            </SectionItem>
-            <SectionItem isActive={section === 'discount'}>
-              <Discount />
-            </SectionItem>
-            <SectionItem isActive={section === 'special'}>
-              <Special />
-            </SectionItem>
-            <SectionItem isActive={section === 'image'}>
-              <Images />
-            </SectionItem>
-            <SectionItem isActive={section === 'reward_points'}>
-              <RewardPoints />
-            </SectionItem>
-            <SectionItem isActive={section === 'seo'}>
-              <Seo />
-            </SectionItem>
-            <SectionItem isActive={section === 'design'}>
-              <Design />
-            </SectionItem>
-          </motion.div>
-        </AnimatePresence>
+        <SectionItem isActive={section === 'general'}>
+          <General
+            lengthClassData={lengthClassData}
+            searchLengthClass={(searchText) => getLengthClassData({
+              searchText: searchText,
+            })}
+            weightClassData={weightClassData}
+            searchWeightClass={(searchText) => getWeightClassData({
+              searchText: searchText,
+            })}
+            manufacturerData={manufacturerData}
+            searchManufacturer={(searchText) => getManufacturerData({
+              searchText: searchText,
+            })}
+            taxClassData={taxClassData}
+            searchTaxClass={(searchText) => getTaxClassData({
+              searchText: searchText,
+            })}
+            locationData={locationData}
+            searchLocation={(searchText) => getLocationData({
+              searchText: searchText,
+            })}
+            stockStatusData={stockStatusData}
+            searchStockStatus={(searchText) => getStockStatusData({
+              searchText: searchText,
+            })}
+            loading={locationLoading || stockStatusLoading || taxClassLoading || lengthClassLoading || weightClassLoading || manufacturerLoading}
+            dispatch={generalDispatch}
+            // @ts-ignore
+            state={generalState}
+          />
+        </SectionItem>
+        <SectionItem isActive={section === 'attributes'}>
+          <Attributes
+            attributeData={attributesData}
+            searchAttribute={(searchText) => getAttributesData({
+              searchText: searchText,
+            })}
+            moduleForm={descriptionForm}
+            languageData={languageData}
+            loading={languageLoading}
+            searchLanguage={(searchText) => getLanguageData({
+              searchText: searchText,
+            })}
+          />
+        </SectionItem>
+        <SectionItem isActive={section === 'descriptions'}>
+          <Description
+            moduleForm={descriptionForm}
+            languageData={languageData}
+            loading={languageLoading}
+            searchLanguage={(searchText) => getLanguageData({
+              searchText: searchText,
+            })}
+          />
+        </SectionItem>
       </Div>
     </Div>
   );
 };
 
-export default ProductDetails;
+export default AttributeDetails;

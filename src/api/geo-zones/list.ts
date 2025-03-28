@@ -7,9 +7,11 @@ export interface GeoZonesListProps extends CacheProps{
   sort?: string
 
   perPage?: number
+
+  searchText?: string
 }
 
-const geoZonesListApi = ({ page = 0, sort = 'id', perPage = 10 }: GeoZonesListProps) => {
+const geoZonesListApi = ({ page = 0, sort = 'id', perPage = 10, searchText }: GeoZonesListProps) => {
   return fetchApi({
     method: 'GET',
     url: {
@@ -18,6 +20,7 @@ const geoZonesListApi = ({ page = 0, sort = 'id', perPage = 10 }: GeoZonesListPr
         page: page,
         sort: sort,
         size: perPage,
+        searchText: searchText,
       },
     },
     withToken: true,

@@ -49,8 +49,16 @@ const MobileHeader = () => {
         route: getParseRoute({ pathname: routes['route.catalog.recurring-profiles.index'], locale: lang }),
       },
       {
+        title: 'Recurrings',
+        route: getParseRoute({ pathname: routes['route.catalog.recurrings.index'], locale: lang }),
+      },
+      {
         title: 'Filters',
         route: getParseRoute({ pathname: routes['route.catalog.filters.index'], locale: lang }),
+      },
+      {
+        title: 'Filter Groups',
+        route: getParseRoute({ pathname: routes['route.catalog.filter-groups.index'], locale: lang }),
       },
       {
         title: 'Attributes',
@@ -63,6 +71,10 @@ const MobileHeader = () => {
       {
         title: 'Options',
         route: getParseRoute({ pathname: routes['route.catalog.options.index'], locale: lang }),
+      },
+      {
+        title: 'Option Values',
+        route: getParseRoute({ pathname: routes['route.catalog.option-values.index'], locale: lang }),
       },
       {
         title: 'Manufacturers',

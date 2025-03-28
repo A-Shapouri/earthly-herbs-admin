@@ -7,9 +7,11 @@ export interface LengthClassDescriptionsListProps extends CacheProps{
   sort?: string
 
   perPage?: number
+
+  searchText?: string
 }
 
-const lengthClassDescriptionsListApi = ({ page = 0, sort = 'id', perPage = 10 }: LengthClassDescriptionsListProps) => {
+const lengthClassDescriptionsListApi = ({ page = 0, sort = 'id', perPage = 10, searchText }: LengthClassDescriptionsListProps) => {
   return fetchApi({
     method: 'GET',
     url: {
@@ -18,6 +20,7 @@ const lengthClassDescriptionsListApi = ({ page = 0, sort = 'id', perPage = 10 }:
         page: page,
         sort: sort,
         size: perPage,
+        searchText: searchText,
       },
     },
     withToken: true,

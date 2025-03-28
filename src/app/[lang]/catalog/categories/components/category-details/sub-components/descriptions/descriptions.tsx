@@ -5,7 +5,7 @@ import Text from '@elements/text';
 import { CatalogFormProps } from '@modules/catalog-form/catalog-form';
 import { DescriptionType } from './store';
 
-const Descriptions = ({ languageData, loading, moduleForm } : {languageData: Array<any>, loading: boolean, moduleForm: CatalogFormProps<DescriptionType>}) => {
+const Descriptions = ({ languageData, loading, moduleForm, searchLanguage } : {languageData: Array<any>, loading: boolean, moduleForm: CatalogFormProps<DescriptionType>, searchLanguage: (searchText: string) => void}) => {
   const dynamicColumns: ColumnDef<Description>[] = [
     {
       accessorFn: row => row.name,
@@ -49,6 +49,7 @@ const Descriptions = ({ languageData, loading, moduleForm } : {languageData: Arr
               errorMessage: 'Category is required',
               options: languageData,
               className: 'md:col-span-3 z-10',
+              getSearchData: (searchText: string) => searchLanguage(searchText),
             },
             {
               key: 'name',

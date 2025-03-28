@@ -20,7 +20,7 @@ const ClientLayout = ({ children }: { children: ReactNode }) => {
   }, []);
   return (
     <Provider store={store}>
-      <SnackbarAlert/>
+      <SnackbarAlert />
       <Suspense>
         <ProgressBar
           height={'6px'}

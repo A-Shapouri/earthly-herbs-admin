@@ -7,9 +7,11 @@ export interface CountriesListProps extends CacheProps{
   sort?: string
 
   perPage?: number
+
+  searchText?: string
 }
 
-const countriesListApi = ({ page = 0, sort = 'id', perPage = 10 }: CountriesListProps) => {
+const countriesListApi = ({ page = 0, sort = 'id', perPage = 10, searchText }: CountriesListProps) => {
   return fetchApi({
     method: 'GET',
     url: {
@@ -18,6 +20,7 @@ const countriesListApi = ({ page = 0, sort = 'id', perPage = 10 }: CountriesList
         page: page,
         sort: sort,
         size: perPage,
+        searchText: searchText,
       },
     },
     withToken: true,

@@ -1,5 +1,5 @@
 'use client';
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import Div from '@elements/div';
 import Popper from '@elements/popper';
 import PopperContent from '@elements/popper/popper-content';
@@ -8,41 +8,64 @@ import Text from '@elements/text';
 import TextField from '@elements/text-field';
 import ListItem from '@elements/list-item';
 import classNames from '@utils/helpers/class-names';
+import LoadingIndicator from '@elements/loading-indicator';
 
-const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyValue, id, className, SearchValue, error, helperText }: { handleSelect: (value: string) => void, label?: string, getSearchData: any, data: Array<any>, loading: boolean, keyValue: string, id: string, className?: string, SearchValue: string, error: boolean, helperText: any }) => {
+const AutoComplete = (
+  { handleSelect, label, getSearchData, data, loading, keyValue, id, className, searchValue, error, helperText }:
+  { handleSelect: (value: string) => void, label?: string, getSearchData: (searchText: string) => void, data: Array<any>, loading: boolean, keyValue: string, id: string, className?: string, searchValue: any, error: boolean, helperText: any }) => {
   const [showList, setShowList] = useState<boolean>(false);
-
+  const [debouncedInput, setDebouncedInput] = useState<string>(searchValue[keyValue]);
+  const isSelectingRef = useRef<boolean>(false);
+  const isFirstRender = useRef(true);
   const handlePopper = () => {
     setShowList(!showList);
   };
-
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value;
+    setDebouncedInput(e.target.value);
   };
+  console.log(searchValue, debouncedInput, keyValue);
+  useEffect(() => {
+    if (searchValue[keyValue]) {
+      setDebouncedInput(searchValue[keyValue]);
+    }
+  }, [searchValue]);
 
-  // const handleSearch = () => {
-  //   if (value.length) {
-  //     getSearchData(value).then(() => {
-  //       setShowList(true);
-  //     });
-  //   } else {
-  //     setShowList(false);
-  //   }
-  // };
+  useEffect(() => {
+    if (isSelectingRef.current) {
+      isSelectingRef.current = false;
+      return;
+    }
+    const handler = setTimeout(() => {
+      if (debouncedInput) {
+        getSearchData(debouncedInput);
+        if (isFirstRender.current) {
+          isFirstRender.current = false;
+        } else {
+          setShowList(true);
+        }
+      } else {
+        setShowList(false);
+      }
+    }, 1000);
+
+    return () => clearTimeout(handler);
+  }, [debouncedInput]);
 
   const handleSelectValue = ({ item }: { item: any }) => {
+    isSelectingRef.current = true;
     handleSelect(item);
+    setDebouncedInput(item[keyValue]);
     setShowList(false);
   };
 
   return (
-    <Popper position={'bottom'} showPopper={showList} handlePopper={handlePopper} className={classNames('w-full', className)}>
+    <Popper position={'bottom'} showPopper={showList} handlePopper={handlePopper} className={classNames('w-full h-fit', className)}>
       <PopperHandler>
         <TextField
           onClick={handlePopper}
           color={'slate'}
           onChange={handleInputChange}
-          value={SearchValue}
+          value={debouncedInput}
           size={'small'}
           rounded={'small'}
           className={`w-full`}
@@ -50,6 +73,7 @@ const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyVa
           label={label}
           error={error}
           helperText={helperText}
+          startAdornment={loading ? <LoadingIndicator color={'slate'} size={'tiny'} /> : undefined}
           endAdornment={
             <svg className={classNames(``,
               showList ? 'rotate-0 duration-150' : 'rotate-180 duration-150'
@@ -61,7 +85,7 @@ const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyVa
           }
         />
       </PopperHandler>
-      <PopperContent className={'w-full mt-14 py-2'}>
+      <PopperContent className={'w-full pt-2'}>
         {!loading ? (
           <Div className={'bg-white shadow-lg rounded-md py-2 px-2 border border-slate-500'}>
             {data && data.length ? (
@@ -71,12 +95,12 @@ const AutoComplete = ({ handleSelect, label, getSearchData, data, loading, keyVa
                     typography={['xs', 'xs']}
                     className={classNames(
                       'cursor-pointer hover:bg-slate-500 hover:text-white rounded justify-between',
-                      SearchValue === item[keyValue] ? 'bg-control-100' : 'bg-white'
+                      searchValue[id] === item[id] ? 'bg-control-100' : 'bg-white'
                     )}
                     onClick={() => handleSelectValue({ item: item })}
                     key={index}>
                     {item[keyValue]}
-                    {SearchValue === item[keyValue] ? (
+                    {searchValue[id] === item[id] ? (
                       <svg
                         width="15" height="11" viewBox="0 0 15 11" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.33336 8.64332L12.9934 0.982483L14.1725 2.16082L5.33336 11L0.0300293 5.69665L1.20836 4.51832L5.33336 8.64332Z" />

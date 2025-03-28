@@ -1,77 +1,98 @@
-import React, { useState } from 'react';
+import CatalogForm from '@modules/catalog-form';
+import { columns, Description, header } from './attributes-columns';
+import { ColumnDef } from '@tanstack/react-table';
+import Text from '@elements/text';
+import { CatalogFormProps } from '@modules/catalog-form/catalog-form';
+import { AttributeType } from './store';
 
-import Div from '@elements/div';
-import MainSection from '../main-section';
-import Button from '@elements/button';
-import { AddIcon } from '../../../../../../../../assets/pb-icons';
-import AutoComplete from '@elements/auto-complete';
-import TextField from '@elements/text-field';
-import Divider from '@elements/divider';
-import Chip from '@elements/chip';
-
-const Attributes = () => {
-  const [list, setList] = useState<Array<{
-    attribute?: string
-    text?: string
-  }>>([{
-    attribute: '',
-    text: '',
-  }]);
-
-  const handleChangeValue = ({ id, value }: { id: string, value: string }) => {
-
-  };
-
-  const handleAddRow = () => {
-    setList([...list, {
-      attribute: '',
-      text: '',
-    }]);
-  };
-
-  const handleRemoveRow = (index: number) => {
-    const tempList = JSON.parse(JSON.stringify(list));
-    tempList.splice(index, 1);
-    setList(tempList);
-  };
-
+const Descriptions = ({ languageData, loading, moduleForm, searchLanguage, searchAttribute, attributeData } : {languageData: Array<any>, loading: boolean, moduleForm: CatalogFormProps<AttributeType>, searchLanguage: (searchText: string) => void, searchAttribute: (searchText: string) => void, attributeData: Array<any>}) => {
+  const dynamicColumns: ColumnDef<Description>[] = [
+    {
+      accessorFn: row => row.text,
+      header: header.text,
+      id: 'text',
+      cell: info => <Text align='center' color={'grey.700'} typography={['xs', 'xs']}>{info.row.original.text || '-'}</Text>,
+    },
+    {
+      accessorFn: row => row.attributeId,
+      header: header.attributeId,
+      id: 'attributeId',
+      cell: info =>
+        <Text
+          align='center'
+          color={'grey.700'}
+          typography={['xs', 'xs']}>
+          {info.row.original.attributeId ? attributeData.find((value) => value.id === info.row.original.attributeId)?.name || '-' : '-'}
+        </Text>,
+    },
+    {
+      accessorFn: row => row.languageId,
+      header: header.languageId,
+      id: 'languageId',
+      cell: info =>
+        <Text
+          align='center'
+          color={'grey.700'}
+          typography={['xs', 'xs']}>
+          {info.row.original.languageId ? languageData.find((value) => value.id === info.row.original.languageId)?.name || '-' : '-'}
+        </Text>,
+    },
+  ];
   return (
-    <Div className={'w-full gap-6 grid md:grid-cols-2 grid-cols-1 mt-4'}>
-      {list.map((item, index) => {
-        return (
-          <MainSection key={index} title={`Attribute ${index + 1}`} className='flex flex-col col-span-1'>
-            <Div className='grid md:grid-cols-3 grid-cols-1 md:col-span-6 md:gap-6 gap-4 items-center justify-center'>
-              <Div className='md:col-span-3 justify-end'>
-                <Chip size='small' onClick={() => handleRemoveRow(index)} onDelete={() => handleRemoveRow(index)} variant={'reverse'} className={'self-start'} color={'danger'} value={'Remove'} />
-              </Div>
-              <Div className='md:col-span-2'>
-                <AutoComplete
-                  className='w-full'
-                  searchList={['Test 1', 'Test 2', 'Test 3', 'Test 4', 'Test 5', 'Test 6']}
-                  label='Attribute'
-                  emptyLabel='No Result'
-                />
-              </Div>
-              <Div className='md:col-span-3'>
-                <TextField
-                  onChange={(e) => handleChangeValue({ id: 'description', value: e.target.value })}
-                  className={'w-full'}
-                  rounded='small'
-                  multiline={true}
-                  maxRows={4}
-                  inputClassName={'!min-h-36'}
-                  label={'Text'}
-                />
-              </Div>
-            </Div>
-          </MainSection>
-        );
-      })}
-      <Div className='md:justify-start md:items-start justify-center col-span-1'>
-        <Button onClick={handleAddRow} color={'emerald'} shape='square' startAdornment={<AddIcon />} />
-      </Div>
-    </Div>
+    <CatalogForm
+      mobileColumns={['name', 'languageId', 'operations']}
+      loading={loading}
+      itemIndex={moduleForm.itemIndex}
+      mainLayout={1}
+      subLayout={0}
+      title="Attributes"
+      state={moduleForm.state}
+      handleChange={moduleForm.handleChange}
+      handleAdd={moduleForm.handleAdd}
+      handleUpdate={moduleForm.handleUpdate}
+      fields={
+        {
+          main: [
+            {
+              key: 'languageId',
+              label: 'Language',
+              type: 'autocomplete',
+              errorMessage: 'Language is required',
+              options: languageData,
+              className: 'md:col-span-3',
+              getSearchData: (searchText: string) => searchLanguage(searchText),
+            },
+            {
+              key: 'attributeId',
+              label: 'Attribute',
+              type: 'autocomplete',
+              errorMessage: 'Attribute is required',
+              options: attributeData,
+              className: 'md:col-span-3',
+              getSearchData: (searchText: string) => searchAttribute(searchText),
+            },
+            {
+              key: 'text',
+              label: 'Text',
+              type: 'text',
+              errorMessage: 'Text is required',
+              className: 'w-full col-span-1 md:col-span-3',
+            },
+            { key: 'sortOrder', label: 'SortOrder', type: 'text', className: 'w-full md:col-span-3' },
+            {
+              key: 'status',
+              label: 'Status',
+              type: 'select',
+              className: 'w-full md:col-span-3',
+              options: [{ id: '1', title: 'Active' }, { id: '0', title: 'In Active' }],
+            },
+          ],
+        }
+      }
+      tableColumns={[...dynamicColumns, ...columns]}
+      dataList={moduleForm.state.data}
+    />
   );
 };
+export default Descriptions;
 
-export default Attributes;

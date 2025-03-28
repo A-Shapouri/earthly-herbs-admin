@@ -1,81 +1,193 @@
 'use client';
-import React, { useReducer, useEffect } from 'react';
-import { SaveIcon, RedoIcon } from '../../../../../../assets/pb-icons';
-import { initialState, reducer } from './store';
+import React, { useReducer, useEffect, useState } from 'react';
+import { SaveIcon, RedoIcon } from '@icons';
+import { initialDescriptionState } from './sub-components/descriptions/store';
+import { initialGeneralState, generalReducer } from './sub-components/general/store';
 import Button from '@elements/button';
 import Div from '@elements/div';
-import TextField from '@elements/text-field';
 import getParseRoute from '@utils/helpers/parse-route';
 import routes from '@routes';
 import { DictionariesTypes } from '@dictionaries';
 import { useParams } from 'next/navigation';
-import MainSection from '@layouts/main-section';
-import Select from '@elements/select';
+import Header from '@layouts/section/sub-components/header';
+import SectionItem from '@layouts/section/sub-components/section-item';
+import General from './sub-components/general';
+import Description from './sub-components/descriptions';
+import useFetchDatatable from '@hooks/use-fetch-datatable';
+import languagesListApi, { LanguagesListProps } from '@api/languages/list';
+import useUpdate from '@hooks/use-update';
+import attributesStoreApi, { AttributesStoreProps } from '@api/attributes/store';
+import { useModuleForm } from '@modules/catalog-form/catalog-store';
+import useFetch from '@hooks/use-fetch';
+import attributesShowApi from '@api/attributes/show';
+import attributeGroupsListApi, { AttributeGroupsListProps } from '@api/attribute-groups/list';
+import attributesUpdateApi, { AttributesUpdateProps } from '@api/attributes/update';
+import { useRouter } from 'next-nprogress-bar';
 
-const AttributeDetails = ({ name }: { name?: string }) => {
-  const { lang } = useParams<{ lang: DictionariesTypes }>();
-  const handleCreate = () => {
-    dispatch({ type: 'CHECK_ERROR' });
-  };
-  const handleUpdate = () => {
-    dispatch({ type: 'CHECK_ERROR' });
-  };
-  const [state, dispatch] = useReducer(reducer, initialState);
+const Menu = [
+  {
+    id: 'general',
+    title: 'General',
+  },
+  {
+    id: 'descriptions',
+    title: 'Descriptions',
+  },
+];
 
-  const handleChangeValue = ({ id, value }: { id: string, value: any }) => {
-    dispatch({
-      type: 'SET_VALUE',
-      id: id,
-      value: value,
-    });
-  };
+const AttributeDetails = () => {
+  const { lang, id } = useParams<{ lang: DictionariesTypes, id: string }>();
+  const [section, setSection] = useState<string>('general');
+  const [generalState, generalDispatch] = useReducer(generalReducer, initialGeneralState);
+  const router = useRouter();
+
+  const descriptionForm: any = useModuleForm({
+    data: initialDescriptionState.description,
+    error: initialDescriptionState.error,
+  });
+  const {
+    data: languageData,
+    loading: languageLoading,
+    getData: getLanguageData,
+  } = useFetchDatatable({
+    getCallbackData: (props: LanguagesListProps) => languagesListApi({
+      ...props,
+    }),
+  });
+
+  const {
+    data: attributeGroupData,
+    loading: attributeGroupLoading,
+    getData: getAttributeGroupData,
+  } = useFetchDatatable({
+    getCallbackData: (props: AttributeGroupsListProps) => attributeGroupsListApi({
+      ...props,
+    }),
+  });
+
+  const {
+    loading: storeLoading,
+    setData: storeData,
+  } = useUpdate({
+    getCallbackData: (props: AttributesStoreProps) => attributesStoreApi({ ...props }),
+    apiMessageText: 'Store Succeeded',
+    apiMessageDescription: 'A new Attribute has been added successfully.',
+  });
+
+  const {
+    loading: updateLoading,
+    setData: updateData,
+  } = useUpdate({
+    getCallbackData: (props: AttributesUpdateProps) => attributesUpdateApi({ ...props }),
+    apiMessageText: 'Update Succeeded',
+    apiMessageDescription: 'The Attribute has been updated successfully.',
+  });
+
+  const {
+    loading,
+    getData,
+  } = useFetch({
+    getCallbackData: () => attributesShowApi({ id: id }),
+  });
 
   useEffect(() => {
-    if (name) {
-      handleChangeValue({ id: 'name', value: name });
+    if (id) {
+      getData().then((response) => {
+        generalDispatch({
+          type: 'SET_INITIAL_STATE',
+          general: {
+            name: response?.name,
+            attributeGroupId: response?.attributeGroupId,
+            sortOrder: response?.sortOrder,
+            status: response?.status,
+          },
+        });
+        if (response.descriptions.length) {
+          descriptionForm.handleInitial(response?.descriptions.length
+            ? response?.descriptions.map((
+              { languageId, name, status, sortOrder, id }) =>
+              ({ languageId, name, status, sortOrder, id }))
+            : initialDescriptionState.description);
+        }
+      });
     }
-  }, [name]);
+  }, [id]);
+
+  useEffect(() => {
+    getLanguageData();
+    getAttributeGroupData();
+  }, []);
+
+  const handleCreate = () => {
+    const error = false;
+    if (!error) {
+      storeData({
+        payload: {
+          ...generalState.general,
+          descriptions: descriptionForm.state.data,
+        },
+      }).then((response) => {
+        router.push(getParseRoute({ pathname: routes['route.catalog.attributes.update'], query: { id: response.id } }));
+      });
+    }
+  };
+
+  const handleUpdate = () => {
+    const error = false;
+    if (!error) {
+      updateData({
+        id: id,
+        payload: {
+          ...generalState.general,
+          id: id,
+          descriptions: descriptionForm.state.data,
+        },
+      });
+    }
+  };
+
+  const handleChangeSection = (id: string) => {
+    setSection(id);
+  };
+
+  if (loading) {
+    return null;
+  }
 
   return (
     <Div className='flex-col justify-center w-full gap-4 md:gap-8'>
       <Div className={'w-full gap-2 md:gap-4 md:justify-end justify-between'}>
         <Button href={getParseRoute({ pathname: routes['route.catalog.attributes.index'], locale: lang })} rounded={'small'} size={'small'} color={'slate'} startAdornment={<RedoIcon />}>Return to List</Button>
-        {name ? (
-          <Button onClick={handleUpdate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Update</Button>
+        {id ? (
+          <Button loading={updateLoading} disabled={updateLoading} onClick={handleUpdate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Update</Button>
         ) : (
-          <Button onClick={handleCreate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Submit</Button>
+          <Button loading={storeLoading} disabled={storeLoading} onClick={handleCreate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Submit</Button>
         )}
       </Div>
-      <MainSection title='Attribute Details'>
-        <TextField
-          size='small'
-          rounded='small'
-          onChange={(e) => handleChangeValue({ id: 'name', value: e.target.value })}
-          className={'w-full md:col-span-3'}
-          error={state.nameError}
-          value={state?.name}
-          label={'Attribute Name'}
-          helperText={state.nameError ? 'Attribute Name is requiered!' : undefined}
-        />
-        <Select
-          rounded='small'
-          value={state.attributeGroup}
-          size='small'
-          className='md:col-span-3 w-full'
-          label={'Attribute Group'}
-          optionsList={[{ id: 1, title: 'Attribute_Group_1' }, { id: 2, title: 'Attribute_Group_2' }, { id: 3, title: 'Attribute_Group_3' }]}
-          onChange={(newValue) => handleChangeValue({ id: 'attributeGroup', value: newValue })}
-          id={'id'}
-          text={'title'} />
-        <TextField
-          size='small'
-          rounded='small'
-          type={'number'}
-          onChange={(e) => handleChangeValue({ id: 'sortOrder', value: e.target.value })}
-          className={'w-full md:col-span-2 col-start-1'}
-          label={'Sort Order'}
-        />
-      </MainSection>
+      <Div className={'justify-start w-full flex-col'}>
+        <Header menu={Menu} handleChangeSection={handleChangeSection} section={section} />
+        <SectionItem isActive={section === 'general'}>
+          <General
+            attributeGroupData={attributeGroupData}
+            loading={attributeGroupLoading}
+            dispatch={generalDispatch}
+            state={generalState}
+            searchAttributeGroup={(searchText) => getAttributeGroupData({
+              searchText: searchText,
+            })}
+          />
+        </SectionItem>
+        <SectionItem isActive={section === 'descriptions'}>
+          <Description
+            moduleForm={descriptionForm}
+            languageData={languageData}
+            loading={languageLoading}
+            searchLanguage={(searchText) => getLanguageData({
+              searchText: searchText,
+            })}
+          />
+        </SectionItem>
+      </Div>
     </Div>
   );
 };

@@ -6,7 +6,7 @@ import { StoreType } from './store';
 import { CatalogFormProps } from '@modules/catalog-form/catalog-form';
 import CatalogForm from '@modules/catalog-form';
 
-const Stores = ({ storeData, loading, moduleForm } : {storeData: Array<any>, loading: boolean, moduleForm: CatalogFormProps<StoreType>}) => {
+const Stores = ({ storeData, loading, moduleForm, searchStores } : {storeData: Array<any>, loading: boolean, moduleForm: CatalogFormProps<StoreType>, searchStores: (searchText: string) => void}) => {
   const dynamicColumns: ColumnDef<Store>[] = [
     {
       accessorFn: row => row.storeId,
@@ -28,7 +28,7 @@ const Stores = ({ storeData, loading, moduleForm } : {storeData: Array<any>, loa
       itemIndex={moduleForm.itemIndex}
       mainLayout={1}
       subLayout={0}
-      title="Filter"
+      title="Stores"
       state={moduleForm.state}
       handleChange={moduleForm.handleChange}
       handleAdd={moduleForm.handleAdd}
@@ -43,6 +43,7 @@ const Stores = ({ storeData, loading, moduleForm } : {storeData: Array<any>, loa
               errorMessage: 'Store is required',
               options: storeData,
               className: 'md:row-span-1 md:col-span-2',
+              getSearchData: (searchText) => searchStores(searchText),
             },
           ],
         }

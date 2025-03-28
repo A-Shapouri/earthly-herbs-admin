@@ -7,9 +7,11 @@ export interface FiltersListProps extends CacheProps{
   sort?: string
 
   perPage?: number
+
+  searchText?: string
 }
 
-const filtersListApi = ({ page = 0, sort = 'id', perPage = 10 }: FiltersListProps) => {
+const filtersListApi = ({ page = 0, sort = 'id', perPage = 10, searchText }: FiltersListProps) => {
   return fetchApi({
     method: 'GET',
     url: {
@@ -18,6 +20,7 @@ const filtersListApi = ({ page = 0, sort = 'id', perPage = 10 }: FiltersListProp
         page: page,
         sort: sort,
         size: perPage,
+        searchText: searchText,
       },
     },
     withToken: true,

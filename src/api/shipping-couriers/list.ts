@@ -7,9 +7,11 @@ export interface ShippingCouriersListProps extends CacheProps{
   sort?: string
 
   perPage?: number
+
+  searchText?: string
 }
 
-const shippingCouriersListApi = ({ page = 0, sort = 'id', perPage = 10 }: ShippingCouriersListProps) => {
+const shippingCouriersListApi = ({ page = 0, sort = 'id', perPage = 10, searchText }: ShippingCouriersListProps) => {
   return fetchApi({
     method: 'GET',
     url: {
@@ -18,6 +20,7 @@ const shippingCouriersListApi = ({ page = 0, sort = 'id', perPage = 10 }: Shippi
         page: page,
         sort: sort,
         size: perPage,
+        searchText: searchText,
       },
     },
     withToken: true,

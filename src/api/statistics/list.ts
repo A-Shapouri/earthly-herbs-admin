@@ -7,9 +7,11 @@ export interface StatisticsListProps extends CacheProps{
   sort?: string
 
   perPage?: number
+
+  searchText?: string
 }
 
-const statisticsListApi = ({ page = 0, sort = 'id', perPage = 10 }: StatisticsListProps) => {
+const statisticsListApi = ({ page = 0, sort = 'id', perPage = 10, searchText }: StatisticsListProps) => {
   return fetchApi({
     method: 'GET',
     url: {
@@ -18,6 +20,7 @@ const statisticsListApi = ({ page = 0, sort = 'id', perPage = 10 }: StatisticsLi
         page: page,
         sort: sort,
         size: perPage,
+        searchText: searchText,
       },
     },
     withToken: true,

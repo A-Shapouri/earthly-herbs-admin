@@ -7,9 +7,11 @@ export interface StockStatusesListProps extends CacheProps{
   sort?: string
 
   perPage?: number
+
+  searchText?: string
 }
 
-const stockStatusesListApi = ({ page = 0, sort = 'id', perPage = 10 }: StockStatusesListProps) => {
+const stockStatusesListApi = ({ page = 0, sort = 'id', perPage = 10, searchText }: StockStatusesListProps) => {
   return fetchApi({
     method: 'GET',
     url: {
@@ -18,6 +20,7 @@ const stockStatusesListApi = ({ page = 0, sort = 'id', perPage = 10 }: StockStat
         page: page,
         sort: sort,
         size: perPage,
+        searchText: searchText,
       },
     },
     withToken: true,

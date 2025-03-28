@@ -7,9 +7,11 @@ export interface WeightClassesListProps extends CacheProps{
   sort?: string
 
   perPage?: number
+
+  searchText?: string
 }
 
-const weightClassesListApi = ({ page = 0, sort = 'id', perPage = 10 }: WeightClassesListProps) => {
+const weightClassesListApi = ({ page = 0, sort = 'id', perPage = 10, searchText }: WeightClassesListProps) => {
   return fetchApi({
     method: 'GET',
     url: {
@@ -18,6 +20,7 @@ const weightClassesListApi = ({ page = 0, sort = 'id', perPage = 10 }: WeightCla
         page: page,
         sort: sort,
         size: perPage,
+        searchText: searchText,
       },
     },
     withToken: true,

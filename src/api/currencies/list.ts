@@ -7,9 +7,11 @@ export interface CurrenciesListProps extends CacheProps{
   sort?: string
 
   perPage?: number
+
+  searchText?: string
 }
 
-const currenciesListApi = ({ page = 0, sort = 'id', perPage = 10 }: CurrenciesListProps) => {
+const currenciesListApi = ({ page = 0, sort = 'id', perPage = 10, searchText }: CurrenciesListProps) => {
   return fetchApi({
     method: 'GET',
     url: {
@@ -18,6 +20,7 @@ const currenciesListApi = ({ page = 0, sort = 'id', perPage = 10 }: CurrenciesLi
         page: page,
         sort: sort,
         size: perPage,
+        searchText: searchText,
       },
     },
     withToken: true,

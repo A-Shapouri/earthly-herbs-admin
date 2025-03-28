@@ -7,9 +7,11 @@ export interface TaxClassesListProps extends CacheProps{
   sort?: string
 
   perPage?: number
+
+  searchText?: string
 }
 
-const taxClassesListApi = ({ page = 0, sort = 'id', perPage = 10 }: TaxClassesListProps) => {
+const taxClassesListApi = ({ page = 0, sort = 'id', perPage = 10, searchText }: TaxClassesListProps) => {
   return fetchApi({
     method: 'GET',
     url: {
@@ -18,6 +20,7 @@ const taxClassesListApi = ({ page = 0, sort = 'id', perPage = 10 }: TaxClassesLi
         page: page,
         sort: sort,
         size: perPage,
+        searchText: searchText,
       },
     },
     withToken: true,

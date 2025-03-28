@@ -1,5 +1,5 @@
 'use client';
-import React, { ChangeEvent, useEffect } from 'react';
+import React, { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { LockIcon, LoginIcon, MobileIcon } from '../../assets/pb-icons';
 import { useDebouncedCallback } from 'use-debounce';
@@ -30,7 +30,7 @@ const Login = () => {
   };
 
   return (
-    <Div className={'flex-col justify-center md:w-2/3 w-full gap-8 md:gap-8 w-full'}>
+    <Div className={'flex-col justify-center md:w-2/3 w-full gap-8 md:gap-8'}>
       <Text type={'bold'} align={'center'} color={'grey.800'} typography={['xl', 'xl']}>
         Admin Panel
       </Text>
@@ -41,7 +41,7 @@ const Login = () => {
         transition={{ duration: 0.3 }}
         className={'flex flex-col w-full'}>
         <TextField
-          size={'large'}
+          rounded={'small'}
           color={'slate'}
           className={'w-full'}
           variant={'outlined'}
@@ -61,8 +61,8 @@ const Login = () => {
         transition={{ duration: 0.3, delay: 0.3 }}
         className={'flex flex-col w-full'}>
         <TextField
+          rounded={'small'}
           autoComplete={'new-password'}
-          size={'large'}
           color={'slate'}
           className={'w-full'}
           variant={'outlined'}
@@ -101,6 +101,7 @@ const Login = () => {
         <Button
           size={'large'}
           color={'slate'}
+          rounded={'small'}
           className={'gap-x-2 w-full z-50'}
           onClick={handleLoginUser}
           loading={loginLoading}

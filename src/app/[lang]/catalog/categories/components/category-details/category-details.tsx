@@ -18,9 +18,9 @@ import Stores from './sub-components/stores';
 import Filters from './sub-components/filters';
 import Description from './sub-components/descriptions';
 import useFetchDatatable from '@hooks/use-fetch-datatable';
-import languagesListApi from '@api/languages/list';
+import languagesListApi, { LanguagesListProps } from '@api/languages/list';
 import filtersListApi from '@api/filters/list';
-import storesListApi from '@api/stores/list';
+import storesListApi, { StoresListProps } from '@api/stores/list';
 import useUpdate from '@hooks/use-update';
 import categoriesStoreApi, { CategoriesStoreProps } from '@api/categories/store';
 import { useModuleForm } from '@modules/catalog-form/catalog-store';
@@ -70,8 +70,8 @@ const CategoryDetails = () => {
     loading: languageLoading,
     getData: getLanguageData,
   } = useFetchDatatable({
-    getCallbackData: () => languagesListApi({
-      perPage: 100,
+    getCallbackData: (props: LanguagesListProps) => languagesListApi({
+      ...props,
     }),
   });
 
@@ -80,8 +80,8 @@ const CategoryDetails = () => {
     loading: storesLoading,
     getData: getStoresData,
   } = useFetchDatatable({
-    getCallbackData: () => storesListApi({
-      perPage: 100,
+    getCallbackData: (props: StoresListProps) => storesListApi({
+      ...props,
     }),
   });
 
@@ -210,6 +210,9 @@ const CategoryDetails = () => {
             moduleForm={descriptionForm}
             languageData={languageData}
             loading={languageLoading}
+            searchLanguage={(searchText) => getLanguageData({
+              searchText: searchText,
+            })}
           />
         </SectionItem>
         <SectionItem isActive={section === 'filters'}>
@@ -224,6 +227,9 @@ const CategoryDetails = () => {
             moduleForm={storeForm}
             storeData={storesData}
             loading={storesLoading}
+            searchStores={(searchText) => getStoresData({
+              searchText: searchText,
+            })}
           />
         </SectionItem>
       </Div>
