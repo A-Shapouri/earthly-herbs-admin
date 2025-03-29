@@ -317,7 +317,7 @@ const AttributeDetails = () => {
             searchStockStatus={(searchText) => getStockStatusData({
               searchText: searchText,
             })}
-            loading={locationLoading || stockStatusLoading || taxClassLoading || lengthClassLoading || weightClassLoading || manufacturerLoading}
+            loading={locationLoading || stockStatusLoading || taxClassLoading || lengthClassLoading || weightClassLoading || manufacturerLoading || attributesLoading}
             dispatch={generalDispatch}
             // @ts-ignore
             state={generalState}
