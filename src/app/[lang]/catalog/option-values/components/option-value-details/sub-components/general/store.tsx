@@ -1,26 +1,28 @@
 export type OptionGeneralsStore = {
   general: GeneralType
   error: {
-    orderId: boolean
+    optionId: boolean
     errorFlag: boolean
   }
 }
 
 export type GeneralType = {
-  orderId: string
+  optionId: string
   sortOrder: string
   status: string
+  image: string
 }
 
 export const initialGeneralState: OptionGeneralsStore = {
   general:
     {
-      orderId: '',
+      optionId: '',
       sortOrder: '',
       status: '',
+      image: '',
     },
   error: {
-    orderId: false,
+    optionId: false,
     errorFlag: false,
   },
 };
@@ -41,20 +43,28 @@ export const generalReducer = (state: OptionGeneralsStore, action: any) => {
       };
     }
     case 'CHECK_ERROR': {
-      let orderIdError = false;
+      let optionIdError = false;
       let errorFlag = false;
 
-      if (!state.general.orderId) {
-        orderIdError = true;
+      if (!state.general.optionId) {
+        optionIdError = true;
         errorFlag = true;
       }
-      return {
+
+      const newState = {
         ...state,
         error: {
-          orderId: orderIdError,
+          optionId: optionIdError,
           errorFlag: errorFlag,
         },
       };
+
+      // If there's a callback, call it with the new state
+      if (action.callback) {
+        action.callback(newState);
+      }
+
+      return newState;
     }
     case 'INITIAL_ERROR': {
       return {

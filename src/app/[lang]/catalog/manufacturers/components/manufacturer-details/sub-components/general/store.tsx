@@ -10,6 +10,7 @@ export type GeneralType = {
   name: string
   sortOrder: string
   status: string
+  image: string
 }
 
 export const initialGeneralState: ManufacturerGeneralsStore = {
@@ -18,6 +19,7 @@ export const initialGeneralState: ManufacturerGeneralsStore = {
       name: '',
       sortOrder: '',
       status: '',
+      image: '',
     },
   error: {
     name: false,
@@ -48,13 +50,21 @@ export const generalReducer = (state: ManufacturerGeneralsStore, action: any) =>
         nameError = true;
         errorFlag = true;
       }
-      return {
+
+      const newState = {
         ...state,
         error: {
           name: nameError,
           errorFlag: errorFlag,
         },
       };
+
+      // If there's a callback, call it with the new state
+      if (action.callback) {
+        action.callback(newState);
+      }
+
+      return newState;
     }
     case 'INITIAL_ERROR': {
       return {

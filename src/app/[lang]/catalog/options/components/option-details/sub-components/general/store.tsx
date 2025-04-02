@@ -48,13 +48,21 @@ export const generalReducer = (state: OptionGeneralsStore, action: any) => {
         typeError = true;
         errorFlag = true;
       }
-      return {
+
+      const newState = {
         ...state,
         error: {
           type: typeError,
           errorFlag: errorFlag,
         },
       };
+
+      // If there's a callback, call it with the new state
+      if (action.callback) {
+        action.callback(newState);
+      }
+
+      return newState;
     }
     case 'INITIAL_ERROR': {
       return {

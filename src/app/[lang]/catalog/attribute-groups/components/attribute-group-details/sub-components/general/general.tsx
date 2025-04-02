@@ -25,6 +25,8 @@ const General = ({ state, dispatch }: {state: AttributeGeneralsStore, dispatch: 
           onChange={(e) => handleChangeValue({ key: 'name', value: e.target.value })}
           className={'w-full col-span-1 md:col-span-3'}
           label={'Attribute Group Name'}
+          error={state.error?.name}
+          helperText={state.error?.name ? 'Attribute Group Name is required' : undefined}
         />
       </MainSection>
       <MainSection priority={3} title='Secondary Info' className='md:row-span-1 md:col-span-2'>

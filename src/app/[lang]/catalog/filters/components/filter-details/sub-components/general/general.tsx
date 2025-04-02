@@ -26,6 +26,8 @@ const General = ({ state, dispatch, filterGroupData, searchFilterGroup, loading 
           onChange={(e) => handleChangeValue({ key: 'name', value: e.target.value })}
           className={'w-full col-span-1 md:col-span-3'}
           label={'Filter Name'}
+          error={state.error?.name}
+          helperText={state.error?.name ? 'Filter Name is required' : undefined}
         />
         <AutoComplete
           getSearchData={(searchText) => searchFilterGroup(searchText)}

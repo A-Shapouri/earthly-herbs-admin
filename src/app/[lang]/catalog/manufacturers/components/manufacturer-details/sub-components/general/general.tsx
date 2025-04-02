@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Div from '@elements/div';
 import TextField from '@elements/text-field';
@@ -9,7 +9,6 @@ import SubSection from '@layouts/sub-section';
 import Uploader from '@modules/uploader';
 
 const General = ({ state, dispatch }: {state: ManufacturerGeneralsStore, dispatch: any}) => {
-  const [image, setImage] = useState<string | null>(null);
   const handleChangeValue = ({ key, value }: { key: string, value: string | boolean }) => {
     dispatch({
       type: 'SET_GENERAL_VALUE',
@@ -28,6 +27,8 @@ const General = ({ state, dispatch }: {state: ManufacturerGeneralsStore, dispatc
           onChange={(e) => handleChangeValue({ key: 'name', value: e.target.value })}
           className={'w-full col-span-1 md:col-span-3'}
           label={'Manufacturer Name'}
+          error={state.error?.name}
+          helperText={state.error?.name ? 'Manufacturer Name is required' : undefined}
         />
       </MainSection>
       <MainSection priority={3} title='Secondary Info' className='md:row-span-1 md:col-span-2'>
@@ -53,9 +54,9 @@ const General = ({ state, dispatch }: {state: ManufacturerGeneralsStore, dispatc
       </MainSection>
       <SubSection priority={1} title='Image' className='md:row-span-3 md:col-span-1 md:h-fit'>
         <Uploader
-          file={image}
+          file={state.general.image}
           title={'Click to Upload Image'}
-          fileCallback={(file) => setImage(file)}
+          fileCallback={(filePath) => handleChangeValue({ key: 'image', value: filePath })}
         />
       </SubSection>
     </Div>

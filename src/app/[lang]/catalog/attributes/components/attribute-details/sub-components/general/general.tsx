@@ -26,6 +26,8 @@ const General = ({ state, dispatch, attributeGroupData, searchAttributeGroup, lo
           onChange={(e) => handleChangeValue({ key: 'name', value: e.target.value })}
           className={'w-full col-span-1 md:col-span-3'}
           label={'Attribute Name'}
+          error={state.error?.name}
+          helperText={state.error?.name ? 'Attribute Name is required' : undefined}
         />
         <AutoComplete
           getSearchData={(searchText) => searchAttributeGroup(searchText)}

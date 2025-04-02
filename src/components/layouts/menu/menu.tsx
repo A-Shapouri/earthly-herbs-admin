@@ -40,10 +40,6 @@ const Menu = () => {
       route: getParseRoute({ pathname: routes['route.catalog.products.index'], locale: lang }),
     },
     {
-      title: 'Recurring Profiles',
-      route: getParseRoute({ pathname: routes['route.catalog.recurring-profiles.index'], locale: lang }),
-    },
-    {
       title: 'Recurrings',
       route: getParseRoute({ pathname: routes['route.catalog.recurrings.index'], locale: lang }),
     },
@@ -74,18 +70,6 @@ const Menu = () => {
     {
       title: 'Manufacturers',
       route: getParseRoute({ pathname: routes['route.catalog.manufacturers.index'], locale: lang }),
-    },
-    {
-      title: 'Downloads',
-      route: getParseRoute({ pathname: routes['route.catalog.downloads.index'], locale: lang }),
-    },
-    {
-      title: 'Reviews',
-      route: getParseRoute({ pathname: routes['route.catalog.reviews.index'], locale: lang }),
-    },
-    {
-      title: 'Information',
-      route: getParseRoute({ pathname: routes['route.catalog.information.index'], locale: lang }),
     },
     ],
   }, {

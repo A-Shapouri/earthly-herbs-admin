@@ -4,6 +4,7 @@ export type CategoryGeneralsStore = {
     parentId: boolean
     name: boolean
     column: boolean
+    sortOrder: boolean
     errorFlag: boolean
   }
 }
@@ -35,6 +36,7 @@ export const initialGeneralState: CategoryGeneralsStore = {
     parentId: false,
     name: false,
     column: false,
+    sortOrder: false,
     errorFlag: false,
   },
 };
@@ -58,6 +60,7 @@ export const generalReducer = (state: CategoryGeneralsStore, action: any) => {
       let nameError = false;
       let columnError = false;
       let parentIdError = false;
+      let sortOrderError = false;
       let errorFlag = false;
 
       if (!state.general.name) {
@@ -72,15 +75,29 @@ export const generalReducer = (state: CategoryGeneralsStore, action: any) => {
         parentIdError = true;
         errorFlag = true;
       }
-      return {
+
+      if (!state.general.sortOrder) {
+        sortOrderError = true;
+        errorFlag = true;
+      }
+
+      const newState = {
         ...state,
         error: {
           name: nameError,
           parentId: parentIdError,
           column: columnError,
+          sortOrder: sortOrderError,
           errorFlag: errorFlag,
         },
       };
+
+      // If there's a callback, call it with the new state
+      if (action.callback) {
+        action.callback(newState);
+      }
+
+      return newState;
     }
     case 'INITIAL_ERROR': {
       return {

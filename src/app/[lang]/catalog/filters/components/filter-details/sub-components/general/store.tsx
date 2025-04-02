@@ -57,7 +57,8 @@ export const generalReducer = (state: FilterGeneralsStore, action: any) => {
         filterGroupIdError = true;
         errorFlag = true;
       }
-      return {
+
+      const newState = {
         ...state,
         error: {
           name: nameError,
@@ -65,6 +66,13 @@ export const generalReducer = (state: FilterGeneralsStore, action: any) => {
           errorFlag: errorFlag,
         },
       };
+
+      // If there's a callback, call it with the new state
+      if (action.callback) {
+        action.callback(newState);
+      }
+
+      return newState;
     }
     case 'INITIAL_ERROR': {
       return {

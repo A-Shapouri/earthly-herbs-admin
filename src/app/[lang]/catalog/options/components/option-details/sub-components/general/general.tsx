@@ -25,6 +25,8 @@ const General = ({ state, dispatch }: {state: OptionGeneralsStore, dispatch: any
           onChange={(e) => handleChangeValue({ key: 'type', value: e.target.value })}
           className={'w-full col-span-1 md:col-span-3'}
           label={'Option Type'}
+          error={state.error?.type}
+          helperText={state.error?.type ? 'Option Type is required' : undefined}
         />
       </MainSection>
       <MainSection priority={3} title='Secondary Info' className='md:row-span-1 md:col-span-2'>

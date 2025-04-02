@@ -79,4 +79,10 @@ export const catalogRoutes = {
   'api.catalog.recurrings.index': 'recurrings',
   'api.catalog.recurrings.show': 'recurrings/[id]',
   'api.catalog.recurring-descriptions.delete': 'recurring-descriptions/[id]',
+
+  'route.catalog.customer-groups.index': '/catalog/customer-groups',
+  'route.catalog.customer-groups.create': '/catalog/customer-groups/create',
+  'route.catalog.customer-groups.update': '/catalog/customer-groups/[id]',
+  'api.catalog.customer-groups.index': 'customer-groups',
+  'api.catalog.customer-groups.show': 'customer-groups/[id]',
 };

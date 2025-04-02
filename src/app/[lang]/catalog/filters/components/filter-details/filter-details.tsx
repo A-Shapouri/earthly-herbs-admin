@@ -119,31 +119,39 @@ const FilterDetails = () => {
   }, []);
 
   const handleCreate = () => {
-    const error = false;
-    if (!error) {
-      storeData({
-        payload: {
-          ...generalState.general,
-          descriptions: descriptionForm.state.data,
-        },
-      }).then((response) => {
-        router.push(getParseRoute({ pathname: routes['route.catalog.filters.update'], query: { id: response.id } }));
-      });
-    }
+    generalDispatch({
+      type: 'CHECK_ERROR',
+      callback: (state) => {
+        if (!state.error.errorFlag) {
+          storeData({
+            payload: {
+              ...state.general,
+              descriptions: descriptionForm.state.data,
+            },
+          }).then((response) => {
+            router.push(getParseRoute({ pathname: routes['route.catalog.filters.update'], query: { id: response.id } }));
+          });
+        }
+      },
+    });
   };
 
   const handleUpdate = () => {
-    const error = false;
-    if (!error) {
-      updateData({
-        id: id,
-        payload: {
-          ...generalState.general,
-          id: id,
-          descriptions: descriptionForm.state.data,
-        },
-      });
-    }
+    generalDispatch({
+      type: 'CHECK_ERROR',
+      callback: (state) => {
+        if (!state.error.errorFlag) {
+          updateData({
+            id: id,
+            payload: {
+              ...state.general,
+              id: id,
+              descriptions: descriptionForm.state.data,
+            },
+          });
+        }
+      },
+    });
   };
 
   const handleChangeSection = (id: string) => {

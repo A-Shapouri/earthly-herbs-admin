@@ -6,13 +6,24 @@ import Text from '@elements/text';
 import Image from 'next/image';
 import { UploaderProps } from './uploader.props';
 import UploadCloudIcon from '@icons-components/upload-cloud-icon';
+import useUpdate from '@hooks/use-update';
+import uploadFileApi, { UploadFileProps } from '@api/upload-file/upload-file';
+import LoadingIndicator from '@elements/loading-indicator';
 
 const Uploader = ({ file, fileCallback, title, initial }: UploaderProps) => {
   const uploadFileRef = useRef(null);
+  console.log(`${process.env.API_BASE_URL}/${process.env.API_UPLOAD_BASE_PATH}/${file}`);
+  const { setData, loading } = useUpdate({
+    getCallbackData: (props: UploadFileProps) => uploadFileApi({ ...props }),
+    apiMessageDescription: 'File has been uploaded successfully',
+  });
 
   const uploadFileHandler = (e: any) => {
     const value = e.target.files[0];
-    fileCallback(value);
+    setData({ file: value }).then((response) => {
+      console.log(response.fileName);
+      fileCallback(response.fileName);
+    });
   };
 
   const removeFileHandler = () => {
@@ -23,6 +34,16 @@ const Uploader = ({ file, fileCallback, title, initial }: UploaderProps) => {
     // @ts-ignore
     uploadFileRef?.current?.click();
   };
+
+  if (loading) {
+    return (
+      <Div
+        className={'flex-col w-full gap-2 bg-white h-72 md:h-48 rounded-md md:rounded-3xl items-center justify-center py-6 cursor-pointer transition-all duration-300'}>
+        <LoadingIndicator color={'slate'} size={'huge'} />
+      </Div>
+    );
+  }
+
   if (file || initial) {
     return (
       <Div
@@ -35,14 +56,14 @@ const Uploader = ({ file, fileCallback, title, initial }: UploaderProps) => {
             onDelete={removeFileHandler}
             value={'delete'}
             onClick={removeFileHandler}
-            className={'absolute right-0 z-[20] -top-12'}
+            className={'absolute right-0 z-[20] -top-10'}
             variant={'outlined'}
           />
           <Div onClick={handleClick} >
             {file?.type === 'application/pdf' ? (
               <object className={'flex'} data={URL.createObjectURL(file)} type="application/pdf" width="80%" height="90%" />
             ) : (
-              <Image fill={true} alt={'upload'} src={file ? URL.createObjectURL(file) : initial} className={'object-contain'} />
+              <Image fill={true} alt={'upload'} src={`${process.env.API_BASE_URL}${process.env.API_UPLOAD_BASE_PATH}/${file}` || initial} className={'object-contain'} />
             )}
           </Div>
         </Div>

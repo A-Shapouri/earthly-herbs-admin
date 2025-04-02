@@ -23,6 +23,7 @@ import taxClassesListApi, { TaxClassesListProps } from '@api/tax-classes/list';
 import lengthClassesListApi, { LengthClassesListProps } from '@api/length-classes/list';
 import weightClassesListApi, { WeightClassesListProps } from '@api/weight-classes/list';
 import attributesListApi, { AttributesListProps } from '@api/attributes/list';
+import customerGroupsListApi, { CustomerGroupsListProps } from '@api/customer-groups/list';
 import useUpdate from '@hooks/use-update';
 import attributesStoreApi, { AttributesStoreProps } from '@api/attributes/store';
 import { useModuleForm } from '@modules/catalog-form/catalog-store';
@@ -30,6 +31,16 @@ import useFetch from '@hooks/use-fetch';
 import attributesShowApi from '@api/attributes/show';
 import attributesUpdateApi, { AttributesUpdateProps } from '@api/attributes/update';
 import { useRouter } from 'next-nprogress-bar';
+import Discounts from './sub-components/discounts';
+import Filters from './sub-components/filters';
+import { initialFilterState } from './sub-components/filters/store';
+import { initialDiscountState } from './sub-components/discounts/store';
+import filtersListApi, { FiltersListProps } from '@api/filters/list';
+import Images from './sub-components/images';
+import { initialImagesState } from './sub-components/images/store';
+import OptionsForm from './sub-components/options';
+import { initialOptionsState } from './sub-components/options/store';
+import optionsListApi, { OptionsListProps } from '@api/options/list';
 
 const Menu = [
   {
@@ -104,6 +115,27 @@ const AttributeDetails = () => {
     data: initialDescriptionState.description,
     error: initialDescriptionState.error,
   });
+
+  const filterForm: any = useModuleForm({
+    data: initialFilterState.filter,
+    error: initialFilterState.error,
+  });
+
+  const discountForm: any = useModuleForm({
+    data: initialDiscountState.discount,
+    error: initialDiscountState.error,
+  });
+
+  const imagesForm: any = useModuleForm({
+    data: initialImagesState.image,
+    error: initialImagesState.error,
+  });
+
+  const optionForm: any = useModuleForm({
+    data: initialOptionsState.options,
+    error: initialOptionsState.error,
+  });
+
   const {
     data: languageData,
     loading: languageLoading,
@@ -175,11 +207,41 @@ const AttributeDetails = () => {
   });
 
   const {
+    data: customerGroupData,
+    loading: customerGroupLoading,
+    getData: getCustomerGroupData,
+  } = useFetchDatatable({
+    getCallbackData: (props: CustomerGroupsListProps) => customerGroupsListApi({
+      ...props,
+    }),
+  });
+
+  const {
     data: attributesData,
     loading: attributesLoading,
     getData: getAttributesData,
   } = useFetchDatatable({
     getCallbackData: (props: AttributesListProps) => attributesListApi({
+      ...props,
+    }),
+  });
+
+  const {
+    data: filterData,
+    loading: filterLoading,
+    getData: getFilterData,
+  } = useFetchDatatable({
+    getCallbackData: (props: FiltersListProps) => filtersListApi({
+      ...props,
+    }),
+  });
+
+  const {
+    data: optionData,
+    loading: optionLoading,
+    getData: getOptionData,
+  } = useFetchDatatable({
+    getCallbackData: (props: OptionsListProps) => optionsListApi({
       ...props,
     }),
   });
@@ -241,6 +303,9 @@ const AttributeDetails = () => {
     getLengthClassData();
     getWeightClassData();
     getAttributesData();
+    getCustomerGroupData();
+    getFilterData();
+    getOptionData();
   }, []);
 
   const handleCreate = () => {
@@ -343,6 +408,39 @@ const AttributeDetails = () => {
             languageData={languageData}
             loading={languageLoading}
             searchLanguage={(searchText) => getLanguageData({
+              searchText: searchText,
+            })}
+          />
+        </SectionItem>
+        <SectionItem isActive={section === 'discounts'}>
+          <Discounts
+            customerGroupData={customerGroupData}
+            loading={customerGroupLoading}
+            moduleForm={discountForm}
+            searchCustomerGroup={(searchText) => getCustomerGroupData({
+              searchText: searchText,
+            })}
+          />
+        </SectionItem>
+        <SectionItem isActive={section === 'filters'}>
+          <Filters
+            filterData={filterData}
+            loading={filterLoading}
+            moduleForm={filterForm}
+          />
+        </SectionItem>
+        <SectionItem isActive={section === 'images'}>
+          <Images
+            loading={filterLoading}
+            moduleForm={imagesForm}
+          />
+        </SectionItem>
+        <SectionItem isActive={section === 'options'}>
+          <OptionsForm
+            optionData={optionData}
+            loading={optionLoading}
+            moduleForm={optionForm}
+            searchOption={(searchText) => getOptionData({
               searchText: searchText,
             })}
           />

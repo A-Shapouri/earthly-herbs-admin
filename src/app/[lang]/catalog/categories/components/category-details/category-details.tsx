@@ -26,6 +26,8 @@ import categoriesStoreApi, { CategoriesStoreProps } from '@api/categories/store'
 import { useModuleForm } from '@modules/catalog-form/catalog-store';
 import useFetch from '@hooks/use-fetch';
 import categoriesShowApi from '@api/categories/show';
+import { useRouter } from 'next-nprogress-bar';
+import categoriesUpdateApi, { CategoriesUpdateProps } from '@api/categories/update';
 
 const Menu = [
   {
@@ -47,10 +49,10 @@ const Menu = [
 ];
 
 const CategoryDetails = () => {
+  const router = useRouter();
   const { lang, id } = useParams<{ lang: DictionariesTypes, id: string }>();
   const [section, setSection] = useState<string>('general');
   const [generalState, generalDispatch] = useReducer(generalReducer, initialGeneralState);
-
   const descriptionForm: any = useModuleForm({
     data: initialDescriptionState.description,
     error: initialDescriptionState.error,
@@ -111,10 +113,18 @@ const CategoryDetails = () => {
     getCallbackData: () => categoriesShowApi({ id: id }),
   });
 
+  const {
+    loading: updateLoading,
+    setData: updateData,
+  } = useUpdate({
+    getCallbackData: (props: CategoriesUpdateProps) => categoriesUpdateApi({ ...props }),
+    apiMessageText: 'Update Succeeded',
+    apiMessageDescription: 'The Category has been updated successfully.',
+  });
+
   useEffect(() => {
     if (id) {
       getData().then((response) => {
-        console.log(response);
         generalDispatch({
           type: 'SET_INITIAL_STATE',
           general: {
@@ -160,22 +170,43 @@ const CategoryDetails = () => {
   }, []);
 
   const handleCreate = () => {
-    const error = false;
-    if (!error) {
-      storeData({
-        payload: {
-          ...generalState.general,
-          descriptions: descriptionForm.state.data,
-          filters: filterForm.state.data,
-          stores: storeForm.state.data,
-        },
-      }).then((response) => {
-        console.log(response);
-      });
-    }
+    generalDispatch({
+      type: 'CHECK_ERROR',
+      callback: (state) => {
+        if (!state.error.errorFlag) {
+          storeData({
+            payload: {
+              ...state.general,
+              descriptions: descriptionForm.state.data,
+              filters: filterForm.state.data,
+              stores: storeForm.state.data,
+            },
+          }).then((response) => {
+            router.push(getParseRoute({ pathname: routes['route.catalog.categories.update'], query: { id: response.id } }));
+          });
+        }
+      },
+    });
   };
 
   const handleUpdate = () => {
+    generalDispatch({
+      type: 'CHECK_ERROR',
+      callback: (state) => {
+        if (!state.error.errorFlag) {
+          updateData({
+            id: id,
+            payload: {
+              ...state.general,
+              id: id,
+              descriptions: descriptionForm.state.data,
+              filters: filterForm.state.data,
+              stores: storeForm.state.data,
+            },
+          });
+        }
+      },
+    });
   };
 
   const handleChangeSection = (id: string) => {
@@ -191,7 +222,7 @@ const CategoryDetails = () => {
       <Div className={'w-full gap-2 md:gap-4 md:justify-end justify-between'}>
         <Button href={getParseRoute({ pathname: routes['route.catalog.categories.index'], locale: lang })} rounded={'small'} size={'small'} color={'slate'} startAdornment={<RedoIcon />}>Return to List</Button>
         {id ? (
-          <Button onClick={handleUpdate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Update</Button>
+          <Button loading={updateLoading} disabled={updateLoading} onClick={handleUpdate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Update</Button>
         ) : (
           <Button loading={storeLoading} disabled={storeLoading} onClick={handleCreate} rounded={'small'} size={'small'} color={'indigo'} startAdornment={<SaveIcon />} className={'self-end w-36'}>Submit</Button>
         )}

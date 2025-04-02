@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Div from '@elements/div';
 import TextField from '@elements/text-field';
@@ -10,7 +10,6 @@ import SubSection from '@layouts/sub-section';
 import Uploader from '@modules/uploader';
 
 const General = ({ state, dispatch, optionData, loading, searchOption }: {state: OptionGeneralsStore, dispatch: any, optionData: any, loading: boolean, searchOption: (searchText: string) => void}) => {
-  const [image, setImage] = useState<string | null>(null);
   const handleChangeValue = ({ key, value }: { key: string, value: string | boolean }) => {
     dispatch({
       type: 'SET_GENERAL_VALUE',
@@ -23,14 +22,14 @@ const General = ({ state, dispatch, optionData, loading, searchOption }: {state:
       <MainSection priority={2} title='General Info' className='md:row-span-1 md:col-span-2'>
         <AutoComplete
           getSearchData={(searchText) => searchOption(searchText)}
-          searchValue={state.general.orderId ? optionData?.find((value) => value?.id === state?.general.orderId) || '' : ''}
+          searchValue={state.general.optionId ? optionData?.find((value) => value?.id === state?.general.optionId) || '' : ''}
           className={'w-full md:col-span-2'}
           data={optionData}
           loading={loading}
-          handleSelect={(value: any) => handleChangeValue({ key: 'orderId', value: value.id })}
+          handleSelect={(value: any) => handleChangeValue({ key: 'optionId', value: value.id })}
           label={'Option'}
-          error={state.error.orderId}
-          helperText={state.error.orderId ? 'Option is required' : undefined}
+          error={state.error.optionId}
+          helperText={state.error.optionId ? 'Option is required' : undefined}
           keyValue={'type'}
           id={'id'}
         />
@@ -58,9 +57,9 @@ const General = ({ state, dispatch, optionData, loading, searchOption }: {state:
       </MainSection>
       <SubSection priority={1} title='Image' className='md:row-span-3 md:col-span-1 md:h-fit'>
         <Uploader
-          file={image}
+          file={state.general.image}
           title={'Click to Upload Image'}
-          fileCallback={(file) => setImage(file)}
+          fileCallback={(filePath) => handleChangeValue({ key: 'image', value: filePath })}
         />
       </SubSection>
     </Div>
