@@ -87,6 +87,10 @@ const Menu = () => {
       title: 'Information',
       route: getParseRoute({ pathname: routes['route.catalog.information.index'], locale: lang }),
     },
+    {
+      title: 'Orders',
+      route: getParseRoute({ pathname: routes['route.catalog.orders.index'], locale: lang }),
+    },
     ],
   }, {
     title: 'Localisation',

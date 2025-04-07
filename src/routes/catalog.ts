@@ -79,4 +79,18 @@ export const catalogRoutes = {
   'api.catalog.recurrings.index': 'recurrings',
   'api.catalog.recurrings.show': 'recurrings/[id]',
   'api.catalog.recurring-descriptions.delete': 'recurring-descriptions/[id]',
+
+  'route.catalog.orders.index': '/catalog/orders',
+  'route.catalog.orders.create': '/catalog/orders/create',
+  'route.catalog.orders.update': '/catalog/orders/[id]',
+  'api.catalog.orders.index': 'orders',
+  'api.catalog.orders.show': 'orders/[id]',
+  'api.catalog.order-status.delete': 'order-statuses/[id]',
+  'api.catalog.order-history.delete': 'order-histories/[id]',
+  'api.catalog.order-option.delete': 'order-options/[id]',
+  'api.catalog.order-product.delete': 'order-products/[id]',
+  'api.catalog.order-recurring.delete': 'order-recurrings/[id]',
+  'api.catalog.order-shipment.delete': 'order-shipments/[id]',
+  'api.catalog.order-total.delete': 'order-totals/[id]',
+  'api.catalog.order-voucher.delete': 'order-vouchers/[id]',
 };
