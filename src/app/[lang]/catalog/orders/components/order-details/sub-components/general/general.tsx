@@ -24,7 +24,7 @@ const General = ({ state, dispatch }: {state: OrderGeneralsStore, dispatch: any}
           rounded='small'
           onChange={(e) => handleChangeValue({ key: 'name', value: e.target.value })}
           className={'w-full col-span-1 md:col-span-3'}
-          label={'Attribute Name'}
+          label={'Order Name'}
         />
       </MainSection>
       <MainSection priority={3} title='Secondary Info' className='md:row-span-1 md:col-span-2'>
@@ -35,14 +35,14 @@ const General = ({ state, dispatch }: {state: OrderGeneralsStore, dispatch: any}
           type={'number'}
           onChange={(e) => handleChangeValue({ key: 'sortOrder', value: e.target.value })}
           className={'w-full md:col-span-2 md:col-start-1'}
-          label={'Attribute Sort Order'}
+          label={'Order Sort Order'}
         />
         <Select
           rounded='small'
           value={state?.general?.status?.toString()}
           size='small'
           className='w-full md:col-span-2'
-          label={'Attribute Status'}
+          label={'Order Status'}
           optionsList={[{ id: '1', title: 'Active' }, { id: '0', title: 'In Active' }]}
           onChange={(newValue) => handleChangeValue({ key: 'status', value: newValue })}
           id={'id'}
