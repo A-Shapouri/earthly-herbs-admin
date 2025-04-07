@@ -91,4 +91,18 @@ export const catalogRoutes = {
   'route.catalog.refunds.update': '/catalog/refunds/[id]',
   'api.catalog.refunds.index': 'refunds',
   'api.catalog.refunds.show': 'refunds/[id]',
+
+  'route.catalog.orders.index': '/catalog/orders',
+  'route.catalog.orders.create': '/catalog/orders/create',
+  'route.catalog.orders.update': '/catalog/orders/[id]',
+  'api.catalog.orders.index': 'orders',
+  'api.catalog.orders.show': 'orders/[id]',
+  'api.catalog.order-status.delete': 'order-statuses/[id]',
+  'api.catalog.order-history.delete': 'order-histories/[id]',
+  'api.catalog.order-option.delete': 'order-options/[id]',
+  'api.catalog.order-product.delete': 'order-products/[id]',
+  'api.catalog.order-recurring.delete': 'order-recurrings/[id]',
+  'api.catalog.order-shipment.delete': 'order-shipments/[id]',
+  'api.catalog.order-total.delete': 'order-totals/[id]',
+  'api.catalog.order-voucher.delete': 'order-vouchers/[id]',
 };

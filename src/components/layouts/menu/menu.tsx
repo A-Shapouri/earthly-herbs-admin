@@ -75,6 +75,10 @@ const Menu = () => {
       title: 'Refunds',
       route: getParseRoute({ pathname: routes['route.catalog.refunds.index'], locale: lang }),
     },
+    {
+      title: 'Orders',
+      route: getParseRoute({ pathname: routes['route.catalog.orders.index'], locale: lang }),
+    },
     ],
   }, {
     title: 'Localisation',
