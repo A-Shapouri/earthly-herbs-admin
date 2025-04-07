@@ -80,6 +80,10 @@ const MobileHeader = () => {
         title: 'Manufacturers',
         route: getParseRoute({ pathname: routes['route.catalog.manufacturers.index'], locale: lang }),
       },
+      {
+        title: 'Refunds',
+        route: getParseRoute({ pathname: routes['route.catalog.refunds.index'], locale: lang }),
+      },
       ],
     }, {
       title: 'Localisation',

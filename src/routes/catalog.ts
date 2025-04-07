@@ -85,4 +85,10 @@ export const catalogRoutes = {
   'route.catalog.customer-groups.update': '/catalog/customer-groups/[id]',
   'api.catalog.customer-groups.index': 'customer-groups',
   'api.catalog.customer-groups.show': 'customer-groups/[id]',
+
+  'route.catalog.refunds.index': '/catalog/refunds',
+  'route.catalog.refunds.create': '/catalog/refunds/create',
+  'route.catalog.refunds.update': '/catalog/refunds/[id]',
+  'api.catalog.refunds.index': 'refunds',
+  'api.catalog.refunds.show': 'refunds/[id]',
 };

@@ -15,6 +15,7 @@ const AnimatedDetail = ({ item, expandedMenu }: { item: any, expandedMenu?: bool
   const toggleOpen = () => setIsOpen((prev) => !prev);
   return (
     <div
+      dir='ltr'
       className={'flex flex-col w-full transition-all duration-1000 open:transition-all open:duration-1000 select-none [&_span]:open:rotate-180'}>
       <div
         onClick={toggleOpen}

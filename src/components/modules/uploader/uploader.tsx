@@ -7,27 +7,33 @@ import Image from 'next/image';
 import { UploaderProps } from './uploader.props';
 import UploadCloudIcon from '@icons-components/upload-cloud-icon';
 import useUpdate from '@hooks/use-update';
-import uploadFileApi, { UploadFileProps } from '@api/upload-file/upload-file';
+import uploadFileApi, { UploadFileProps } from '@api/file/upload-file';
+import deleteFileApi, { DeleteFileProps } from '@api/file/delete-file';
 import LoadingIndicator from '@elements/loading-indicator';
 
 const Uploader = ({ file, fileCallback, title, initial }: UploaderProps) => {
   const uploadFileRef = useRef(null);
-  console.log(`${process.env.API_BASE_URL}/${process.env.API_UPLOAD_BASE_PATH}/${file}`);
+
   const { setData, loading } = useUpdate({
     getCallbackData: (props: UploadFileProps) => uploadFileApi({ ...props }),
     apiMessageDescription: 'File has been uploaded successfully',
+  });
+  const { setData: deleteData, loading: deleteLoading } = useUpdate({
+    getCallbackData: (props: DeleteFileProps) => deleteFileApi({ ...props }),
+    apiMessageDescription: 'File has been deleted successfully',
   });
 
   const uploadFileHandler = (e: any) => {
     const value = e.target.files[0];
     setData({ file: value }).then((response) => {
-      console.log(response.fileName);
       fileCallback(response.fileName);
     });
   };
 
   const removeFileHandler = () => {
-    fileCallback(undefined);
+    deleteData({ fileName: file }).then(() => {
+      fileCallback(undefined);
+    });
   };
 
   const handleClick = () => {
@@ -35,7 +41,7 @@ const Uploader = ({ file, fileCallback, title, initial }: UploaderProps) => {
     uploadFileRef?.current?.click();
   };
 
-  if (loading) {
+  if (loading || deleteLoading) {
     return (
       <Div
         className={'flex-col w-full gap-2 bg-white h-72 md:h-48 rounded-md md:rounded-3xl items-center justify-center py-6 cursor-pointer transition-all duration-300'}>

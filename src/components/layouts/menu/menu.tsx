@@ -71,6 +71,10 @@ const Menu = () => {
       title: 'Manufacturers',
       route: getParseRoute({ pathname: routes['route.catalog.manufacturers.index'], locale: lang }),
     },
+    {
+      title: 'Refunds',
+      route: getParseRoute({ pathname: routes['route.catalog.refunds.index'], locale: lang }),
+    },
     ],
   }, {
     title: 'Localisation',
@@ -174,12 +178,12 @@ const Menu = () => {
           )} variant={expandedMenu ? 'filled' : 'outlined'} shape={'square'} startAdornment={<LockIcon />} onClick={handleExpandedMenu} />
         </Div>
 
-        <Div className={'flex-col gap-2 w-full'}>
+        <Div dir={'rtl'} className={'flex-col gap-2 w-full overflow-y-auto max-h-[calc(100vh-8rem)]'}>
           {menuInfo.length ? menuInfo.map((item: any, index: number) => (
             item.subRoutes && item.subRoutes.length > 0 ? (
               <AnimatedDetail item={item} expandedMenu={expandedMenu} key={`menu_${index}`} />
             ) : (
-              <Div key={`menu_${index}`} className={'flex-col w-full'}>
+              <Div dir='ltr' key={`menu_${index}`} className={'flex-col w-full'}>
                 <Button
                   rounded='small'
                   variant={'text'}
